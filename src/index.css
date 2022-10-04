@@ -5,9 +5,177 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:black;
+  color:white;
+  font-family: 'Figtree', sans-serif;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@keyframes moveTheDivFromTopFrames {
+  0% {
+    margin-top:-50px
+  }
+  60% {
+    margin-top:2px
+  }
+  100% {
+    margin-top:-50px
+  }
+}
+
+.moveTheDivFromTop {
+  animation: moveTheDivFromTopFrames 5s linear 0.5s forwards;
+}
+
+@keyframes rotatebleCardFrames {
+  from {
+    transform: rotateY(360deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.rotatebleCard{
+  animation: rotatebleCardFrames 1s linear 2s forwards;
+}
+
+
+@keyframes opacityIntroMessage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.introMessage {
+  animation: opacityIntroMessage 1s linear 1s forwards;
+}
+
+.hola{
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes moveIntroImage {
+  from {
+    margin-left:10vw;
+    opacity: 0;
+  }
+  to {
+    margin-left: 60vw;
+    opacity: 1;
+  }
+}
+
+.introImage {
+  animation: moveIntroImage 1s linear 1s forwards;
+}
+
+@keyframes secondaryTextSliderMoveFrame {
+  from {
+    width:75%;
+    margin-left:0%;
+  }
+  to {
+    width:1%;
+    margin-left: 72.5%;
+    height: 40px;
+    opacity: 1;
+  }
+}
+.secondaryTextSliderMove {
+  animation: secondaryTextSliderMoveFrame 1s linear 1s forwards;
+}
+
+@keyframes blinkTheElement {
+  from {
+    opacity:0
+  }
+  to {
+    opacity:1
+  }
+}
+
+.secondaryTextBlink {
+  animation: blinkTheElement 1s linear 3s infinite;
+}
+
+@keyframes moveTheBar {
+  from {
+    margin-left: -50px;
+  }
+  to {
+    margin-left: 300px;
+  }
+}
+
+.imageHeaderBar{
+  animation: moveTheBar 5s linear 2s infinite alternate;
+}
+
+
+@keyframes scaleMe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.scaleTheElement:hover {
+  animation: scaleMe 1s linear 2s forwards;
+
+}
+
+@keyframes moveImage1 {
+  from {
+    margin-left: 35vw;
+    opacity: 0;
+  }
+  to {
+    margin-left: 70vw;
+    opacity: 1;
+  }
+}
+
+.moveImageIntersetTravel{
+  animation: moveImage1 2s linear 2s forwards;
+}
+
+
+@keyframes rotateReactImage {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+.rotateImage {
+  animation: rotateReactImage 5s linear 2s infinite
+}
+
+@keyframes moveImageForAbout {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+.moveImageAbout {
+  animation: moveImageForAbout 4s linear 2s infinite
 }
