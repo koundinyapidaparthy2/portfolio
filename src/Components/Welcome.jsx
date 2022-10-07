@@ -213,6 +213,8 @@ const Welcome = () => {
   function scrollEvent(event) {
     const defaultValue = 495;
     const eventValue = event.currentTarget.scrollTop;
+    const eventInnerWidth = window.innerWidth;
+
     if (eventValue < 300 && showCurrentHeader) {
       onScrollShowHeader(false);
     }
@@ -268,37 +270,72 @@ const Welcome = () => {
         },
       }));
     }
-    if (eventValue >= 1300 && eventValue <= 1800) {
-      const aboutVisibility = (1800 - eventValue) / 1800;
+    if (eventInnerWidth < 953) {
+      if (eventValue >= 1500 && eventValue <= 2100) {
+        const aboutVisibility = (2100 - eventValue) / 2100;
 
-      setMainAnimations((prev) => ({
-        ...prev,
-        aboutFewMoreVisibility: {
-          opacity: aboutVisibility,
-        },
-        projects: {
-          opacity: 0,
-        },
-      }));
+        setMainAnimations((prev) => ({
+          ...prev,
+          aboutFewMoreVisibility: {
+            opacity: aboutVisibility,
+          },
+          projects: {
+            opacity: 0,
+          },
+        }));
+      }
+      if (eventValue >= 1600 && eventValue <= 2300) {
+        const projectsOpacityData = eventValue / 2300;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
+      if (eventValue >= 2500 && eventValue <= 3000) {
+        const projectsOpacityData = (3000 - eventValue) / 3000;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
+    } else {
+      if (eventValue >= 1300 && eventValue <= 1800) {
+        const aboutVisibility = (1800 - eventValue) / 1800;
+
+        setMainAnimations((prev) => ({
+          ...prev,
+          aboutFewMoreVisibility: {
+            opacity: aboutVisibility,
+          },
+          projects: {
+            opacity: 0,
+          },
+        }));
+      }
+      if (eventValue >= 1400 && eventValue <= 2000) {
+        const projectsOpacityData = eventValue / 2000;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
+      if (eventValue >= 2200 && eventValue <= 2800) {
+        const projectsOpacityData = (2800 - eventValue) / 2800;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
     }
-    if (eventValue >= 1400 && eventValue <= 2000) {
-      const projectsOpacityData = eventValue / 2000;
-      setMainAnimations((prev) => ({
-        ...prev,
-        projects: {
-          opacity: projectsOpacityData,
-        },
-      }));
-    }
-    if (eventValue >= 2200 && eventValue <= 2800) {
-      const projectsOpacityData = (2800 - eventValue) / 2800;
-      setMainAnimations((prev) => ({
-        ...prev,
-        projects: {
-          opacity: projectsOpacityData,
-        },
-      }));
-    }
+
     const output = `${eventValue / 52 - defaultValue}vh`;
     setMrWhoseTheBossBarHeight(output);
     if (eventValue >= 2350) {
@@ -307,12 +344,13 @@ const Welcome = () => {
       setScrollChildElementNow(false);
     }
   }
-
+  const eventInnerWidth = window.innerWidth;
   function interestDivScroll(event) {
     const eventValue = event.currentTarget.scrollTop;
-    if (eventValue <= 300) {
-      const opacity = 1 - eventValue / 300;
-      const rotateValue = eventValue / 10;
+    const multiplyWIthNumber = eventInnerWidth < 760 ? 2 : 1;
+    if (eventValue <= 300 * multiplyWIthNumber) {
+      const opacity = 1 - eventValue / (300 * multiplyWIthNumber);
+      const rotateValue = eventValue / (10 * multiplyWIthNumber);
       setInterestStateData((prev) => ({
         ...prev,
         fashion: {
@@ -325,9 +363,13 @@ const Welcome = () => {
         },
       }));
     }
-    if (eventValue >= 320 && eventValue <= 600) {
-      const opacity = 1 - eventValue / 600;
-      const rotateValue = (eventValue - 300) / 10;
+    if (
+      eventValue >= 320 * multiplyWIthNumber &&
+      eventValue <= 600 * multiplyWIthNumber
+    ) {
+      const opacity = 1 - eventValue / (600 * multiplyWIthNumber);
+      const rotateValue =
+        (eventValue - 300 * multiplyWIthNumber) / (10 * multiplyWIthNumber);
       setInterestStateData((prev) => ({
         ...prev,
         photography: {
@@ -336,8 +378,8 @@ const Welcome = () => {
         },
       }));
     }
-    if (eventValue >= 610) {
-      const opacity = eventValue / 690;
+    if (eventValue >= 610 * multiplyWIthNumber) {
+      const opacity = eventValue / (690 * multiplyWIthNumber);
       setInterestStateData((prev) => ({
         ...prev,
         fitness: {
@@ -1980,12 +2022,43 @@ const Welcome = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                height: "60vh",
+
                 width: "100%",
                 position: "relative",
                 opacity: interestStateData.fashion.opacity || 1,
+                ...(eventInnerWidth < 760
+                  ? {
+                      flexDirection: "column",
+                    }
+                  : {
+                      height: "60vh",
+                    }),
               }}
             >
+              <div
+                id={"fashionCard1"}
+                style={{
+                  borderRadius: "8px",
+                  backgroundImage: `url(${FashionImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  ...(eventInnerWidth > 760
+                    ? {
+                        position: "absolute",
+                        marginLeft: "10vw",
+                        transform: `rotate(-${
+                          interestStateData.fashion.rotate || 0
+                        }deg)`,
+                        width: "15vw",
+                        height: "40.5vh",
+                      }
+                    : {
+                        width: "25vw",
+                        height: "25vh",
+                      }),
+                }}
+                className={"fashionCard1"}
+              />
               <div
                 style={{
                   display: "flex",
@@ -2002,9 +2075,17 @@ const Welcome = () => {
                     alignItems: "center",
                     justifyContent: "flex-end",
                     flexDirection: "column",
-                    height: "40.5vh",
-                    marginLeft: "4vw",
-                    width: "50%",
+
+                    ...(eventInnerWidth < 760
+                      ? {
+                          width: "75%",
+                          height: "30.5vh",
+                        }
+                      : {
+                          width: "50%",
+                          marginLeft: "4vw",
+                          height: "40.5vh",
+                        }),
                   }}
                 >
                   <div
@@ -2027,35 +2108,26 @@ const Welcome = () => {
               </div>
 
               <div
-                id={"fashionCard1"}
-                style={{
-                  width: "15vw",
-                  height: "40.5vh",
-                  borderRadius: "8px",
-                  backgroundImage: `url(${FashionImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  position: "absolute",
-                  marginLeft: "10vw",
-                  transform: `rotate(-${
-                    interestStateData.fashion.rotate || 0
-                  }deg)`,
-                }}
-              />
-              <div
                 id={"fashionCard2"}
                 style={{
-                  width: "15vw",
-                  height: "40.5vh",
                   borderRadius: "8px",
                   backgroundImage: `url(${TravelImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  position: "absolute",
-                  marginLeft: "70vw",
-                  transform: `rotate(${
-                    interestStateData.fashion.rotate || 0
-                  }deg)`,
+                  ...(eventInnerWidth > 760
+                    ? {
+                        position: "absolute",
+                        marginLeft: "70vw",
+                        transform: `rotate(${
+                          interestStateData.fashion.rotate || 0
+                        }deg)`,
+                        width: "15vw",
+                        height: "40.5vh",
+                      }
+                    : {
+                        width: "25vw",
+                        height: "25vw",
+                      }),
                 }}
               />
             </div>
@@ -2063,12 +2135,43 @@ const Welcome = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                height: "60vh",
                 width: "100%",
                 position: "relative",
                 opacity: interestStateData.photography.opacity || 1,
+                ...(eventInnerWidth < 760
+                  ? {
+                      flexDirection: "column",
+                    }
+                  : {
+                      height: "60vh",
+                    }),
               }}
             >
+              <div
+                id={"card"}
+                style={{
+                  borderRadius: "8px",
+                  backgroundImage: `url(${HawaMahal})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+
+                  ...(eventInnerWidth > 760
+                    ? {
+                        position: "absolute",
+                        marginLeft: "10vw",
+                        transform: `rotate(-${
+                          interestStateData.photography.rotate || 0
+                        }deg)`,
+                        width: "15vw",
+                        height: "40.5vh",
+                      }
+                    : {
+                        width: "25vw",
+                        height: "25vh",
+                        marginTop: "10vh",
+                      }),
+                }}
+              />
               <div
                 style={{
                   display: "flex",
@@ -2085,9 +2188,17 @@ const Welcome = () => {
                     alignItems: "center",
                     justifyContent: "flex-end",
                     flexDirection: "column",
-                    height: "40.5vh",
-                    marginLeft: "4vw",
-                    width: "50%",
+
+                    ...(eventInnerWidth < 760
+                      ? {
+                          width: "75%",
+                          height: "30.5vh",
+                        }
+                      : {
+                          width: "50%",
+                          marginLeft: "4vw",
+                          height: "40.5vh",
+                        }),
                   }}
                 >
                   <div
@@ -2107,22 +2218,7 @@ const Welcome = () => {
                   <p></p>
                 </div>
               </div>
-              <div
-                id={"card"}
-                style={{
-                  width: "15vw",
-                  height: "40.5vh",
-                  borderRadius: "8px",
-                  backgroundImage: `url(${HawaMahal})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  position: "absolute",
-                  marginLeft: "10vw",
-                  transform: `rotate(-${
-                    interestStateData.photography.rotate || 0
-                  }deg)`,
-                }}
-              />
+
               <div
                 id={"card"}
                 style={{
@@ -2132,11 +2228,21 @@ const Welcome = () => {
                   backgroundImage: `url(${HawaMahalNight})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  position: "absolute",
-                  marginLeft: "70vw",
-                  transform: `rotate(${
-                    interestStateData.photography.rotate || 0
-                  }deg)`,
+                  ...(eventInnerWidth > 760
+                    ? {
+                        position: "absolute",
+                        marginLeft: "70vw",
+                        transform: `rotate(${
+                          interestStateData.photography.rotate || 0
+                        }deg)`,
+                        width: "15vw",
+                        height: "40.5vh",
+                      }
+                    : {
+                        width: "25vw",
+                        height: "25vh",
+                        marginBottom: "10vh",
+                      }),
                 }}
               />
             </div>
@@ -2144,12 +2250,38 @@ const Welcome = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                height: "50vh",
                 width: "100%",
                 position: "relative",
                 opacity: interestStateData.fitness.opacity || 1,
+                ...(eventInnerWidth < 760
+                  ? {
+                      flexDirection: "column",
+                    }
+                  : {
+                      height: "50vh",
+                    }),
               }}
             >
+              <div
+                id={"card"}
+                style={{
+                  width: "15vw",
+                  height: "200px",
+                  borderRadius: "8px",
+                  backgroundImage: `url(${PhysicImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  ...(eventInnerWidth > 760
+                    ? {
+                        marginLeft: "10vw",
+                        position: "absolute",
+                      }
+                    : {
+                        width: "50vw",
+                        marginBottom: "10vh",
+                      }),
+                }}
+              />
               <div
                 style={{
                   display: "flex",
@@ -2166,16 +2298,24 @@ const Welcome = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     flexDirection: "column",
-                    height: "40.5vh",
-                    marginLeft: "4vw",
-                    width: "50%",
+                    ...(eventInnerWidth < 760
+                      ? {
+                          width: "75%",
+                          height: "20.5vh",
+                        }
+                      : {
+                          width: "50%",
+                          marginLeft: "4vw",
+                          height: "40.5vh",
+                        }),
                   }}
                 >
                   <div
                     style={{
                       fontSize: "40px",
                       fontWeight: "bold",
-                      marginTop: "15vh",
+
+                      ...(eventInnerWidth < 760 ? {} : { marginTop: "15vh" }),
                     }}
                   >
                     Fitness
@@ -2196,25 +2336,18 @@ const Welcome = () => {
                   width: "15vw",
                   height: "200px",
                   borderRadius: "8px",
-                  backgroundImage: `url(${PhysicImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  position: "absolute",
-                  marginLeft: "10vw",
-                }}
-              />
-
-              <div
-                id={"card"}
-                style={{
-                  width: "15vw",
-                  height: "200px",
-                  borderRadius: "8px",
                   backgroundImage: `url(${Physic2Image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "right",
-                  position: "absolute",
-                  marginLeft: "70vw",
+                  ...(eventInnerWidth > 760
+                    ? {
+                        position: "absolute",
+                        marginLeft: "70vw",
+                      }
+                    : {
+                        width: "50vw",
+                        marginBottom: "10vh",
+                      }),
                 }}
               />
             </div>
