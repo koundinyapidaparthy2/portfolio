@@ -74,6 +74,32 @@ body::-webkit-scrollbar {
   }
 }
 
+@keyframes moveIntroImage2 {
+  from {
+    margin-left: 10vw;
+    opacity: 0;
+  }
+  to {
+    margin-left: 70vw;
+    opacity: 1;
+  }
+}
+
+@keyframes moveIntroImage3 {
+  from {
+    margin-left: 10vw;
+    opacity: 0;
+    width: 20vw;
+    height: 20vw;
+  }
+  to {
+    margin-left: 75vw;
+    opacity: 1;
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
 .introImage {
   animation: moveIntroImage 1s linear 1s forwards;
 }
@@ -81,15 +107,42 @@ body::-webkit-scrollbar {
 @keyframes secondaryTextSliderMoveFrame {
   from {
     width: 75%;
-    margin-left: 0%;
+    margin-left: 0vw;
   }
   to {
     width: 1%;
-    margin-left: 72.5%;
-    height: 40px;
+    margin-left: 34vw;
+    height: 2.5vw;
     opacity: 1;
   }
 }
+
+@keyframes secondaryTextSliderMoveFrame2 {
+  from {
+    width: 75%;
+    margin-left: 0vw;
+  }
+  to {
+    width: 1%;
+    margin-left: 42.5vw;
+    height: 2.5vw;
+    opacity: 1;
+  }
+}
+
+@keyframes secondaryTextSliderMoveFrame3 {
+  from {
+    width: 75%;
+    margin-left: 0vw;
+  }
+  to {
+    width: 1%;
+    margin-left: 59.5vw;
+    height: 3.5vw;
+    opacity: 1;
+  }
+}
+
 .secondaryTextSliderMove {
   animation: secondaryTextSliderMoveFrame 1s linear 1s forwards;
 }
@@ -175,4 +228,64 @@ body::-webkit-scrollbar {
 
 .moveImageAbout {
   animation: moveImageForAbout 4s linear 2s infinite;
+}
+
+@media only screen and (max-width: 1200px) {
+  .aboutCssFromCssFile {
+    width: 65% !important;
+  }
+}
+
+@media only screen and (max-width: 953px) {
+  .experienceSmallScreen {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 606px) {
+  .certificationSmallScreen {
+    margin-top: 20px;
+  }
+  .educationSmallScreen {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .sideBarSmallClass {
+    display: none !important;
+  }
+  .secondaryTextSliderMove {
+    animation: secondaryTextSliderMoveFrame2 1s linear 1s forwards !important;
+  }
+  .hola {
+    font-size: 5vw !important;
+  }
+  .holaContent {
+    font-size: 2.5vw !important;
+  }
+  .introImage {
+    animation: moveIntroImage2 1s linear 1s forwards !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .aboutCssFromCssFile {
+    width: 85% !important;
+  }
+  .holaWrapper {
+    width: 75% !important;
+  }
+  .secondaryTextSliderMove {
+    animation: secondaryTextSliderMoveFrame3 1s linear 1s forwards !important;
+  }
+  .hola {
+    font-size: 9vw !important;
+  }
+  .holaContent {
+    font-size: 3.5vw !important;
+  }
+  .introImage {
+    animation: moveIntroImage3 1s linear 1s forwards !important;
+  }
 }

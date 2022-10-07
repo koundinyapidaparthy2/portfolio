@@ -199,7 +199,8 @@ const Welcome = () => {
     },
   });
   const [showCurrentHeader, setShowCurrentHeader] = React.useState(false);
-
+  const [scrollChildElementNow, setScrollChildElementNow] =
+    React.useState(false);
   const classes = useStyles();
 
   function onScrollShowHeader(value) {
@@ -225,8 +226,15 @@ const Welcome = () => {
     if (eventValue >= 2695 && eventValue <= 2705) {
       onScrollShowHeader("My Interests");
     }
-
-    if (eventValue >= 50 && eventValue <= 400) {
+    if (eventValue <= 100 && mainAnimations.homeVisibility.opacity !== 1) {
+      setMainAnimations((prev) => ({
+        ...prev,
+        homeVisibility: {
+          opacity: 1,
+        },
+      }));
+    }
+    if (eventValue >= 100 && eventValue <= 400) {
       const homeVisibility = (400 - eventValue) / 400;
       setMainAnimations((prev) => ({
         ...prev,
@@ -291,9 +299,15 @@ const Welcome = () => {
         },
       }));
     }
-    const output = `${eventValue / 62 - defaultValue}vh`;
+    const output = `${eventValue / 52 - defaultValue}vh`;
     setMrWhoseTheBossBarHeight(output);
+    if (eventValue >= 2350) {
+      setScrollChildElementNow(true);
+    } else {
+      setScrollChildElementNow(false);
+    }
   }
+
   function interestDivScroll(event) {
     const eventValue = event.currentTarget.scrollTop;
     if (eventValue <= 300) {
@@ -345,16 +359,14 @@ const Welcome = () => {
       mainDivRef.current.scrollTo(0, 0);
     }
     if (value === 2) {
-      mainDivRef.current.scrollTo(0, 900);
+      mainDivRef.current.scrollTo(0, 750);
     }
     if (value === 3) {
-      mainDivRef.current.scrollTo(0, 1850);
+      mainDivRef.current.scrollTo(0, 1550);
     }
     if (value === 4) {
-      mainDivRef.current.scrollTo(0, 2800);
+      mainDivRef.current.scrollTo(0, mainDivRef.current.scrollHeight);
     }
-
-    console.log({ mainDivRef });
   }
 
   return (
@@ -427,6 +439,7 @@ const Welcome = () => {
           display: "flex",
           alignItems: "center",
         }}
+        className={"sideBarSmallClass"}
       >
         <Grid
           container
@@ -561,6 +574,7 @@ const Welcome = () => {
           overflowY: "scroll",
           flexGrow: 1,
           scrollBehavior: "smooth",
+          overflowX: "hidden",
         }}
         ref={mainDivRef}
         className={classes.scrollGridItem}
@@ -590,6 +604,7 @@ const Welcome = () => {
               style={{
                 width: "50%",
               }}
+              className={"holaWrapper"}
             >
               <div
                 style={{
@@ -612,12 +627,13 @@ const Welcome = () => {
                   position: "relative",
                   marginTop: "10px",
                 }}
+                className={"holaContent"}
               >
                 <div>This is krishna. Welcome to my valise..</div>
                 <div
                   style={{
                     width: "75%",
-                    height: "50px",
+                    height: "5vw",
                     backgroundImage:
                       "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
                     position: "absolute",
@@ -662,17 +678,19 @@ const Welcome = () => {
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
-              marginTop: "30px",
+              margin: "30px 0px",
+              height: "max-content",
             }}
           >
             <div
               style={{
                 width: "35%",
-                height: "20vh",
+                height: "max-content",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              className={"aboutCssFromCssFile"}
             >
               <div
                 id={"About Header"}
@@ -730,9 +748,18 @@ const Welcome = () => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-around",
+              flexWrap: "wrap",
             }}
           >
-            <div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+              className={"certificationSmallScreen"}
+            >
               <div
                 style={{
                   padding: "10px 20px",
@@ -1187,7 +1214,15 @@ const Welcome = () => {
               </div>
             </div>
 
-            <div style={{}}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+              className={"educationSmallScreen"}
+            >
               <div
                 style={{
                   padding: "10px 20px",
@@ -1458,6 +1493,7 @@ const Welcome = () => {
                 display: "flex",
                 flexDirection: "column",
               }}
+              className={"experienceSmallScreen"}
             >
               <div
                 id={"Experience Header"}
@@ -1932,7 +1968,7 @@ const Welcome = () => {
             style={{
               height: "95vh",
               width: "95%",
-              overflowY: "scroll",
+              overflowY: scrollChildElementNow ? "scroll" : "hidden",
               overflowX: "hidden",
               position: "relative",
               scrollBehavior: "smooth",
