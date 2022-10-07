@@ -2053,7 +2053,7 @@ const Welcome = () => {
                         height: "40.5vh",
                       }
                     : {
-                        width: "25vw",
+                        width: "50vw",
                         height: "25vh",
                       }),
                 }}
@@ -2079,7 +2079,7 @@ const Welcome = () => {
                     ...(eventInnerWidth < 760
                       ? {
                           width: "75%",
-                          height: "30.5vh",
+                          height: "40.5vh",
                         }
                       : {
                           width: "50%",
@@ -2093,6 +2093,7 @@ const Welcome = () => {
                       fontSize: "40px",
                       fontWeight: "bold",
                       marginTop: "20px",
+                      ...(eventInnerWidth < 760 ? {} : { marginTop: "15vh" }),
                     }}
                   >
                     Fashion
@@ -2125,8 +2126,8 @@ const Welcome = () => {
                         height: "40.5vh",
                       }
                     : {
-                        width: "25vw",
-                        height: "25vw",
+                        width: "50vw",
+                        height: "25vh",
                       }),
                 }}
               />
@@ -2166,7 +2167,7 @@ const Welcome = () => {
                         height: "40.5vh",
                       }
                     : {
-                        width: "25vw",
+                        width: "50vw",
                         height: "25vh",
                         marginTop: "10vh",
                       }),
@@ -2239,7 +2240,7 @@ const Welcome = () => {
                         height: "40.5vh",
                       }
                     : {
-                        width: "25vw",
+                        width: "50vw",
                         height: "25vh",
                         marginBottom: "10vh",
                       }),
