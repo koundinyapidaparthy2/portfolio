@@ -1741,7 +1741,7 @@ const Welcome = () => {
                       }}
                       open={
                         eventInnerWidth < 800 &&
-                        mainAnimations.aboutFewMoreVisibility.opacity > 0.6
+                        mainAnimations.projects.opacity === 0
                           ? true
                           : undefined
                       }
