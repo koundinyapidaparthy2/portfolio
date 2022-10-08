@@ -826,7 +826,7 @@ const Welcome = () => {
                   height={"20px"}
                   style={{ marginLeft: "5px" }}
                 />
-                <div>
+                <div style={{ textAlign: "center" }}>
                   I'm a developer. my ideology is to build a web or android app
                   with best accessibility and user interface with the help of
                   basic funda.
@@ -1944,6 +1944,7 @@ const Welcome = () => {
                   style={{
                     margin: "20px 0px 20px 0px",
                     fontSize: "14px",
+                    textAlign: "center",
                   }}
                 >
                   {ProjectsInformation[imageIndex].about}
