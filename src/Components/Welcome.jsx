@@ -389,6 +389,7 @@ const Welcome = () => {
 
     const output = `${eventValue / 52 - defaultValue}vh`;
     setMrWhoseTheBossBarHeight(output);
+    const windowInnerHeight = window.innerHeight;
     if (eventValue >= 2350 && eventInnerWidth > 700) {
       setScrollChildElementNow(true);
     } else if (
@@ -397,7 +398,10 @@ const Welcome = () => {
       eventInnerWidth > 500
     ) {
       setScrollChildElementNow(true);
-    } else if (eventValue >= 2600 && eventInnerWidth < 500) {
+    } else if (
+      eventValue >= 2600 + (windowInnerHeight - 658) &&
+      eventInnerWidth < 500
+    ) {
       setScrollChildElementNow(true);
     } else {
       setScrollChildElementNow(false);
@@ -2156,7 +2160,11 @@ const Welcome = () => {
                   >
                     Fashion
                   </div>
-                  <p>
+                  <p
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
                     I always try to present myself in a more fashionable way. so
                     that I feel more confident.
                     <br />I was planning to participate in fashion shows in the
@@ -2269,7 +2277,11 @@ const Welcome = () => {
                   >
                     Photography
                   </div>
-                  <p>
+                  <p
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
                     I like mobile photography a lot.
                     <br />
                     It makes my mind more color full and creative 👀.
@@ -2379,7 +2391,11 @@ const Welcome = () => {
                   >
                     Fitness
                   </div>
-                  <p>
+                  <p
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
                     My yoga, workout, and diet help me control depression and
                     anxiety.
                     <br />
