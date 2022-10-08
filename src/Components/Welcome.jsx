@@ -210,6 +210,8 @@ const Welcome = () => {
     }
   }
 
+  const eventInnerWidth = window.innerWidth;
+
   function scrollEvent(event) {
     const defaultValue = 495;
     const eventValue = event.currentTarget.scrollTop;
@@ -338,13 +340,20 @@ const Welcome = () => {
 
     const output = `${eventValue / 52 - defaultValue}vh`;
     setMrWhoseTheBossBarHeight(output);
-    if (eventValue >= 2350) {
+    if (eventValue >= 2350 && eventInnerWidth > 700) {
+      setScrollChildElementNow(true);
+    } else if (
+      eventValue >= 2450 &&
+      eventInnerWidth < 700 &&
+      eventInnerWidth > 400
+    ) {
+      setScrollChildElementNow(true);
+    } else if (eventValue >= 2500 && eventInnerWidth < 400) {
       setScrollChildElementNow(true);
     } else {
       setScrollChildElementNow(false);
     }
   }
-  const eventInnerWidth = window.innerWidth;
   function interestDivScroll(event) {
     const eventValue = event.currentTarget.scrollTop;
     const multiplyWIthNumber = eventInnerWidth < 760 ? 2 : 1;
