@@ -399,7 +399,11 @@ const Welcome = () => {
     ) {
       setScrollChildElementNow(true);
     } else if (
-      eventValue >= 2600 + (windowInnerHeight - 658) &&
+      eventValue >=
+        2600 +
+          (windowInnerHeight <= 800
+            ? windowInnerHeight - 658
+            : windowInnerHeight / 1.5) &&
       eventInnerWidth < 500
     ) {
       setScrollChildElementNow(true);
@@ -2142,7 +2146,7 @@ const Welcome = () => {
                     ...(eventInnerWidth < 760
                       ? {
                           width: "75%",
-                          height: "40.5vh",
+                          height: "35.5vh",
                         }
                       : {
                           width: "50%",
