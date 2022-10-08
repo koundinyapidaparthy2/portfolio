@@ -1739,7 +1739,12 @@ const Welcome = () => {
                         tooltip: classes.tooltipClassForExperience,
                         arrow: classes.tooltipArrowClassForExperience,
                       }}
-                      open={eventInnerWidth < 800 ? true : undefined}
+                      open={
+                        eventInnerWidth < 800 &&
+                        mainAnimations.aboutFewMoreVisibility.opacity > 0.6
+                          ? true
+                          : undefined
+                      }
                     >
                       <div className={"rotateImage"}>⌛</div>
                     </Tooltip>
