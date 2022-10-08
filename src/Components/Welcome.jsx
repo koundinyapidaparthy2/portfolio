@@ -215,6 +215,7 @@ const Welcome = () => {
   function scrollEvent(event) {
     const defaultValue = 495;
     const eventValue = event.currentTarget.scrollTop;
+    console.log({ eventValue });
     const eventInnerWidth = window.innerWidth;
 
     if (eventValue < 300 && showCurrentHeader) {
@@ -272,8 +273,16 @@ const Welcome = () => {
         },
       }));
     }
-    if (eventInnerWidth < 953) {
-      if (eventValue >= 1500 && eventValue <= 2100) {
+    if (eventInnerWidth < 953 && eventInnerWidth > 500) {
+      if (eventValue >= 900 && eventValue <= 1700) {
+        setMainAnimations((prev) => ({
+          ...prev,
+          aboutFewMoreVisibility: {
+            opacity: 1,
+          },
+        }));
+      }
+      if (eventValue >= 1700 && eventValue <= 2100) {
         const aboutVisibility = (2100 - eventValue) / 2100;
 
         setMainAnimations((prev) => ({
@@ -286,7 +295,7 @@ const Welcome = () => {
           },
         }));
       }
-      if (eventValue >= 1600 && eventValue <= 2300) {
+      if (eventValue >= 1500 && eventValue <= 2300) {
         const projectsOpacityData = eventValue / 2300;
         setMainAnimations((prev) => ({
           ...prev,
@@ -297,6 +306,46 @@ const Welcome = () => {
       }
       if (eventValue >= 2500 && eventValue <= 3000) {
         const projectsOpacityData = (3000 - eventValue) / 3000;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
+    } else if (eventInnerWidth < 500) {
+      if (eventValue >= 900 && eventValue <= 1850) {
+        setMainAnimations((prev) => ({
+          ...prev,
+          aboutFewMoreVisibility: {
+            opacity: 1,
+          },
+        }));
+      }
+      if (eventValue >= 1850 && eventValue <= 2500) {
+        const aboutVisibility = (2500 - eventValue) / 2500;
+
+        setMainAnimations((prev) => ({
+          ...prev,
+          aboutFewMoreVisibility: {
+            opacity: aboutVisibility,
+          },
+          projects: {
+            opacity: 0,
+          },
+        }));
+      }
+      if (eventValue >= 1850 && eventValue <= 2700) {
+        const projectsOpacityData = eventValue / 2700;
+        setMainAnimations((prev) => ({
+          ...prev,
+          projects: {
+            opacity: projectsOpacityData,
+          },
+        }));
+      }
+      if (eventValue >= 3050 && eventValue <= 4000) {
+        const projectsOpacityData = (4000 - eventValue) / 4000;
         setMainAnimations((prev) => ({
           ...prev,
           projects: {
@@ -345,10 +394,10 @@ const Welcome = () => {
     } else if (
       eventValue >= 2450 &&
       eventInnerWidth < 700 &&
-      eventInnerWidth > 400
+      eventInnerWidth > 500
     ) {
       setScrollChildElementNow(true);
-    } else if (eventValue >= 2500 && eventInnerWidth < 400) {
+    } else if (eventValue >= 2600 && eventInnerWidth < 500) {
       setScrollChildElementNow(true);
     } else {
       setScrollChildElementNow(false);
