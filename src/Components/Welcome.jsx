@@ -6,7 +6,7 @@ import ProjectsImg from "../Projects.png";
 import AboutImg from "../About.png";
 import { Tooltip } from "@material-ui/core";
 import HandWave from "../HandWave.gif";
-import PersonalImage from "../PersonalImage.jpg";
+import PersonalImage from "../PersonalImage.jpeg";
 import WeatherBigImage from "../WeatherBig.png";
 import TeslaBig from "../TeslaBig.png";
 import SpotifyBig from "../SpotifyBig.png";
