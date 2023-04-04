@@ -488,6 +488,7 @@ const Welcome = () => {
           loop
           className={classes.logo}
           muted
+          playsinline
         >
           <source src={Logo} type="video/mp4" />
         </video>
