@@ -118,7 +118,7 @@ const MessageMeHere = () => {
         >
           <Grid item>
             <h3 className={classes.h3Class}>Personal Information</h3>
-            <Grid container direction="column" spacing={1}>
+            <Grid container direction="column" spacing={1} wrap="nowrap">
               <Grid item xs={12}>
                 <strong>Phone:</strong> &nbsp;
                 <a
