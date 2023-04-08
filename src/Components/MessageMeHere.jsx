@@ -121,14 +121,22 @@ const MessageMeHere = () => {
             <Grid container direction="column" spacing={1}>
               <Grid item xs={12}>
                 <strong>Phone:</strong> &nbsp;
-                <a href="tel:+919381802188" className={classes.anchorElement}>
+                <a
+                  href="tel:+919381802188"
+                  className={classes.anchorElement}
+                  target={"_blank"}
+                >
                   <LocalPhoneIcon className={classes.anchorIcons} /> +91
                   9381802188
                 </a>
               </Grid>
               <Grid item xs={12}>
                 <strong>Alt No:</strong> &nbsp;
-                <a href="tel:+919676787223" className={classes.anchorElement}>
+                <a
+                  href="tel:+919676787223"
+                  className={classes.anchorElement}
+                  target={"_blank"}
+                >
                   <LocalPhoneIcon className={classes.anchorIcons} />{" "}
                   +919676787223
                 </a>
@@ -138,6 +146,7 @@ const MessageMeHere = () => {
                 <a
                   href="mailto: koundinya511@gmail.com"
                   className={classes.anchorElement}
+                  target={"_blank"}
                 >
                   <EmailIcon
                     className={classes.anchorIcons + " " + classes.emailIcon}
@@ -151,6 +160,7 @@ const MessageMeHere = () => {
                     <a
                       href="https://www.linkedin.com/in/koundinyap/"
                       className={classes.anchorElement}
+                      target={"_blank"}
                     >
                       <LinkedInIcon
                         className={
@@ -164,6 +174,7 @@ const MessageMeHere = () => {
                     <a
                       href="https://github.com/koundinyapidaparthy/"
                       className={classes.anchorElement}
+                      target={"_blank"}
                     >
                       <GitHub
                         className={
@@ -177,6 +188,7 @@ const MessageMeHere = () => {
                     <a
                       href="https://www.instagram.com/_.koundinya/"
                       className={classes.anchorElement}
+                      target={"_blank"}
                     >
                       <InstagramIcon
                         className={
