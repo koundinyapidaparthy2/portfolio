@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../LOGO1.mp4";
 import ProjectsImg from "../Projects.png";
 import AboutImg from "../About.png";
-import { Tooltip } from "@material-ui/core";
+import Tooltip from "@material-ui/core/Tooltip";
 import HandWave from "../HandWave.gif";
 import PersonalImage from "../PersonalImage.jpeg";
 import WeatherBigImage from "../WeatherBig.png";
@@ -34,10 +34,13 @@ import GraphqlImage from "../Graphql.png";
 import JavaImage from "../Java.png";
 import SyscloudImage from "../Syscloud.png";
 import HornBlowerImage from "../Hornblower.png";
+import MessageMeOverHere from "./MessageMeHere.jsx";
 const useStyles = makeStyles(() => {
   return {
     logo: {
       position: "fixed",
+      left: "20px",
+      top: "10px",
       margin: "10px 0px 0px 20px",
       "&::-webkit-media-controls": {
         display: "none !important",
@@ -492,6 +495,7 @@ const Welcome = () => {
         >
           <source src={Logo} type="video/mp4" />
         </video>
+        <MessageMeOverHere />
         {showCurrentHeader && (
           <div
             style={{
