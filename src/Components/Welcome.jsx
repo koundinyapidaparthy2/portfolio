@@ -1461,7 +1461,7 @@ const Welcome = () => {
                         >
                           SriChaitanya
                         </a>{" "}
-                        with a 8.5 CGPA.
+                        with a 93.8 %.
                         <span
                           style={{
                             color: "#353535",
@@ -1514,7 +1514,7 @@ const Welcome = () => {
                       fontSize: "12px",
                     }}
                   >
-                    8.5 CGPA{" "}
+                    93.8 %{" "}
                   </div>
                 </div>
                 <div
@@ -1541,7 +1541,7 @@ const Welcome = () => {
                         >
                           Bhashyam
                         </a>{" "}
-                        with a 9.8 CGPA.
+                        with a 9.2 CGPA.
                         <span
                           style={{
                             color: "#353535",
@@ -1594,7 +1594,7 @@ const Welcome = () => {
                       fontSize: "12px",
                     }}
                   >
-                    9.8 CGPA{" "}
+                    9.2 CGPA{" "}
                   </div>
                 </div>
               </div>
