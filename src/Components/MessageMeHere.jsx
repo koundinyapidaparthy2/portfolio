@@ -155,6 +155,19 @@ const MessageMeHere = () => {
                 </a>
               </Grid>
               <Grid item xs={12}>
+                <strong>Alt Email:</strong> &nbsp;
+                <a
+                  href="mailto: koundinya522@gmail.com"
+                  className={classes.anchorElement}
+                  target={"_blank"}
+                >
+                  <EmailIcon
+                    className={classes.anchorIcons + " " + classes.emailIcon}
+                  />
+                  koundinya522@gmail.com
+                </a>
+              </Grid>
+              <Grid item xs={12}>
                 <Grid container spacing={16} wrap="nowrap">
                   <Grid item xs={4}>
                     <a
