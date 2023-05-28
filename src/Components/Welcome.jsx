@@ -590,6 +590,7 @@ const Welcome = () => {
                   width={"20px"}
                   height={"20px"}
                   style={{ marginLeft: "5px" }}
+                  loading="lazy"
                 />
               </div>
             }
@@ -632,6 +633,7 @@ const Welcome = () => {
                 width: "20px",
                 height: "20px",
               }}
+              loading="lazy"
               onClick={() => moveToTheElement(2)}
             />
           </Tooltip>
@@ -653,6 +655,7 @@ const Welcome = () => {
                 width: "20px",
                 height: "20px",
               }}
+              loading="lazy"
               onClick={() => moveToTheElement(3)}
             />
           </Tooltip>
@@ -674,6 +677,7 @@ const Welcome = () => {
                 width: "20px",
                 height: "20px",
               }}
+              loading="lazy"
               onClick={() => moveToTheElement(4)}
             />
           </Tooltip>
@@ -834,6 +838,7 @@ const Welcome = () => {
                   width={"20px"}
                   height={"20px"}
                   style={{ marginLeft: "5px" }}
+                  loading="lazy"
                 />
                 <div style={{ textAlign: "center" }}>
                   I'm a developer. my ideology is to build a web or android app
@@ -956,6 +961,7 @@ const Welcome = () => {
                             marginLeft: "15px",
                             borderRadius: "50%",
                           }}
+                          loading="lazy"
                           className={"moveImageAbout"}
                         />
                       </div>
@@ -1022,6 +1028,7 @@ const Welcome = () => {
                             marginLeft: "15px",
                             borderRadius: "30px",
                           }}
+                          loading="lazy"
                           className={"moveImageAbout"}
                         />
                       </div>
@@ -1190,6 +1197,7 @@ const Welcome = () => {
                           height: "20px",
                           marginLeft: "10px",
                         }}
+                        loading="lazy"
                         className={"rotateImage"}
                       />
                     </div>
@@ -1254,6 +1262,7 @@ const Welcome = () => {
                           height: "20px",
                           marginLeft: "20px",
                         }}
+                        loading="lazy"
                         className={"moveImageAbout"}
                       />
                     </div>
@@ -1319,6 +1328,7 @@ const Welcome = () => {
                           height: "20px",
                           marginLeft: "15px",
                         }}
+                        loading="lazy"
                         className={"moveImageAbout"}
                       />
                     </div>
@@ -1405,6 +1415,7 @@ const Welcome = () => {
                         width: "30px",
                         height: "30px",
                       }}
+                      loading="lazy"
                     />
                   </Tooltip>
 
@@ -1485,6 +1496,7 @@ const Welcome = () => {
                         width: "30px",
                         height: "30px",
                       }}
+                      loading="lazy"
                     />
                   </Tooltip>
 
@@ -1565,6 +1577,7 @@ const Welcome = () => {
                         width: "30px",
                         height: "30px",
                       }}
+                      loading="lazy"
                     />
                   </Tooltip>
 
@@ -1662,6 +1675,7 @@ const Welcome = () => {
                         height: "4vh",
                         borderRadius: "8px",
                       }}
+                      loading="lazy"
                     />
                     <div style={{ fontWeight: "bold" }}>
                       Syscloud Technologies PVT LTD.
@@ -1728,6 +1742,7 @@ const Welcome = () => {
                         height: "4vh",
                         borderRadius: "8px",
                       }}
+                      loading="lazy"
                     />
                     <div style={{ fontWeight: "bold" }}>Hornblower Group.</div>
                     <Tooltip
@@ -1835,6 +1850,7 @@ const Welcome = () => {
                         className={
                           index === 0 || index === 4 ? "rotateImage" : ""
                         }
+                        loading="lazy"
                       />
                     </Tooltip>
                   );
