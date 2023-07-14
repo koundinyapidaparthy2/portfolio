@@ -167,9 +167,9 @@ const skillsImages = [
 ];
 const languagesNames = ["ReactJs", "NodeJs", "ExpressJs", "Java", "Graphql"];
 const Welcome = () => {
-  const hbJoinDate = new Date("08/08/2022");
-  const today = new Date();
-  const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
+  // const hbJoinDate = new Date("08/08/2022");
+  // const today = new Date();
+  // const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
   const [mrWhoseTheBossBarHeight, setMrWhoseTheBossBarHeight] =
     React.useState();
   const mainDivRef = React.useRef(null);
@@ -1677,21 +1677,30 @@ const Welcome = () => {
                       }}
                       loading="lazy"
                     />
-                    <div style={{ fontWeight: "bold" }}>
-                      Syscloud Technologies PVT LTD.
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ fontWeight: "bold" }}>
+                        Syscloud Technologies LTD.
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-evenly",
+                          // height:"6vh",
+                          fontSize: "10px",
+                        }}
+                      >
+                        ⌛ May 2021 - Jul 2022. 1Year 3 months
+                        <br />
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-evenly",
-                      // height:"6vh",
-                      fontSize: "10px",
-                    }}
-                  >
-                    ⌛ May 2021 - Jul 2022. 1Year 3 months
-                    <br />
                   </div>
                 </div>
               </div>
@@ -1732,7 +1741,7 @@ const Welcome = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-evenly",
-                      height: "8vh",
+                      height: "4vh",
                     }}
                   >
                     <img
@@ -1744,8 +1753,31 @@ const Welcome = () => {
                       }}
                       loading="lazy"
                     />
-                    <div style={{ fontWeight: "bold" }}>Hornblower Group.</div>
-                    <Tooltip
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ fontWeight: "bold" }}>
+                        Hornblower Encore Studio.
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-evenly",
+                          // height:"6vh",
+                          fontSize: "10px",
+                        }}
+                      >
+                        ⌛ Aug 2022 - Jul 2023. 11 Months
+                        <br />
+                      </div>
+                    </div>
+                    {/* <Tooltip
                       title={
                         <div>
                           Joined {parseInt(Math.round(daysDifference))} Days
@@ -1767,7 +1799,7 @@ const Welcome = () => {
                       }
                     >
                       <div className={"rotateImage"}>⌛</div>
-                    </Tooltip>
+                    </Tooltip> */}
                   </div>
                 </div>
               </div>
