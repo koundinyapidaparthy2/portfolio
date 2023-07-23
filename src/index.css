@@ -11,6 +11,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.moveImageAbout {
+  border-radius: 50%;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

@@ -31,6 +31,7 @@ import Bhashyam from "../Images/Bhashyam.png";
 import NodeJsImage from "../Images/NodeJs.png";
 import ExpressJsImage from "../Images/ExpressJs.png";
 import GraphqlImage from "../Images/Graphql.png";
+import NextImage from "../Images/NextJs.png";
 import JavaImage from "../Images/Java.png";
 import SyscloudImage from "../Images/Syscloud.png";
 import HornBlowerImage from "../Images/Hornblower.png";
@@ -160,12 +161,20 @@ const ProjectsInformation = [
 
 const skillsImages = [
   reactImage,
+  NextImage,
   NodeJsImage,
   ExpressJsImage,
   JavaImage,
   GraphqlImage,
 ];
-const languagesNames = ["ReactJs", "NodeJs", "ExpressJs", "Java", "Graphql"];
+const languagesNames = [
+  "ReactJs",
+  "NextJs",
+  "NodeJs",
+  "ExpressJs",
+  "Java",
+  "Graphql",
+];
 const Welcome = () => {
   // const hbJoinDate = new Date("08/08/2022");
   // const today = new Date();
@@ -1056,6 +1065,73 @@ const Welcome = () => {
                         borderLeft: "3px solid #4eb1d9",
                         width: "20px",
                         height: "3px",
+                        margin: "0px 10px 0px 140px",
+                      }}
+                    />
+                    <a
+                      href={
+                        "https://www.udemy.com/certificate/UC-77676625-2855-45bc-ab74-21bee4d969a2/"
+                      }
+                      target={"_blank"}
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                      }}
+                    >
+                      <div
+                        style={{
+                          padding: "10px 20px",
+                          borderRadius: "20px",
+                          backgroundColor: "#0093E9",
+                          backgroundImage:
+                            "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+
+                          marginRight: "10px",
+                          display: "flex",
+                          alignItems: "center",
+                          width: "80px",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <div>NextJs</div>
+                        <img
+                          src={NextImage}
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            marginLeft: "15px",
+                            borderRadius: "30px",
+                          }}
+                          loading="lazy"
+                          className={"moveImageAbout"}
+                        />
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    style={{
+                      width: "3px",
+                      height: "15px",
+                      background: "white",
+                      margin: "0px 0px 10px 140px",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        padding: "0px 0px 4px 0px",
+                        borderTop: "3px solid #4eb1d9",
+                        borderLeft: "3px solid #4eb1d9",
+                        width: "20px",
+                        height: "3px",
                         margin: "0px 10px 0px 60px",
                       }}
                     />
@@ -1137,6 +1213,71 @@ const Welcome = () => {
                   >
                     FrontEnd
                   </div>
+                </div>
+                <div
+                  style={{
+                    width: "3px",
+                    height: "15px",
+                    background: "white",
+                    margin: "10px 0px 0px 140px",
+                    borderRadius: "8px",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "4px 0px 0px 0px",
+                      borderLeft: "3px solid #4eb1d9",
+                      borderBottom: "3px solid #4eb1d9",
+                      width: "20px",
+                      height: "3px",
+                      margin: "0px 10px 0px 140px",
+                    }}
+                  />
+                  <a
+                    href={
+                      "https://www.udemy.com/certificate/UC-77676625-2855-45bc-ab74-21bee4d969a2/"
+                    }
+                    target={"_blank"}
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                    }}
+                  >
+                    <div
+                      style={{
+                        padding: "10px 20px",
+                        borderRadius: "20px",
+                        backgroundColor: "#0093E9",
+                        backgroundImage:
+                          "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
+                        fontSize: "16px",
+                        fontWeight: "bold",
+                        marginRight: "10px",
+                        display: "flex",
+                        alignItems: "center",
+                        width: "80px",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div>NextJs</div>
+                      <img
+                        src={NextImage}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          marginLeft: "10px",
+                        }}
+                        loading="lazy"
+                        className="moveImageAbout"
+                      />
+                    </div>
+                  </a>
                 </div>
                 <div
                   style={{
@@ -1880,7 +2021,7 @@ const Welcome = () => {
                           margin: "0px 10px",
                         }}
                         className={
-                          index === 0 || index === 4 ? "rotateImage" : ""
+                          index === 0 || index === 5 ? "rotateImage" : ""
                         }
                         loading="lazy"
                       />
