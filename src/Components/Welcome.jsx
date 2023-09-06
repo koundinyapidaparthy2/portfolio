@@ -26,6 +26,7 @@ import FashionImage from "../Images/Fashion.jpg";
 import HawaMahal from "../Images/HawaMahel.jpg";
 import HawaMahalNight from "../Images/HawaMahalNight.jpeg";
 import LPUImage from "../Images/LPU.png";
+import PaceImage from "../Images/Pace.png"
 import ChaitanyaImage from "../Images/Chaitanya.jpeg";
 import Bhashyam from "../Images/Bhashyam.png";
 import NodeJsImage from "../Images/NodeJs.png";
@@ -1508,6 +1509,77 @@ const Welcome = () => {
                   alignItems: "flex-start",
                 }}
               >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "20px",
+                  }}
+                >
+                  <Tooltip
+                    arrow
+                    interactive
+                    placement={"left"}
+                    title={
+                      <div>
+                        Currently pursuing my masters in computer science from{" "}
+                        <a
+                          href={"https://www.pace.edu/"}
+                          target={"_blank"}
+                          style={{
+                            textDecoration: "none",
+                            color: "#4158D0",
+                          }}
+                        >
+                          Pace University
+                        </a>
+                      </div>
+                    }
+                    classes={{
+                      tooltip: classes.tooltipClass,
+                      arrow: classes.tooltipArrowClass,
+                    }}
+                  >
+                    <img
+                      src={PaceImage}
+                      style={{
+                        borderRadius: "50%",
+                        width: "30px",
+                        height: "30px",
+                      }}
+                      loading="lazy"
+                    />
+                  </Tooltip>
+
+                  <div
+                    style={{
+                      width: "10px",
+                      height: "3px",
+                      border: "0px",
+                      background: "white",
+                      borderRadius: "6px",
+                      margin: "0px 10px",
+                    }}
+                  />
+                  <div> Post Graduation </div>
+                  <div
+                    style={{
+                      width: "10px",
+                      height: "3px",
+                      border: "0px",
+                      background: "white",
+                      borderRadius: "6px",
+                      margin: "0px 10px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontSize: "12px",
+                    }}
+                  >
+                    Going On
+                  </div>
+                </div>
                 <div
                   style={{
                     display: "flex",

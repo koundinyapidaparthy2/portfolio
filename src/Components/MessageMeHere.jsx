@@ -119,8 +119,19 @@ const MessageMeHere = () => {
           <Grid item>
             <h3 className={classes.h3Class}>Personal Information</h3>
             <Grid container direction="column" spacing={1} wrap="nowrap">
+            <Grid item xs={12}>
+                <strong>USA Phone:</strong> &nbsp;
+                <a
+                  href="tel:+15512298660"
+                  className={classes.anchorElement}
+                  target={"_blank"}
+                >
+                  <LocalPhoneIcon className={classes.anchorIcons} /> +1
+                  5512298660
+                </a>
+              </Grid>
               <Grid item xs={12}>
-                <strong>Phone:</strong> &nbsp;
+                <strong>India Phone:</strong> &nbsp;
                 <a
                   href="tel:+919381802188"
                   className={classes.anchorElement}
@@ -131,7 +142,7 @@ const MessageMeHere = () => {
                 </a>
               </Grid>
               <Grid item xs={12}>
-                <strong>Alt No:</strong> &nbsp;
+                <strong>India Alt No:</strong> &nbsp;
                 <a
                   href="tel:+919676787223"
                   className={classes.anchorElement}
