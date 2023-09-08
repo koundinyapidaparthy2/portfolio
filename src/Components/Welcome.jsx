@@ -20,8 +20,8 @@ import reactImage from "../Images/React.png";
 import "../index.css";
 import Interest from "../Images/Interest.png";
 import TravelImage from "../Images/Travel.jpg";
-import PhysicImage from "../Images/Physic.png";
-import Physic2Image from "../Images/Physic2.png";
+import physique1 from "../Images/physique1.jpg";
+import physique2 from "../Images/physique2.jpg";
 import FashionImage from "../Images/Fashion.jpg";
 import HawaMahal from "../Images/HawaMahel.jpg";
 import HawaMahalNight from "../Images/HawaMahalNight.jpeg";
@@ -2616,7 +2616,7 @@ const Welcome = () => {
                   width: "15vw",
                   height: "200px",
                   borderRadius: "8px",
-                  backgroundImage: `url(${PhysicImage})`,
+                  backgroundImage: `url(${physique1})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   ...(eventInnerWidth > 760
@@ -2688,7 +2688,7 @@ const Welcome = () => {
                   width: "15vw",
                   height: "200px",
                   borderRadius: "8px",
-                  backgroundImage: `url(${Physic2Image})`,
+                  backgroundImage: `url(${physique2})`,
                   backgroundSize: "cover",
                   backgroundPosition: "right",
                   ...(eventInnerWidth > 760
