@@ -26,7 +26,7 @@ import FashionImage from "../Images/Fashion.jpg";
 import HawaMahal from "../Images/HawaMahel.jpg";
 import HawaMahalNight from "../Images/HawaMahalNight.jpeg";
 import LPUImage from "../Images/LPU.png";
-import PaceImage from "../Images/Pace.png"
+import PaceImage from "../Images/Pace.png";
 import ChaitanyaImage from "../Images/Chaitanya.jpeg";
 import Bhashyam from "../Images/Bhashyam.png";
 import NodeJsImage from "../Images/NodeJs.png";
@@ -944,6 +944,7 @@ const Welcome = () => {
                         textDecoration: "none",
                         color: "white",
                       }}
+                      rel="noreferrer"
                     >
                       <div
                         style={{
@@ -1011,6 +1012,7 @@ const Welcome = () => {
                         textDecoration: "none",
                         color: "white",
                       }}
+                      rel="noreferrer"
                     >
                       <div
                         style={{
@@ -1078,6 +1080,7 @@ const Welcome = () => {
                         textDecoration: "none",
                         color: "white",
                       }}
+                      rel="noreferrer"
                     >
                       <div
                         style={{
@@ -1249,6 +1252,7 @@ const Welcome = () => {
                       textDecoration: "none",
                       color: "white",
                     }}
+                    rel="noreferrer"
                   >
                     <div
                       style={{
@@ -1314,6 +1318,7 @@ const Welcome = () => {
                       textDecoration: "none",
                       color: "white",
                     }}
+                    rel="noreferrer"
                   >
                     <div
                       style={{
@@ -1379,6 +1384,7 @@ const Welcome = () => {
                       textDecoration: "none",
                       color: "white",
                     }}
+                    rel="noreferrer"
                   >
                     <div
                       style={{
@@ -1444,6 +1450,7 @@ const Welcome = () => {
                       textDecoration: "none",
                       color: "white",
                     }}
+                    rel="noreferrer"
                   >
                     <div
                       style={{
@@ -1530,6 +1537,7 @@ const Welcome = () => {
                             textDecoration: "none",
                             color: "#4158D0",
                           }}
+                          rel="noreferrer"
                         >
                           Pace University
                         </a>
@@ -1601,6 +1609,7 @@ const Welcome = () => {
                             textDecoration: "none",
                             color: "#4158D0",
                           }}
+                          rel="noreferrer"
                         >
                           Lovely Professional University
                         </a>{" "}
@@ -1682,6 +1691,7 @@ const Welcome = () => {
                             textDecoration: "none",
                             color: "#4158D0",
                           }}
+                          rel="noreferrer"
                         >
                           SriChaitanya
                         </a>{" "}
@@ -1763,6 +1773,7 @@ const Welcome = () => {
                             textDecoration: "none",
                             color: "#0093E9",
                           }}
+                          rel="noreferrer"
                         >
                           Bhashyam
                         </a>{" "}
@@ -1910,7 +1921,7 @@ const Welcome = () => {
                           fontSize: "10px",
                         }}
                       >
-                        ⌛ May 2021 - Jul 2022. 1Year 3 months
+                        ⌛ June 2020 - Jul 2022. 2Year 2months
                         <br />
                       </div>
                     </div>
@@ -1986,7 +1997,7 @@ const Welcome = () => {
                           fontSize: "10px",
                         }}
                       >
-                        ⌛ Aug 2022 - Jul 2023. 11 Months
+                        ⌛ June 2022 - Jul 2023. 1 Year
                         <br />
                       </div>
                     </div>
@@ -2177,6 +2188,7 @@ const Welcome = () => {
                   href={ProjectsInformation[imageIndex].link}
                   target={"_blank"}
                   className={"scaleTheElement"}
+                  rel="noreferrer"
                 >
                   <motion.div
                     key={page}
