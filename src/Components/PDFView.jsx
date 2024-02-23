@@ -518,6 +518,7 @@ const PDFView = () => {
                                           <Link
                                             variant="subtitle2"
                                             href={website.url}
+                                            target="_blank"
                                             className={classes.hyperLink}
                                           >
                                             {website.text}
@@ -544,6 +545,7 @@ const PDFView = () => {
                                                   <Link
                                                     variant="subtitle2"
                                                     href={url}
+                                                    target="_blank"
                                                     className={
                                                       classes.hyperLink
                                                     }

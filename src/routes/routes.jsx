@@ -6,7 +6,7 @@ const Welcome = lazy(() => import("../Components/Welcome"));
 
 const AllRoutes = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/portfolio">
       <Suspense fallback={<Fallback />}>
         <Routes>
           <Route path="/" element={<PDFView />} />
