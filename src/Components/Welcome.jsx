@@ -7,9 +7,7 @@ import AboutImg from "../Images/About.png";
 import Tooltip from "@material-ui/core/Tooltip";
 import HandWave from "../Images/HandWave.gif";
 import PersonalImage from "../Images/PersonalImage.jpg";
-import WeatherBigImage from "../Images/WeatherBig.png";
-import TeslaBig from "../Images/TeslaBig.png";
-import SpotifyBig from "../Images/SpotifyBig.png";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -17,6 +15,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import htmlImage from "../Images/Html.webp";
 import cssImage from "../Images/Css.webp";
 import reactImage from "../Images/React.png";
+import Link from "@material-ui/core/Link";
 import "../index.css";
 import Interest from "../Images/Interest.png";
 import TravelImage from "../Images/Travel.jpg";
@@ -31,15 +30,21 @@ import ChaitanyaImage from "../Images/Chaitanya.jpeg";
 import Bhashyam from "../Images/Bhashyam.png";
 import NodeJsImage from "../Images/NodeJs.png";
 import ExpressJsImage from "../Images/ExpressJs.png";
-import GraphqlImage from "../Images/Graphql.png";
 import NextImage from "../Images/NextJs.png";
-import JavaImage from "../Images/Java.png";
 import SyscloudImage from "../Images/Syscloud.png";
 import HornBlowerImage from "../Images/Hornblower.png";
 import MessageMeOverHere from "./MessageMeHere.jsx";
 import { useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Paysfer from "../Images/Paysfer.jpg";
+import PictureAsPdfRoundedIcon from "@material-ui/icons/PictureAsPdfRounded";
+import {
+  projectsImages,
+  ProjectsInformation,
+  skillsImages,
+  languagesNames,
+} from "../data/index.js";
+
 const useStyles = makeStyles((theme) => {
   return {
     logo: {
@@ -100,6 +105,34 @@ const useStyles = makeStyles((theme) => {
       top: "10px",
       margin: "20px 0px 0px 10px",
       zIndex: 1,
+      [theme.breakpoints.down("xs")]: {
+        display: "none",
+      },
+    },
+    textMeOverHere: {
+      position: "fixed",
+      zIndex: 1,
+      left: "20px",
+      bottom: "70px",
+      borderRadius: "50%",
+      backgroundColor: "rgb(0, 147, 233)",
+      backgroundImage:
+        "linear-gradient(160deg, rgb(0, 147, 233) 0%, rgb(128, 208, 199) 100%)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "40px",
+      height: "40px",
+      cursor: "pointer",
+      "&:hover": {
+        transform: "scale(1.1)",
+      },
+      [theme.breakpoints.up("sm")]: {
+        display: "none",
+      },
+    },
+    messageIcon: {
+      fontSize: "20px",
     },
     scrollGridItem: {
       scrollbarWidth: "none",
@@ -139,60 +172,7 @@ const variants = {
     opacity: 1,
   },
 };
-const projectsImages = [WeatherBigImage, TeslaBig, SpotifyBig];
-const ProjectsInformation = [
-  {
-    headerLabel: "Weather App",
-    about:
-      "I created a weather application that takes your current location and displays the 24/7 forecast accordingly.",
-    languagesUsed: {
-      labels: ["React", "Css3", "Html5"],
-      images: [reactImage, cssImage, htmlImage],
-      key: 1,
-    },
-    link: "https://koundinyapidaparthy.github.io/weatherapp/",
-  },
-  {
-    headerLabel: "Tesla Clone",
-    about:
-      "The current Tesla official has been cloned. By cloning this, I was able to grasp the underlying CSS concepts. ",
-    labels: ["React", "Css3", "Html5"],
-    languagesUsed: {
-      labels: ["React", "Css3", "Html5"],
-      images: [reactImage, cssImage, htmlImage],
-      key: 2,
-    },
-    link: "https://koundinyapidaparthy.github.io/tesla-clone/",
-  },
-  {
-    headerLabel: "Spotify Clone",
-    about:
-      "In my early days of web development, I created a Spotify clone to understand the basics of web development concepts",
-    labels: ["React", "Css3", "Html5"],
-    languagesUsed: {
-      labels: ["React", "Css3", "Html5"],
-      images: [reactImage, cssImage, htmlImage],
-      key: 3,
-    },
-  },
-];
 
-const skillsImages = [
-  reactImage,
-  NextImage,
-  NodeJsImage,
-  ExpressJsImage,
-  JavaImage,
-  GraphqlImage,
-];
-const languagesNames = [
-  "ReactJs",
-  "NextJs",
-  "NodeJs",
-  "ExpressJs",
-  "Java",
-  "Graphql",
-];
 const Welcome = () => {
   const hbJoinDate = new Date("11/15/2023");
   const today = new Date();
@@ -205,6 +185,9 @@ const Welcome = () => {
     React.useState();
   const mainDivRef = React.useRef(null);
   const [mainAnimations, setMainAnimations] = React.useState({
+    videoVisibility: {
+      opacity: 1,
+    },
     homeVisibility: {
       opacity: 1,
     },
@@ -242,7 +225,22 @@ const Welcome = () => {
     const defaultValue = 495;
     const eventValue = event.currentTarget.scrollTop;
     const eventInnerWidth = window.innerWidth;
-
+    if (eventInnerWidth < 680 && eventValue > 300) {
+      setMainAnimations((prev) => ({
+        ...prev,
+        videoVisibility: {
+          opacity: 0,
+        },
+      }));
+    }
+    if (eventInnerWidth < 680 && eventValue < 300) {
+      setMainAnimations((prev) => ({
+        ...prev,
+        videoVisibility: {
+          opacity: 1,
+        },
+      }));
+    }
     if (eventValue <= 100 && mainAnimations.homeVisibility.opacity !== 1) {
       setMainAnimations((prev) => ({
         ...prev,
@@ -503,6 +501,9 @@ const Welcome = () => {
           playsinline
           disableRemotePlayback
           disablePictureInPicture
+          style={{
+            opacity: mainAnimations.videoVisibility.opacity,
+          }}
         >
           <source src={Logo} type="video/mp4" />
         </video>
@@ -513,6 +514,35 @@ const Welcome = () => {
         >
           PDF VIEW
         </Button>
+        <Tooltip
+          title={
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span>Let's talk over here</span>
+            </div>
+          }
+          arrow
+          placement={"left"}
+          classes={{
+            tooltip: classes.tooltipClass,
+            arrow: classes.tooltipArrowClass,
+          }}
+        >
+          <Grid
+            item
+            className={classes.textMeOverHere}
+            onClick={gotToAestheticView}
+          >
+            <PictureAsPdfRoundedIcon
+              color="primary"
+              className={classes.linkIcon}
+            />
+          </Grid>
+        </Tooltip>
         <MessageMeOverHere />
       </Grid>
       <Grid
@@ -2074,6 +2104,7 @@ const Welcome = () => {
               alignItems: "center",
               flexDirection: "column",
               marginTop: "10vh",
+              marginBottom: "10vh",
             }}
           >
             <div
@@ -2108,6 +2139,7 @@ const Welcome = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   marginTop: "20px",
+                  flexWrap: "wrap",
                 }}
               >
                 {skillsImages.map((eachImage, index) => {
@@ -2130,20 +2162,25 @@ const Welcome = () => {
                       }}
                       placement={"bottom"}
                     >
-                      <img
-                        key={index}
-                        src={eachImage}
-                        style={{
-                          width: "40px",
-                          height: "40px",
-                          borderRadius: "50%",
-                          margin: "0px 10px",
-                        }}
-                        className={
-                          index === 0 || index === 5 ? "rotateImage" : ""
-                        }
-                        loading="lazy"
-                      />
+                      <div>
+                        <img
+                          key={index}
+                          src={eachImage}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            borderRadius: "50%",
+                            margin: "0px 10px",
+                            zIndex: 1,
+                          }}
+                          className={
+                            index === 0 || index === skillsImages.length - 1
+                              ? "rotateImage"
+                              : ""
+                          }
+                          loading="lazy"
+                        />
+                      </div>
                     </Tooltip>
                   );
                 })}
