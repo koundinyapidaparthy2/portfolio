@@ -1,11 +1,7 @@
-import React from "react"
-import Welcome from "./Components/Welcome"
+import React from "react";
+import AllRoutes from "./routes/routes";
 function App() {
-  return (
-    <div className="App">
-      <Welcome />
-    </div>
-  );
+  return <AllRoutes />;
 }
 
 export default App;

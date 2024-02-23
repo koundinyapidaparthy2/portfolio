@@ -37,7 +37,10 @@ import JavaImage from "../Images/Java.png";
 import SyscloudImage from "../Images/Syscloud.png";
 import HornBlowerImage from "../Images/Hornblower.png";
 import MessageMeOverHere from "./MessageMeHere.jsx";
-const useStyles = makeStyles(() => {
+import { useNavigate } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Paysfer from "../Images/Paysfer.jpg";
+const useStyles = makeStyles((theme) => {
   return {
     logo: {
       position: "fixed",
@@ -83,6 +86,20 @@ const useStyles = makeStyles(() => {
       background: "white",
       color: "black",
       fontSize: "12px",
+    },
+    buttonView: {
+      background: theme.palette.background.default,
+      color: theme.palette.primary.main,
+      fontWeight: 600,
+      padding: "4px 15px !important",
+      fontSize: "10px",
+      boxShadow: "rgb(126 120 120 / 40%) 0px 0px 29px 0px",
+      cursor: "pointer",
+      position: "fixed",
+      right: "20px",
+      top: "10px",
+      margin: "20px 0px 0px 10px",
+      zIndex: 1,
     },
     scrollGridItem: {
       scrollbarWidth: "none",
@@ -177,9 +194,13 @@ const languagesNames = [
   "Graphql",
 ];
 const Welcome = () => {
-  // const hbJoinDate = new Date("08/08/2022");
-  // const today = new Date();
-  // const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
+  const hbJoinDate = new Date("11/15/2023");
+  const today = new Date();
+  const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
+  const navigate = useNavigate();
+  function gotToAestheticView() {
+    navigate("/");
+  }
   const [mrWhoseTheBossBarHeight, setMrWhoseTheBossBarHeight] =
     React.useState();
   const mainDivRef = React.useRef(null);
@@ -211,39 +232,17 @@ const Welcome = () => {
       rotate: undefined,
     },
   });
-  const [showCurrentHeader, setShowCurrentHeader] = React.useState(false);
   const [scrollChildElementNow, setScrollChildElementNow] =
     React.useState(false);
   const classes = useStyles();
-
-  function onScrollShowHeader(value) {
-    if (showCurrentHeader !== value) {
-      setShowCurrentHeader(value);
-      setTimeout(() => setShowCurrentHeader(false), 8000);
-    }
-  }
 
   const eventInnerWidth = window.innerWidth;
 
   function scrollEvent(event) {
     const defaultValue = 495;
     const eventValue = event.currentTarget.scrollTop;
-    console.log({ eventValue });
     const eventInnerWidth = window.innerWidth;
 
-    if (eventValue < 300 && showCurrentHeader) {
-      onScrollShowHeader(false);
-    }
-
-    if (eventValue >= 895 && eventValue <= 905) {
-      onScrollShowHeader("About Krishna");
-    }
-    if (eventValue >= 1845 && eventValue <= 1855) {
-      onScrollShowHeader("Welcome to my projects");
-    }
-    if (eventValue >= 2695 && eventValue <= 2705) {
-      onScrollShowHeader("My Interests");
-    }
     if (eventValue <= 100 && mainAnimations.homeVisibility.opacity !== 1) {
       setMainAnimations((prev) => ({
         ...prev,
@@ -403,10 +402,10 @@ const Welcome = () => {
     const output = `${eventValue / 52 - defaultValue}vh`;
     setMrWhoseTheBossBarHeight(output);
     const windowInnerHeight = window.innerHeight;
-    if (eventValue >= 2350 && eventInnerWidth > 700) {
+    if (eventValue >= 2000 && eventInnerWidth > 700) {
       setScrollChildElementNow(true);
     } else if (
-      eventValue >= 2450 &&
+      eventValue >= 2050 &&
       eventInnerWidth < 700 &&
       eventInnerWidth > 500
     ) {
@@ -502,57 +501,19 @@ const Welcome = () => {
           className={classes.logo}
           muted
           playsinline
+          disableRemotePlayback
+          disablePictureInPicture
         >
           <source src={Logo} type="video/mp4" />
         </video>
+        <Button
+          variant="contained"
+          className={classes.buttonView}
+          onClick={gotToAestheticView}
+        >
+          PDF VIEW
+        </Button>
         <MessageMeOverHere />
-        {showCurrentHeader && (
-          <div
-            style={{
-              width: "100vw",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "fixed",
-              height: "3vh",
-              marginTop: "-50px",
-            }}
-            className={showCurrentHeader ? "moveTheDivFromTop" : ""}
-          >
-            <div
-              style={{
-                width: "3px",
-                height: "10px",
-                borderRadius: "10px",
-                marginTop: "-20px",
-                backgroundImage:
-                  "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-              }}
-            />
-            <div
-              style={{
-                width: "max-content",
-                height: "2.5vh",
-                background: "white",
-                borderRadius: "50px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                fontWeight: "bold",
-                position: "fixed",
-                marginTop: "10px",
-                backgroundImage:
-                  "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-                padding: "0px 10px",
-              }}
-              className={showCurrentHeader ? "rotatebleCard" : ""}
-            >
-              {showCurrentHeader}
-            </div>
-          </div>
-        )}
       </Grid>
       <Grid
         item
@@ -2001,7 +1962,82 @@ const Welcome = () => {
                         <br />
                       </div>
                     </div>
-                    {/* <Tooltip
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  height: "20px",
+                  width: "3px",
+                  background: "white",
+                  borderRadius: "8px",
+                  marginTop: "10px",
+                }}
+              />
+              <div
+                id={"Experience div"}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  marginTop: "10px",
+                  color: "black",
+                }}
+              >
+                <div
+                  id={"cardForPreviousWork"}
+                  style={{
+                    width: "90%",
+                    height: "8vh",
+                    background: "white",
+                    borderRadius: "8px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-evenly",
+                      height: "4vh",
+                    }}
+                  >
+                    <img
+                      src={Paysfer}
+                      style={{
+                        width: "4vh",
+                        height: "4vh",
+                        borderRadius: "8px",
+                      }}
+                      loading="lazy"
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ fontWeight: "bold" }}>Paysfer.</div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-evenly",
+                          // height:"6vh",
+                          fontSize: "10px",
+                        }}
+                      >
+                        ⌛ Nov 2023 - Present.{" "}
+                        {parseInt(Math.round(daysDifference))} Days
+                        <br />
+                      </div>
+                    </div>
+                    <Tooltip
                       title={
                         <div>
                           Joined {parseInt(Math.round(daysDifference))} Days
@@ -2023,7 +2059,7 @@ const Welcome = () => {
                       }
                     >
                       <div className={"rotateImage"}>⌛</div>
-                    </Tooltip> */}
+                    </Tooltip>
                   </div>
                 </div>
               </div>
@@ -2373,7 +2409,6 @@ const Welcome = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-
                 width: "100%",
                 position: "relative",
                 opacity: interestStateData.fashion.opacity || 1,
