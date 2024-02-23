@@ -14,7 +14,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import PhoneRoundedIcon from "@material-ui/icons/PhoneRounded";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GetAppRoundedIcon from "@material-ui/icons/GetAppRounded";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
+import Tooltip from "@material-ui/core/Tooltip";
+
 const styles = makeStyles((theme) => {
   return {
     personalImage: {
@@ -128,6 +131,11 @@ const styles = makeStyles((theme) => {
       width: "30px !important",
       height: "30px !important",
       minWidth: "0px",
+    },
+    download: {
+      position: "fixed",
+      bottom: "107px",
+      left: "5px",
     },
     phone: {
       position: "fixed",
@@ -574,6 +582,32 @@ const PDFView = () => {
           </Grid>
         </Grid>
       </Grid>
+      <Tooltip
+        title={<span>Download Resume</span>}
+        arrow
+        placement={"top"}
+        classes={{
+          tooltip: classes.tooltipClass,
+          arrow: classes.tooltipArrowClass,
+        }}
+      >
+        <Link
+          href={"./Koundinya_Pidaparthy_Resume.pdf"}
+          download={"Koundinya_Pidaparthy.pdf"}
+        >
+          <Button
+            className={
+              classes.buttonView +
+              " " +
+              classes.download +
+              " " +
+              classes.rounded
+            }
+          >
+            <GetAppRoundedIcon color="primary" className={classes.linkIcon} />
+          </Button>
+        </Link>
+      </Tooltip>
       <Button
         className={
           classes.buttonView + " " + classes.phone + " " + classes.rounded
