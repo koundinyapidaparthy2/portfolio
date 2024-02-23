@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.3f4a7916.css",
-    "main.js": "/portfolio/static/js/main.1fc02107.js",
+    "main.js": "/portfolio/static/js/main.3a9dc634.js",
     "static/js/562.1bb9d2bb.chunk.js": "/portfolio/static/js/562.1bb9d2bb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
-    "static/js/807.ad6bc6cd.chunk.js": "/portfolio/static/js/807.ad6bc6cd.chunk.js",
+    "static/js/632.1ed514f5.chunk.js": "/portfolio/static/js/632.1ed514f5.chunk.js",
     "static/media/TeslaBig.png": "/portfolio/static/media/TeslaBig.6636872ccda615332c51.png",
     "static/media/HawaMahel.jpg": "/portfolio/static/media/HawaMahel.ea9936f36a144e79ca6a.jpg",
     "static/media/HandWave.gif": "/portfolio/static/media/HandWave.0a605eaadd8d8c5bd8d8.gif",
@@ -34,13 +34,13 @@
     "static/media/NextJs.png": "/portfolio/static/media/NextJs.8d64d64843058b1c9a96.png",
     "index.html": "/portfolio/index.html",
     "main.3f4a7916.css.map": "/portfolio/static/css/main.3f4a7916.css.map",
-    "main.1fc02107.js.map": "/portfolio/static/js/main.1fc02107.js.map",
+    "main.3a9dc634.js.map": "/portfolio/static/js/main.3a9dc634.js.map",
     "562.1bb9d2bb.chunk.js.map": "/portfolio/static/js/562.1bb9d2bb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map",
-    "807.ad6bc6cd.chunk.js.map": "/portfolio/static/js/807.ad6bc6cd.chunk.js.map"
+    "632.1ed514f5.chunk.js.map": "/portfolio/static/js/632.1ed514f5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f4a7916.css",
-    "static/js/main.1fc02107.js"
+    "static/js/main.3a9dc634.js"
   ]
 }
