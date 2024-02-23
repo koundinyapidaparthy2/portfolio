@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.3f4a7916.css",
-    "main.js": "/portfolio/static/js/main.3a9dc634.js",
-    "static/js/562.1bb9d2bb.chunk.js": "/portfolio/static/js/562.1bb9d2bb.chunk.js",
+    "main.js": "/portfolio/static/js/main.a7586d02.js",
+    "static/js/31.e92935ef.chunk.js": "/portfolio/static/js/31.e92935ef.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
-    "static/js/632.1ed514f5.chunk.js": "/portfolio/static/js/632.1ed514f5.chunk.js",
+    "static/js/498.a9582ade.chunk.js": "/portfolio/static/js/498.a9582ade.chunk.js",
     "static/media/TeslaBig.png": "/portfolio/static/media/TeslaBig.6636872ccda615332c51.png",
     "static/media/HawaMahel.jpg": "/portfolio/static/media/HawaMahel.ea9936f36a144e79ca6a.jpg",
     "static/media/HandWave.gif": "/portfolio/static/media/HandWave.0a605eaadd8d8c5bd8d8.gif",
@@ -18,14 +18,21 @@
     "static/media/LOGO.mp4": "/portfolio/static/media/LOGO.3261930c3a79fa0ede63.mp4",
     "static/media/physique2.jpg": "/portfolio/static/media/physique2.e007d73b701df1d915d2.jpg",
     "static/media/HawaMahalNight.jpeg": "/portfolio/static/media/HawaMahalNight.402bffa2101b98c30cf1.jpeg",
+    "static/media/BrainBucket.png": "/portfolio/static/media/BrainBucket.d1ef42506763654a9925.png",
     "static/media/Graphql.png": "/portfolio/static/media/Graphql.0fed447ce4ed74374bdb.png",
+    "static/media/AWSAPI.png": "/portfolio/static/media/AWSAPI.da4917113e3f0aae6995.png",
+    "static/media/Aws.png": "/portfolio/static/media/Aws.1788d3eb915f0b676204.png",
+    "static/media/Python.png": "/portfolio/static/media/Python.41259ded83ae0f2a4243.png",
     "static/media/Css.webp": "/portfolio/static/media/Css.0c2690a25c4bec03822a.webp",
     "static/media/Html.webp": "/portfolio/static/media/Html.e46e59769d5b13066c95.webp",
+    "static/media/WordlyBig.png": "/portfolio/static/media/WordlyBig.4662cbee32654ab9769b.png",
     "static/media/React.png": "/portfolio/static/media/React.283bf42c605cfc49cf49.png",
     "static/media/About.png": "/portfolio/static/media/About.b495714b7acd46c0334d.png",
     "static/media/Projects.png": "/portfolio/static/media/Projects.d9d9f5c14a39551d9c51.png",
     "static/media/Bhashyam.png": "/portfolio/static/media/Bhashyam.4bcebc00b66eeb1ab975.png",
     "static/media/Interest.png": "/portfolio/static/media/Interest.dc35ec78bbc236199206.png",
+    "static/media/AwsLambda.png": "/portfolio/static/media/AwsLambda.b245c60926ab2f28c3b1.png",
+    "static/media/AwsDynamoDb.png": "/portfolio/static/media/AwsDynamoDb.74b65a54f34e8e5f2322.png",
     "static/media/Hornblower.png": "/portfolio/static/media/Hornblower.84b9f91cc07acbe33572.png",
     "static/media/Java.png": "/portfolio/static/media/Java.f5dd86c3ef6ef3f85acf.png",
     "static/media/LPU.png": "/portfolio/static/media/LPU.38e71efa88ccf81b0ecb.png",
@@ -33,14 +40,15 @@
     "static/media/ExpressJs.png": "/portfolio/static/media/ExpressJs.b44f5a4b0ab040328aac.png",
     "static/media/NextJs.png": "/portfolio/static/media/NextJs.8d64d64843058b1c9a96.png",
     "index.html": "/portfolio/index.html",
+    "static/media/MongoDB.svg": "/portfolio/static/media/MongoDB.bfa6cdd80f4a99232cadb39ebbb976d2.svg",
     "main.3f4a7916.css.map": "/portfolio/static/css/main.3f4a7916.css.map",
-    "main.3a9dc634.js.map": "/portfolio/static/js/main.3a9dc634.js.map",
-    "562.1bb9d2bb.chunk.js.map": "/portfolio/static/js/562.1bb9d2bb.chunk.js.map",
+    "main.a7586d02.js.map": "/portfolio/static/js/main.a7586d02.js.map",
+    "31.e92935ef.chunk.js.map": "/portfolio/static/js/31.e92935ef.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map",
-    "632.1ed514f5.chunk.js.map": "/portfolio/static/js/632.1ed514f5.chunk.js.map"
+    "498.a9582ade.chunk.js.map": "/portfolio/static/js/498.a9582ade.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f4a7916.css",
-    "static/js/main.3a9dc634.js"
+    "static/js/main.a7586d02.js"
   ]
 }
