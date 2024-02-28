@@ -499,8 +499,6 @@ const Welcome = () => {
           className={classes.logo}
           muted
           playsinline
-          disableRemotePlayback
-          disablePictureInPicture
           style={{
             opacity: mainAnimations.videoVisibility.opacity,
           }}
