@@ -162,7 +162,7 @@ const PDFView = () => {
   const classes = styles();
   const navigate = useNavigate();
   function gotToAestheticView() {
-    navigate("/versatile");
+    navigate("/");
   }
   return (
     <Grid

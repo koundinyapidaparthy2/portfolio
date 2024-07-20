@@ -179,7 +179,7 @@ const Welcome = () => {
   const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
   const navigate = useNavigate();
   function gotToAestheticView() {
-    navigate("/");
+    navigate("/pdfView");
   }
   const [mrWhoseTheBossBarHeight, setMrWhoseTheBossBarHeight] =
     React.useState();
