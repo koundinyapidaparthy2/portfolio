@@ -75,13 +75,45 @@ const styles = makeStyles((theme) => {
     navigateHeader: {
       margin: "10px 0px 20px 0px",
     },
+    link: {
+      color: "transparent",
+      fontWeight: 600,
+      marginRight: theme.spacing(2),
+      cursor: "pointer",
+      textDecoration: "none",
+      position: "relative",
+      overflow: "hidden",
+      display: "inline-block",
+      fontSize: "16px",
+      background: theme.palette.background.paper,
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      transition: "color 0.3s",
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        left: "-100%",
+        bottom: "-100%",
+        width: "100%",
+        height: "100%",
+        backgroundColor: theme.palette.primary.main,
+        transform: "skewX(-45deg)",
+        transition: "left 0.3s, bottom 0.3s",
+        zIndex: 1,
+      },
+      "&:hover::before": {
+        left: "100%",
+        bottom: "100%",
+      },
+      "&:hover": {
+        color: theme.palette.primary.main,
+      },
+    },
     hyperLinkedText: {
       fontWeight: 600,
-    },
-    hyperLink: {
-      color: theme.palette.hyperLink.main,
-      backgroundClip: "text",
-      fontWeight: "normal",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
     textIndent: {
       lineHeight: 1.25,
@@ -229,14 +261,14 @@ const PDFView = () => {
                     <Typography
                       variant="subtitle2"
                       align="center"
-                      className={preText ? classes.hyperLinkedText : ""}
+                      className={classes.hyperLinkedText}
                     >
-                      • {preText}
+                      {preText ? "• " + preText : ""}
                       <Link
                         href={href}
                         target={target}
                         underline="none"
-                        className={classes.hyperLink}
+                        className={classes.link}
                       >
                         {text}
                       </Link>

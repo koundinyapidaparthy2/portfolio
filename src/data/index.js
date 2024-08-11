@@ -19,29 +19,35 @@ import JavaImage from "../Images/Java.png";
 import htmlImage from "../Images/Html.webp";
 import cssImage from "../Images/Css.webp";
 
+export const contactNumber = 5512298860;
+export const contactEmail = "koundinya.pidaparthy@pace.edu";
+export const altEmail = "koundinya.pidaparthy@gmail.com";
+export const linkedinLink = "https://www.linkedin.com/in/koundinyap/";
+export const githubLink = "https://github.com/koundinyapidaparthy2";
+
 export const mypersonalDetails = [
   {
-    text: "+1 5512298860",
-    href: "tel:+15512298660",
+    text: `+1 ${contactNumber}`,
+    href: `tel:${contactNumber}`,
     preText: "",
     target: undefined,
   },
   {
     text: "koundinyap",
-    href: "https://www.linkedin.com/in/koundinyap/",
-    preText: "LinkedIn://",
+    href: linkedinLink,
+    preText: "LinkedIn:// ",
     target: "_blank",
   },
   {
     text: "koundinyapidaparthy2",
-    href: "https://github.com/koundinyapidaparthy2",
-    preText: "Github://",
+    href: githubLink,
+    preText: "Github:// ",
     target: "_blank",
   },
   {
-    text: "kp10566n@pace.edu",
-    href: "mailto:kp10566n@pace.edu",
-    preText: " ",
+    text: contactEmail,
+    href: `mailto:${contactEmail}`,
+    preText: "",
     target: "_blank",
   },
 ];

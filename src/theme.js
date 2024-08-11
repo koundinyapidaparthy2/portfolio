@@ -4,6 +4,7 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#fff",
+      hyperLink: "rgb(200, 80, 192)",
     },
     secondary: {
       main: "#000000",
@@ -27,4 +28,5 @@ export const theme = createTheme({
       xl: 1920,
     },
   },
+  spacing: 4,
 });

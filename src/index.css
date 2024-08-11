@@ -270,6 +270,7 @@ body::-webkit-scrollbar {
   }
   .introImage {
     animation: moveIntroImage2 1s linear 1s forwards !important;
+    width: 10vw !important;
   }
 }
 

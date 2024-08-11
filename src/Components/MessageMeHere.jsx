@@ -5,10 +5,16 @@ import Grid from "@material-ui/core/Grid";
 import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 import Dialog from "@material-ui/core/Dialog";
 import GitHub from "@material-ui/icons/GitHub";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
+import {
+  contactNumber,
+  contactEmail,
+  altEmail,
+  linkedinLink,
+  githubLink,
+} from "../data";
 const useStyles = makeStyles(() => {
   return {
     dialogRoot: {
@@ -119,70 +125,53 @@ const MessageMeHere = () => {
           <Grid item>
             <h3 className={classes.h3Class}>Personal Information</h3>
             <Grid container direction="column" spacing={1} wrap="nowrap">
-            <Grid item xs={12}>
+              <Grid item xs={12}>
                 <strong>USA Phone:</strong> &nbsp;
                 <a
-                  href="tel:+15512298660"
+                  href={`tel:+1${contactNumber}`}
                   className={classes.anchorElement}
                   target={"_blank"}
                 >
                   <LocalPhoneIcon className={classes.anchorIcons} /> +1
-                  5512298660
-                </a>
-              </Grid>
-              <Grid item xs={12}>
-                <strong>India Phone:</strong> &nbsp;
-                <a
-                  href="tel:+919381802188"
-                  className={classes.anchorElement}
-                  target={"_blank"}
-                >
-                  <LocalPhoneIcon className={classes.anchorIcons} /> +91
-                  9381802188
-                </a>
-              </Grid>
-              <Grid item xs={12}>
-                <strong>India Alt No:</strong> &nbsp;
-                <a
-                  href="tel:+919676787223"
-                  className={classes.anchorElement}
-                  target={"_blank"}
-                >
-                  <LocalPhoneIcon className={classes.anchorIcons} />{" "}
-                  +919676787223
+                  {contactNumber}
                 </a>
               </Grid>
               <Grid item xs={12}>
                 <strong>Email:</strong> &nbsp;
                 <a
-                  href="mailto: koundinya511@gmail.com"
+                  href={`mailto:${contactEmail}`}
                   className={classes.anchorElement}
                   target={"_blank"}
                 >
                   <EmailIcon
                     className={classes.anchorIcons + " " + classes.emailIcon}
                   />
-                  koundinya511@gmail.com
+                  {contactEmail}
                 </a>
               </Grid>
               <Grid item xs={12}>
                 <strong>Alt Email:</strong> &nbsp;
                 <a
-                  href="mailto: koundinya522@gmail.com"
+                  href={`mailto: ${altEmail}`}
                   className={classes.anchorElement}
                   target={"_blank"}
                 >
                   <EmailIcon
                     className={classes.anchorIcons + " " + classes.emailIcon}
                   />
-                  koundinya522@gmail.com
+                  {altEmail}
                 </a>
               </Grid>
               <Grid item xs={12}>
-                <Grid container spacing={16} wrap="nowrap">
-                  <Grid item xs={4}>
+                <Grid
+                  container
+                  spacing={16}
+                  wrap="nowrap"
+                  justifyContent="space-between"
+                >
+                  <Grid item xs={6}>
                     <a
-                      href="https://www.linkedin.com/in/koundinyap/"
+                      href={linkedinLink}
                       className={classes.anchorElement}
                       target={"_blank"}
                     >
@@ -194,9 +183,9 @@ const MessageMeHere = () => {
                       LinkedIn
                     </a>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <a
-                      href="https://github.com/koundinyapidaparthy/"
+                      href={githubLink}
                       className={classes.anchorElement}
                       target={"_blank"}
                     >
@@ -206,20 +195,6 @@ const MessageMeHere = () => {
                         }
                       />
                       Github
-                    </a>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <a
-                      href="https://www.instagram.com/_.koundinya/"
-                      className={classes.anchorElement}
-                      target={"_blank"}
-                    >
-                      <InstagramIcon
-                        className={
-                          classes.anchorIcons + " " + classes.emailIcon
-                        }
-                      />
-                      Instagram
                     </a>
                   </Grid>
                 </Grid>
