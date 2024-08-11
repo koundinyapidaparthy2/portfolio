@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => {
       scrollBehavior: "smooth",
       overflowX: "hidden",
       position: "relative",
-      height: `calc(100vh - 100px)`,
+      height: `100vh`,
       marginLeft: "80px",
       [theme.breakpoints.down("md")]: {
         marginLeft: "0px",
