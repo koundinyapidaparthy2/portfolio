@@ -142,7 +142,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
               height: "20px",
             }}
             loading="lazy"
-            onClick={() => moveToTheElement(3)}
+            onClick={() => moveToTheElement(6)}
           />
         </Tooltip>
         <Tooltip
