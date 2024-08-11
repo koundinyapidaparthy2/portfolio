@@ -8,9 +8,9 @@ const PDFView = lazy(() => import("../Components/PDFView"));
 const ConfettiAnimation = lazy(() =>
   import("../Components/Animations/Confitee")
 );
+const NotFound = lazy(() => import("../Components/NotFound"));
 
 const AllRoutes = () => {
-  const [celebrate, setCelebrate] = React.useState(true);
   return (
     <Provider store={store}>
       <BrowserRouter basename="/portfolio">
@@ -19,6 +19,7 @@ const AllRoutes = () => {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/pdfView" element={<PDFView />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

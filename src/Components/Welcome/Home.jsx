@@ -7,7 +7,7 @@ const Home = ({ mainAnimations }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: `calc(${window.innerHeight} - 100px)`,
+        height: `calc(${window.innerHeight}px - 100px)`,
         justifyContent: "center",
         position: "relative",
         opacity: mainAnimations.homeVisibility.opacity,

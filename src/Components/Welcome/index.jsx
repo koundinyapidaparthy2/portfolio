@@ -1,18 +1,19 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { makeStyles } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 import Home from "./Home";
 import About from "./About";
-import Skills from "./Skills";
-import Projects from "./Projects";
-import Interests from "./Interests";
 import SideBar from "../Animations/SideBar";
 import ScrollIndicator from "../Animations/ScrollIndicator";
 import "../../index.css";
 import MessageMeHere from "../MessageMeHere";
 import { confettiAction } from "../../actions";
+import Fallback from "../Fallback";
+const Skills = lazy(() => import("./Skills"));
+const Projects = lazy(() => import("./Projects"));
+const Interests = lazy(() => import("./Interests"));
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -335,15 +336,21 @@ const Welcome = () => {
           <section id="about">
             <About mainAnimations={mainAnimations} />
           </section>
-          <section id="skills">
-            <Skills mainAnimations={mainAnimations} />
-          </section>
-          <section id="projects">
-            <Projects mainAnimations={mainAnimations} />
-          </section>
-          <section id="interests">
-            <Interests scrollChildElementNow={scrollChildElementNow} />
-          </section>
+          <Suspense fallback={<Fallback />}>
+            <section id="skills">
+              <Skills mainAnimations={mainAnimations} />
+            </section>
+          </Suspense>
+          <Suspense fallback={<Fallback />}>
+            <section id="projects">
+              <Projects mainAnimations={mainAnimations} />
+            </section>
+          </Suspense>
+          <Suspense fallback={<Fallback />}>
+            <section id="interests">
+              <Interests scrollChildElementNow={scrollChildElementNow} />
+            </section>
+          </Suspense>
         </Grid>
       </Grid>
     </div>
