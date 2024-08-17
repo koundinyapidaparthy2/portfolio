@@ -8,7 +8,7 @@ import About from "./About";
 import SideBar from "../Animations/SideBar";
 import ScrollIndicator from "../Animations/ScrollIndicator";
 import "../../index.css";
-import MessageMeHere from "../MessageMeHere";
+import MessageMeHere from "../MessageMeHere/MessageMeHere";
 import { confettiAction } from "../../actions";
 import Fallback from "../Fallback";
 const Skills = lazy(() => import("./Skills"));
@@ -276,6 +276,7 @@ const Welcome = () => {
     }
   }
   function moveToTheElement(value) {
+    dispatch(confettiAction.pending({}));
     if (value === 1) {
       mainDivRef.current.scrollTo(0, 0);
     }
@@ -289,14 +290,11 @@ const Welcome = () => {
       mainDivRef.current.scrollTo(0, mainDivRef.current.scrollHeight);
     }
 
-    // header scrolls
-
     if (value === 5) {
       mainDivRef.current.scrollTo(0, 1250);
     }
     if (value === 6) {
       mainDivRef.current.scrollTo(0, 2000);
-      dispatch(confettiAction.pending({}));
     }
   }
   React.useEffect(() => {

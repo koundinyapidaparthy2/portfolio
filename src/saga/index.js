@@ -1,7 +1,7 @@
 import { all, fork } from "redux-saga/effects";
-import confettiSaga from "./confettiSaga";
-
-const sagas = [confettiSaga];
+import confetti from "./confetti";
+import initApp from "./initApp";
+const sagas = [confetti, initApp];
 export default function* rootSaga() {
   yield all(sagas.map((each) => fork(each)));
 }

@@ -1,15 +1,21 @@
 import React from "react";
-import { render } from "react-dom";
-import "./index.css";
 import App from "./App";
+import store from "./store/store";
+import { render } from "react-dom";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./theme";
+import "./index.css";
+import { initAppAction } from "./actions";
+store.dispatch(initAppAction.pending());
 render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,9 +1,15 @@
-import { combineReducers } from "redux";
-
-import confettiReducer from "./confettiReducer";
+import { combineReducers } from "redux-immutable";
+import { reducer as formReducer } from "redux-form";
+import confetti from "./confetti";
+import initApp from "./initApp";
+const reducers = {
+  confetti,
+  initApp,
+};
 
 const rootReducer = combineReducers({
-  confetti: confettiReducer,
+  ...reducers,
+  form: formReducer,
 });
 
 export default rootReducer;

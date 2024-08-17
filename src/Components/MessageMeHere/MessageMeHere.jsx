@@ -8,13 +8,8 @@ import GitHub from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
-import {
-  contactNumber,
-  contactEmail,
-  altEmail,
-  linkedinLink,
-  githubLink,
-} from "../data";
+import Fallback from "../Fallback";
+
 const useStyles = makeStyles(() => {
   return {
     dialogRoot: {
@@ -71,9 +66,20 @@ const useStyles = makeStyles(() => {
     },
   };
 });
-const MessageMeHere = () => {
+const MessageMeHere = ({
+  contactNumber,
+  contactEmail,
+  altEmail,
+  linkedinLink,
+  githubLink,
+  loading,
+}) => {
   const classes = useStyles();
+
   const [openModal, setModalOpen] = React.useState(false);
+  if (loading) {
+    return <Fallback />;
+  }
   return (
     <Fragment>
       <Tooltip

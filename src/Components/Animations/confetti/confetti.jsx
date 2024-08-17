@@ -1,11 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import Confetti from "react-confetti";
 
-const ConfettiAnimation = () => {
-  const trigger = useSelector((state) => state.confetti.trigger);
-  console.log({ trigger });
+const ConfettiAnimation = ({ trigger }) => {
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = React.useState(window.innerHeight);
 
