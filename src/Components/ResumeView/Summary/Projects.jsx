@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
-import Fallback from "../../Fallback";
+
 const useStyles = makeStyles(() => ({
   titleHeader: {
     fontSize: "13px",
@@ -21,9 +21,7 @@ const useStyles = makeStyles(() => ({
 
 const Projects = ({ projects, loading }) => {
   const classes = useStyles();
-  if (loading) {
-    return <Fallback />;
-  }
+
   return (
     <Grid item xs={12}>
       <Grid container justifyContent="center" spacing={2}>

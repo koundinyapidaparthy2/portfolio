@@ -1,6 +1,6 @@
 import { INIT_APP, INIT_APP_SUCCESS } from "../actions/types";
 import { fromJS } from "immutable";
-import { setInitApp } from "../selectors";
+import { setInitAppPersonalData, setInitAppLoading } from "../selectors";
 const initialState = fromJS({
   loading: false,
   personalDetails: {},
@@ -9,12 +9,12 @@ const initialState = fromJS({
 const initApp = (state = initialState, { type, payload }) => {
   switch (type) {
     case INIT_APP:
-      return setInitApp(state, { loading: true });
+      return setInitAppLoading(state, true);
     case INIT_APP_SUCCESS:
-      return setInitApp(state, {
-        personalDetails: payload.personalDetails,
-        loading: false,
-      });
+      return setInitAppPersonalData(
+        setInitAppLoading(state, false),
+        payload.personalDetails
+      );
     default:
       return state;
   }

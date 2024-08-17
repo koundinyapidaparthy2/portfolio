@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
-import Fallback from "../../Fallback";
 const useStyles = makeStyles((theme) => ({
   titleHeader: {
     backgroundImage: theme.palette.background.paper,
@@ -18,12 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EducationSection = ({ loading, education }) => {
+const EducationSection = ({ education }) => {
   const classes = useStyles();
 
-  if (loading) {
-    return <Fallback />;
-  }
   return (
     <Grid item xs={12}>
       <Grid container justifyContent="center" spacing={2}>

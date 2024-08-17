@@ -3,7 +3,6 @@ import { INIT_APP } from "../actions/types";
 import { initAppAction } from "../actions/index";
 
 function* triggerInitSaga() {
-  console.log("hello");
   const contactNumber = 5512298860;
   const contactEmail = "koundinya.pidaparthy@pace.edu";
   const altEmail = "koundinya.pidaparthy@gmail.com";

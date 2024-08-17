@@ -4,15 +4,10 @@ import PersonalInfo from "./PersonalInfo";
 import { getInitAppLoading, getPersonalDetails } from "../../../selectors";
 const stateProps = (state) => {
   const loading = getInitAppLoading(state);
-  const { contactNumber, contactEmail, altEmail, linkedinLink, githubLink } =
-    getPersonalDetails(state) || {};
+  const { mypersonalDetails } = getPersonalDetails(state) || {};
   return {
-    contactNumber,
-    contactEmail,
-    altEmail,
-    linkedinLink,
-    githubLink,
     loading,
+    mypersonalDetails,
   };
 };
 

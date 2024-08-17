@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
-import Fallback from "../../Fallback";
 const useStyles = makeStyles(() => ({
   titleHeader: {
     fontSize: "13px",
@@ -19,11 +18,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SkillsSection = ({ loading, skills }) => {
+const SkillsSection = ({ skills }) => {
   const classes = useStyles();
-  if (loading) {
-    return <Fallback />;
-  }
+
   return (
     <Grid item xs={12}>
       <Grid container spacing={2} justifyContent="center">

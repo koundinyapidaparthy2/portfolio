@@ -6,6 +6,7 @@ const stateProps = (state) => {
   const loading = getInitAppLoading(state);
   const { education, skills, experience, projects } =
     getPersonalDetails(state) || {};
+
   return {
     loading,
     education,

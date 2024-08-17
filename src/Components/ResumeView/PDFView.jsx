@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "./Header";
 import PersonalInfo from "./PersonalInfo";
-import Summary from "./Summary/Summary";
+import Summary from "./Summary";
 import ContactButtons from "./ContactButton";
 import { useNavigate } from "react-router-dom";
 
