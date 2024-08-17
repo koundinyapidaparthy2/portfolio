@@ -12,7 +12,7 @@ function* trackAnalyticsSaga({ payload }) {
     };
     yield put(trackAnalytics.success({}));
   } catch (error) {
-    console.log(error);
+    trackAnalytics.error({ error });
   }
 }
 

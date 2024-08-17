@@ -6,10 +6,7 @@ export const setInitAppLoading = (state, payload) => {
 };
 export const getInitAppLoading = createSelector(
   (state) => state.getIn(["initApp", "loading"], false),
-  (trigger) => {
-    console.log(trigger);
-    return trigger;
-  }
+  (trigger) => trigger
 );
 
 export const setInitAppPersonalData = (state, payload) => {

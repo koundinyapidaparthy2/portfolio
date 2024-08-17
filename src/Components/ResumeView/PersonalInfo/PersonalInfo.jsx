@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PersonalInfo = ({ loading, mypersonalDetails }) => {
-  console.log({ loading });
   const classes = useStyles();
   if (loading) {
     return <Fallback />;

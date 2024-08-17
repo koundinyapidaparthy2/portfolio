@@ -64,7 +64,7 @@ function* acitvateAnalyticsSaga({ payload }) {
       })
     );
   } catch (error) {
-    console.log(error);
+    activateAnalytics.error({ error });
   }
 }
 
