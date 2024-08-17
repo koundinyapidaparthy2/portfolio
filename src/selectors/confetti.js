@@ -3,6 +3,6 @@ export const setConfettiTrigger = (state, payload) => {
   return state.setIn(["trigger"], payload);
 };
 export const getConfettiTrigger = createSelector(
-  (state) => state.getIn(["trigger"], false),
+  (state) => state.getIn(["confetti", "trigger"], false),
   (trigger) => trigger
 );

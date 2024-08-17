@@ -1,8 +1,9 @@
 import * as types from "./types";
 function createAction(actionName) {
   return {
-    pending: () => ({
+    pending: (payload) => ({
       type: `${actionName}`,
+      payload,
     }),
     success: (payload) => ({
       type: `${actionName}_SUCCESS`,
@@ -18,3 +19,4 @@ function createAction(actionName) {
 export const confettiAction = createAction(types.CONFETTI_ANIMATION);
 export const initAppAction = createAction(types.INIT_APP);
 export const activateAnalytics = createAction(types.ACTIVATE_ANALYTICS);
+export const trackAnalytics = createAction(types.TRACK_ANALYTICS);

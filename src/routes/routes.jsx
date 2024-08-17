@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Welcome from "../Components/Welcome/index";
+import Welcome from "../Components/Welcome";
 import Fallback from "../Components/Fallback";
+import ActivateTrack from "../Components/ActiateTrack";
 const PDFView = lazy(() => import("../Components/ResumeView/PDFView"));
 
 const ConfettiAnimation = lazy(() =>
@@ -14,6 +15,7 @@ const AllRoutes = () => {
     <BrowserRouter basename="/portfolio">
       <Suspense fallback={<Fallback />}>
         <ConfettiAnimation />
+        <ActivateTrack />
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/pdfView" element={<PDFView />} />

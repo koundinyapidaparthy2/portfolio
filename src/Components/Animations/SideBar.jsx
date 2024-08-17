@@ -37,6 +37,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
         display: "flex",
         alignItems: "center",
         position: "fixed",
+        zIndex: 2,
       }}
       className={"sideBarSmallClass"}
     >

@@ -39,7 +39,7 @@ const getNetworkSpeed = () => {
   });
 };
 
-function* acitvateAnalyticsSaga({ location = {} }) {
+function* acitvateAnalyticsSaga({ payload }) {
   const deviceAndBrowser = getDeviceAndBrowser();
   const networkSpeed = yield call(getNetworkSpeed);
   const performanceMetrics = {
@@ -48,17 +48,19 @@ function* acitvateAnalyticsSaga({ location = {} }) {
       window.performance.timing.navigationStart,
   };
   try {
-    const userDetails = {
-      ...location,
+    const meta = {
+      ...payload,
       device: deviceAndBrowser.device,
       browser: deviceAndBrowser.browser,
       network: networkSpeed,
       performance: performanceMetrics,
     };
-    console.log({ userDetails });
+    const trackerToken = "test";
+    console.log({ meta });
     yield put(
       activateAnalytics.success({
-        userDetails,
+        meta,
+        trackerToken,
       })
     );
   } catch (error) {
