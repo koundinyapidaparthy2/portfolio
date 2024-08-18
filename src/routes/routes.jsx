@@ -11,6 +11,11 @@ const ConfettiAnimation = lazy(() =>
 const NotFound = lazy(() => import("../Components/NotFound"));
 
 const AllRoutes = () => {
+  React.useEffect(() => {
+    if (window.location.pathname === "/") {
+      window.location.href = "/portfolio";
+    }
+  }, [window.location.pathname]);
   return (
     <BrowserRouter basename="/portfolio">
       <Suspense fallback={<Fallback />}>
