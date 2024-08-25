@@ -6,7 +6,6 @@ import { getActivateTrackToken } from "../selectors";
 function* trackAnalyticsSaga({ payload }) {
   try {
     const trackerToken = yield select(getActivateTrackToken);
-    console.log({ trackerToken, payload });
     const userDetails = {
       ...payload,
     };

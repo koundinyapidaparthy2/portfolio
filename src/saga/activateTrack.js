@@ -56,7 +56,6 @@ function* acitvateAnalyticsSaga({ payload }) {
       performance: performanceMetrics,
     };
     const trackerToken = "test";
-    console.log({ meta });
     yield put(
       activateAnalytics.success({
         meta,

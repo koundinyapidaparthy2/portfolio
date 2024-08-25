@@ -2,7 +2,7 @@ import { INIT_APP, INIT_APP_SUCCESS } from "../actions/types";
 import { fromJS } from "immutable";
 import { setInitAppPersonalData, setInitAppLoading } from "../selectors";
 const initialState = fromJS({
-  loading: false,
+  loading: true,
   personalDetails: {},
 });
 

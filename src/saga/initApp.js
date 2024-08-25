@@ -8,6 +8,7 @@ function* triggerInitSaga() {
   const altEmail = "koundinya.pidaparthy@gmail.com";
   const linkedinLink = "https://www.linkedin.com/in/koundinyap/";
   const githubLink = "https://github.com/koundinyapidaparthy2";
+  const portfolioLink = "https://koundinyapidaparthy2.github.io/portfolio";
 
   const mypersonalDetails = [
     {
@@ -211,6 +212,7 @@ function* triggerInitSaga() {
         altEmail,
         linkedinLink,
         githubLink,
+        portfolioLink,
         mypersonalDetails,
         education,
         experience,

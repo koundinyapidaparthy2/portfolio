@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => {
     },
     link: {
       color: "transparent",
+      background: theme.palette.background.paper,
       fontWeight: 600,
       marginRight: theme.spacing(2),
       cursor: "pointer",
@@ -32,7 +33,6 @@ const useStyles = makeStyles((theme) => {
       overflow: "hidden",
       display: "inline-block",
       fontSize: "16px",
-      background: theme.palette.background.paper,
       WebkitBackgroundClip: "text",
       backgroundClip: "text",
       transition: "color 0.3s",
@@ -62,13 +62,7 @@ const useStyles = makeStyles((theme) => {
       },
     },
     buttonView: {
-      background: theme.palette.background.default,
-      color: theme.palette.primary.main,
-      fontWeight: 600,
-      fontSize: "10px",
-      boxShadow: "rgb(126 120 120 / 40%) 0px 0px 29px 0px",
-      cursor: "pointer",
-      zIndex: 1,
+      ...(theme || {} || {}).commonStyles.buttonVariant1,
       [theme.breakpoints.down("xs")]: {
         display: "none",
       },
@@ -116,7 +110,7 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
   };
 
   function goToAestheticView() {
-    navigate("/pdfView");
+    navigate("/pdf");
   }
 
   return (

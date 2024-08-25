@@ -4,7 +4,7 @@ import Welcome from "../Components/Welcome";
 import Fallback from "../Components/Fallback";
 import ActivateTrack from "../Components/ActiateTrack";
 const PDFView = lazy(() => import("../Components/ResumeView/PDFView"));
-
+const EditEntirePdfView = lazy(() => import("../Components/EditEntireResume"));
 const ConfettiAnimation = lazy(() =>
   import("../Components/Animations/confetti")
 );
@@ -23,7 +23,8 @@ const AllRoutes = () => {
         <ActivateTrack />
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="/pdfView" element={<PDFView />} />
+          <Route path="/pdf" element={<PDFView />} />
+          <Route path="/editPdf" element={<EditEntirePdfView />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

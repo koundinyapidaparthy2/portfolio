@@ -1,5 +1,4 @@
-import { combineReducers } from "redux-immutable";
-import { reducer as formReducer } from "redux-form";
+import { combineReducers } from "redux-immutablejs";
 import confetti from "./confetti";
 import initApp from "./initApp";
 import activateTrack from "./activateTrack";
@@ -11,7 +10,6 @@ const reducers = {
 
 const rootReducer = combineReducers({
   ...reducers,
-  form: formReducer,
 });
 
 export default rootReducer;

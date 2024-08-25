@@ -6,7 +6,6 @@ import Header from "./Header";
 import PersonalInfo from "./PersonalInfo";
 import Summary from "./Summary";
 import ContactButtons from "./ContactButton";
-import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   pdfViewCOntainer: {
@@ -21,11 +20,6 @@ const useStyles = makeStyles(() => ({
 
 const PDFView = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
-
-  function goToAestheticView() {
-    navigate("/");
-  }
 
   return (
     <Grid
@@ -35,7 +29,7 @@ const PDFView = () => {
     >
       <Grid item xs={11} sm={11} md={10} lg={9}>
         <Grid container justifyContent="center">
-          <Header onAestheticView={goToAestheticView} />
+          <Header />
           <PersonalInfo />
           <Summary />
           <ContactButtons />

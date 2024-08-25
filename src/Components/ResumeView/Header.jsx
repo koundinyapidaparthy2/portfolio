@@ -2,22 +2,11 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   buttonView: {
-    background: theme.palette.background.default,
-    color: theme.palette.primary.main,
-    fontWeight: 600,
-    padding: "4px 15px !important",
-    fontSize: "10px",
-    boxShadow: "rgb(126 120 120 / 40%) 0px 0px 29px 0px",
-    cursor: "pointer",
-    "&.Mui-disabled": {
-      background: `${theme.palette.background.paper} !important`,
-      color: theme.palette.primary.main,
-      opacity: 0.8,
-      cursor: "none",
-    },
+    ...(theme || {} || {}).commonStyles.buttonVariant1,
   },
   navigateHeader: {
     margin: "10px 0px 20px 0px",
@@ -26,6 +15,15 @@ const useStyles = makeStyles((theme) => ({
 
 const HeaderSection = ({ onAestheticView }) => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const goToAestheticView = () => {
+    navigate("/");
+  };
+  const goToEditPdfView = () => {
+    navigate("/editPdf");
+  };
+
   return (
     <Grid item xs={12} className={classes.navigateHeader}>
       <Grid
@@ -35,17 +33,21 @@ const HeaderSection = ({ onAestheticView }) => {
         alignItems="center"
       >
         <Grid item>
-          <Button variant="contained" className={classes.buttonView} disabled>
-            PDF VIEW
+          <Button
+            variant="contained"
+            className={classes.buttonView}
+            onClick={goToAestheticView}
+          >
+            AESTHETIC VIEW
           </Button>
         </Grid>
         <Grid item>
           <Button
             variant="contained"
             className={classes.buttonView}
-            onClick={onAestheticView}
+            onClick={goToEditPdfView}
           >
-            AESTHETIC VIEW
+            EDIT PDF VIEW
           </Button>
         </Grid>
       </Grid>
