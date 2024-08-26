@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import TextField from "../ReusedComponents/TextField";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import PersonalImage from "../../Images/PersonalImage.jpg";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 const useStyles = makeStyles((theme) => ({
   editResumeHeader: {
-    ...(theme || {} || {}).commonStyles.textVariant2,
+    ...((theme || {}).commonStyles || {}).textVariant2,
   },
   profileImageContainer: {
     display: "flex",
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
   },
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
     marginTop: "10px",
     [theme.breakpoints.down("xs")]: {
       display: "none",
@@ -108,8 +108,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
         >
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="Phone Number"
               type="tel"
               value={details.contactNumber}
@@ -118,8 +116,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="Email"
               type="email"
               value={details.contactEmail}
@@ -128,8 +124,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="Alternate Email"
               type="email"
               value={details.altEmail}
@@ -138,8 +132,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="LinkedIn"
               type="url"
               value={details.linkedinLink}
@@ -148,8 +140,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="GitHub"
               type="url"
               value={details.githubLink}
@@ -158,8 +148,6 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              fullWidth
-              variant="outlined"
               label="Portfolio"
               type="url"
               value={details.portfolioLink}

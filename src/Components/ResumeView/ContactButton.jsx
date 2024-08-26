@@ -1,16 +1,16 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
-import Tooltip from "@material-ui/core/Tooltip";
-import GetAppRoundedIcon from "@material-ui/icons/GetAppRounded";
-import PhoneRoundedIcon from "@material-ui/icons/PhoneRounded";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
-import { makeStyles } from "@material-ui/core/styles";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import Tooltip from "@mui/material/Tooltip";
+import GetAppRoundedIcon from "@mui/icons-material/GetAppRounded";
+import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
   },
   rounded: {
     borderRadius: "10px",

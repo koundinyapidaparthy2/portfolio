@@ -1,7 +1,7 @@
 // PDFView.js
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import { makeStyles } from "@mui/styles";
 import Header from "./Header";
 import PersonalInfo from "./PersonalInfo";
 import Summary from "./Summary";

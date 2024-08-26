@@ -1,8 +1,8 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import { makeStyles } from "@mui/styles";
 import PeronalImage1 from "../../../Images/PeronalImage1.jpg";
 import Fallback from "../../Fallback";
 const useStyles = makeStyles((theme) => ({

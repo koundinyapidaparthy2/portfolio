@@ -4,7 +4,7 @@ import store from "./store/store";
 import { render } from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@mui/styles";
 import { theme } from "./theme";
 import "./index.css";
 import { initAppAction } from "./actions";

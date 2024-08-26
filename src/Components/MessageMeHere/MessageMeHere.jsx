@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Tooltip from "@material-ui/core/Tooltip";
-import Grid from "@material-ui/core/Grid";
-import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
-import Dialog from "@material-ui/core/Dialog";
-import GitHub from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailIcon from "@material-ui/icons/Email";
-import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
+import { makeStyles } from "@mui/styles";
+import Tooltip from "@mui/material/Tooltip";
+import Grid from "@mui/material/Grid";
+import ChatRoundedIcon from "@mui/icons-material/ChatRounded";
+import Dialog from "@mui/material/Dialog";
+import GitHub from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Fallback from "../Fallback";
 
 const useStyles = makeStyles(() => {

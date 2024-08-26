@@ -1,11 +1,10 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import { makeStyles } from "@mui/styles";
 import ProjectsImg from "../../Images/Projects.png";
 import AboutImg from "../../Images/About.png";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import HandWave from "../../Images/HandWave.gif";
-
 import Interest from "../../Images/Interest.png";
 
 const useStyles = makeStyles((theme) => {

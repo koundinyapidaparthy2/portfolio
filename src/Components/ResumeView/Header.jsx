@@ -1,12 +1,12 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
   },
   navigateHeader: {
     margin: "10px 0px 20px 0px",

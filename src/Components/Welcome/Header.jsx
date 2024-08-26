@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@mui/styles";
+import Grid from "@mui/material/Grid";
 import Logo from "../../Mp4/LOGO.mp4";
-import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Drawer from "@material-ui/core/Drawer";
-import CloseIcon from "@material-ui/icons/Close";
-import Divider from "@material-ui/core/Divider";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
+import CloseIcon from "@mui/icons-material/Close";
+import Divider from "@mui/material/Divider";
 const useStyles = makeStyles((theme) => {
   return {
     logo: {
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => {
       },
     },
     buttonView: {
-      ...(theme || {} || {}).commonStyles.buttonVariant1,
+      ...((theme || {}).commonStyles || {}).buttonVariant1,
       [theme.breakpoints.down("xs")]: {
         display: "none",
       },

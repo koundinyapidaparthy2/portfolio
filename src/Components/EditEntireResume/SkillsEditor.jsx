@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-import Button from "@material-ui/core/Button";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
+import TextField from "../ReusedComponents/TextField";
+import Button from "@mui/material/Button";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 const useStyles = makeStyles((theme) => ({
   editResumeHeader: {
-    ...(theme || {} || {}).commonStyles.textVariant2,
+    ...((theme || {}).commonStyles || {}).textVariant2,
   },
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
   },
 }));
 
@@ -118,11 +118,7 @@ const SkillsEditor = ({ skills, onSave }) => {
                           handleSkillChange(index, newValue)
                         }
                         renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            label="Skills"
-                            variant="outlined"
-                          />
+                          <TextField {...params} label="Skills" />
                         )}
                       />
                     </Grid>

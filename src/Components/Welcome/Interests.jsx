@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import TravelImage from "../../Images/Travel.jpg";
 import physique1 from "../../Images/physique1.jpg";
 import physique2 from "../../Images/physique2.jpg";

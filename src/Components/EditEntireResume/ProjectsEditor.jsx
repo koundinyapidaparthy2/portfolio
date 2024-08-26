@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import TextField from "../ReusedComponents/TextField";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import { makeStyles } from "@material-ui/core/styles";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   editResumeHeader: {
-    ...(theme || {} || {}).commonStyles.textVariant2,
+    ...((theme || {}).commonStyles || {}).textVariant2,
   },
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
   },
 }));
 const ProjectsEditor = ({ projects, onSave }) => {

@@ -5,14 +5,14 @@ import ExpressJsImage from "../../Images/ExpressJs.png";
 import htmlImage from "../../Images/Html.webp";
 import cssImage from "../../Images/Css.webp";
 import reactImage from "../../Images/React.png";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import LPUImage from "../../Images/LPU.png";
 import PaceImage from "../../Images/Pace.png";
 import ChaitanyaImage from "../../Images/Chaitanya.jpeg";
 import Bhashyam from "../../Images/Bhashyam.png";
 import SyscloudImage from "../../Images/Syscloud.png";
 import HornBlowerImage from "../../Images/Hornblower.png";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import Paysfer from "../../Images/Paysfer.jpg";
 import { skillsImages, languagesNames } from "../../data/index.js";
 const useStyles = makeStyles((theme) => {

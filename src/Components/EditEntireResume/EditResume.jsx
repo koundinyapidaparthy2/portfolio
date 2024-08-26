@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 import Fallback from "../Fallback";
 import EducationEditor from "./EducationEditor";
 import ExperienceEditor from "./ExperienceEditor";
 import SkillsEditor from "./SkillsEditor";
 import ProjectsEditor from "./ProjectsEditor";
 import ContactEditor from "./PersonalDetailsEditor";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
   editResumeHeader: {
-    ...(theme || {} || {}).commonStyles.textVariant2,
+    ...((theme || {}).commonStyles || {}).textVariant2,
   },
   buttonView: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
   },
   submit: {
-    ...(theme || {} || {}).commonStyles.buttonVariant1,
+    ...((theme || {}).commonStyles || {}).buttonVariant1,
     fontSize: "14px",
   },
   formActions: {

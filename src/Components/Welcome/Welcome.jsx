@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
-import { makeStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@mui/styles";
+import Grid from "@mui/material/Grid";
 import Header from "./Header";
 import Home from "./Home";
 import About from "./About";

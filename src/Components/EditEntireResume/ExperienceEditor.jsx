@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "../ReusedComponents/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   editResumeHeader: {
-    ...(theme || {} || {}).commonStyles.textVariant2,
+    ...((theme || {}).commonStyles || {}).textVariant2,
   },
 }));
 const ExperienceEditor = ({ experience, onSave }) => {

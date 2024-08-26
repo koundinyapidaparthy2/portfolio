@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   palette: {
@@ -55,28 +55,31 @@ export const theme = createTheme({
       },
     },
   },
-  overrides: {
+  components: {
+    // Customize MUI components here
     MuiTextField: {
-      root: {
-        "& .MuiOutlinedInput-root": {
-          "& fieldset": {
-            borderColor: "#fff",
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "#fff",
+            },
+            "&:hover fieldset": {
+              borderColor: "#fff",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "#fff",
+            },
+            "& input": {
+              color: "#fff",
+            },
           },
-          "&:hover fieldset": {
-            borderColor: "#fff",
-          },
-          "&.Mui-focused fieldset": {
-            borderColor: "#fff",
-          },
-          "& input": {
+          "& .MuiInputLabel-root": {
             color: "#fff",
           },
-        },
-        "& .MuiInputLabel-root": {
-          color: "#fff",
-        },
-        "& .MuiInputLabel-focused": {
-          color: "#fff",
+          "& .MuiInputLabel-focused": {
+            color: "#fff",
+          },
         },
       },
     },

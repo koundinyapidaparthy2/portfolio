@@ -1,9 +1,9 @@
 import React from "react";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import { motion, AnimatePresence } from "framer-motion";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { makeStyles } from "@material-ui/core/styles";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { makeStyles } from "@mui/styles";
 import { projectsImages, ProjectsInformation } from "../../data/index.js";
 import { wrap } from "popmotion";
 
