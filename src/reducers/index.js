@@ -1,4 +1,4 @@
-import { combineReducers } from "redux-immutablejs";
+import { combineReducers } from "redux-immutable";
 import confetti from "./confetti";
 import initApp from "./initApp";
 import activateTrack from "./activateTrack";

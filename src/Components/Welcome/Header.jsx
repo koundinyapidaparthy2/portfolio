@@ -63,8 +63,13 @@ const useStyles = makeStyles((theme) => {
     },
     buttonView: {
       ...((theme || {}).commonStyles || {}).buttonVariant1,
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("md")]: {
         display: "none",
+      },
+    },
+    smallButtonView: {
+      [theme.breakpoints.down("md")]: {
+        display: "inline-flex",
       },
     },
     menuButton: {
@@ -303,7 +308,7 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
 
               <Button
                 variant="contained"
-                className={classes.buttonView}
+                className={classes.buttonView + " " + classes.smallButtonView}
                 onClick={() => {
                   goToAestheticView();
                   toggleDrawer(false)();

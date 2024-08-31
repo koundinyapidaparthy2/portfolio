@@ -4,7 +4,7 @@ import store from "./store/store";
 import { render } from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { theme } from "./theme";
 import "./index.css";
 import { initAppAction } from "./actions";
@@ -13,7 +13,9 @@ render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <StyledEngineProvider injectFirst>
+          <App />
+        </StyledEngineProvider>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
