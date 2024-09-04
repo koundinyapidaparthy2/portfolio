@@ -94,6 +94,7 @@ const useStyles = makeStyles((theme) => {
       width: "60%",
       margin: theme.spacing(1, 0),
       background: theme.palette.background.default,
+      height: "1px",
       marginBottom: theme.spacing(3),
       marginTop: theme.spacing(3),
     },
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => {
       width: "10px",
       height: "10px",
       fontSize: theme.font.size.small,
-      padding: theme.spacing(4),
+      padding: `${theme.spacing(4)} !important`,
     },
   };
 });
@@ -117,6 +118,10 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
   function goToAestheticView() {
     navigate("/pdf");
   }
+
+  const goToEditPdfView = () => {
+    navigate("/editPdf");
+  };
 
   return (
     <Grid
@@ -242,7 +247,13 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
               <Grid item>
                 <IconButton
                   edge="start"
-                  className={classes.buttonView + " " + classes.closeIcon}
+                  className={
+                    classes.buttonView +
+                    " " +
+                    classes.closeIcon +
+                    " " +
+                    classes.smallButtonView
+                  }
                   onClick={toggleDrawer(false)}
                 >
                   <CloseIcon fontSize="small" />
@@ -315,6 +326,18 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
                 }}
               >
                 PDF VIEW
+              </Button>
+              <Divider className={classes.divider} />
+
+              <Button
+                variant="contained"
+                className={classes.buttonView + " " + classes.smallButtonView}
+                onClick={() => {
+                  goToEditPdfView();
+                  toggleDrawer(false)();
+                }}
+              >
+                EDIT PDF VIEW
               </Button>
             </Grid>
           </Grid>
