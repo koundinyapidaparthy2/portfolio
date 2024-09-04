@@ -10,12 +10,132 @@ import { wrap } from "popmotion";
 const useStyles = makeStyles((theme) => {
   return {
     tooltipArrowClass: {
-      color: "white",
+      color: theme.palette.primary.main,
     },
     tooltipClassForLanguagesUsed: {
+      background: theme.palette.primary.main,
+      color: "black",
+      fontSize: theme.font.size.small,
+    },
+    projectsWrapper: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+      height: "100vh",
+      justifyContent: "center",
+    },
+    projectsContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    projectsArrowButton: {
+      width: "20px",
+      height: "20px",
+      padding: "10px",
       background: "white",
       color: "black",
+      borderRadius: "50%",
+      marginRight: "-50px",
+      cursor: "pointer",
+      zIndex: 1,
+    },
+    motionAnimationContainer: {
+      width: "80vw",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    motionAnimationDiv: {
+      marginBottom: "20px",
+      fontSize: "40px",
+      fontWeight: "bold",
+      position: "relative",
+      overflow: "hidden",
+    },
+    projectsImageHeaderBar: {
+      width: "5px",
+      height: "100px",
+      background: "black",
+      position: "absolute",
+      transform: "rotate(45deg)",
+      marginTop: "-25px",
+      marginLeft: "-50px",
+      animation: "$moveTheBar 5s linear 2s infinite alternate",
+    },
+    motionDiv2: {
+      width: "50vw",
+      height: "25vw",
+      backgroundSize: "cover",
+      borderRadius: "8px",
+      boxShadow: "rgb(126 120 120 / 40%) 7px 7px 29px 0px",
+    },
+    motionP: {
+      margin: "20px 0px 20px 0px",
+      fontSize: theme.font.size.medium,
+      textAlign: "center",
+    },
+    motionP2: {
+      marginBottom: "20px",
+      fontSize: theme.font.size.medium,
+      display: "flex",
+      alignItems: "center",
+    },
+    languageUsedWrapper: {
+      padding: "5px 5px",
+      background: "white",
+      borderRadius: "4px",
+      color: "black",
+      fontWeight: "bold",
       fontSize: "12px",
+      position: "relative",
+    },
+    languageUsedContainer: {
+      width: "10px",
+      height: "10px",
+      background: "white",
+      transform: "rotate(45deg)",
+      position: "absolute",
+      marginLeft: "90px",
+      marginTop: "2.5px",
+      borderBottomLeftRadius: "50%",
+    },
+    indexDivider: {
+      width: "10px",
+      height: "3px",
+      border: "0px",
+      background: "white",
+      borderRadius: "6px",
+      margin: "0px 6px",
+    },
+    motionImage: {
+      width: "30px",
+      height: "30px",
+      borderRadius: "50%",
+    },
+    motionForwardIcon: {
+      width: "20px",
+      height: "20px",
+      padding: "10px",
+      background: "white",
+      color: "black",
+      borderRadius: "50%",
+      marginLeft: "-50px",
+      cursor: "pointer",
+      zIndex: 1,
+    },
+    motionProjectInformationContainer: {
+      display: "flex",
+      alignItems: "center",
+    },
+    "@keyframes moveTheBar": {
+      from: {
+        marginLeft: "-50px",
+      },
+      to: {
+        marginLeft: "300px",
+      },
     },
   };
 });
@@ -47,71 +167,26 @@ const Projects = ({ mainAnimations }) => {
   return (
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        height: "100vh",
-        justifyContent: "center",
         opacity: mainAnimations.projects.opacity,
       }}
+      className={classes.projectsWrapper}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className={classes.projectsContainer}>
         <ArrowBackIcon
           onClick={() => paginate(-1)}
-          style={{
-            width: "20px",
-            height: "20px",
-            padding: "10px",
-            background: "white",
-            color: "black",
-            borderRadius: "50%",
-            marginRight: "-50px",
-            cursor: "pointer",
-            zIndex: 1,
-          }}
+          className={classes.projectsArrowButton}
         />
         <AnimatePresence initial={false} custom={direction}>
-          <div
-            style={{
-              width: "80vw",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className={classes.motionAnimationContainer}>
             <motion.div
               key={ProjectsInformation[imageIndex].headerLabel}
               custom={direction}
               variants={variants}
               initial="enter"
               animate="center"
-              style={{
-                marginBottom: "20px",
-                fontSize: "40px",
-                fontWeight: "bold",
-                position: "relative",
-                overflow: "hidden",
-              }}
+              className={classes.motionAnimationDiv}
             >
-              <div
-                style={{
-                  width: "5px",
-                  height: "100px",
-                  background: "black",
-                  position: "absolute",
-                  transform: "rotate(45deg)",
-                  marginTop: "-25px",
-                  marginLeft: "-50px",
-                }}
-                className={"imageHeaderBar"}
-              ></div>
+              <div className={classes.projectsImageHeaderBar}></div>
               {ProjectsInformation[imageIndex].headerLabel}
             </motion.div>
             <a
@@ -142,13 +217,9 @@ const Projects = ({ mainAnimations }) => {
                     paginate(-1);
                   }
                 }}
+                className={classes.motionDiv2}
                 style={{
-                  width: "50vw",
-                  height: "25vw",
                   backgroundImage: `url(${projectsImages[imageIndex]})`,
-                  backgroundSize: "cover",
-                  borderRadius: "8px",
-                  boxShadow: "rgb(126 120 120 / 40%) 7px 7px 29px 0px",
                 }}
               />
             </a>
@@ -159,11 +230,7 @@ const Projects = ({ mainAnimations }) => {
               variants={variants}
               initial="enter"
               animate="center"
-              style={{
-                margin: "20px 0px 20px 0px",
-                fontSize: "14px",
-                textAlign: "center",
-              }}
+              className={classes.motionP}
             >
               {ProjectsInformation[imageIndex].about}
             </motion.p>
@@ -173,37 +240,10 @@ const Projects = ({ mainAnimations }) => {
               variants={variants}
               initial="enter"
               animate="center"
-              style={{
-                marginBottom: "20px",
-                fontSize: "14px",
-                display: "flex",
-                alignItems: "center",
-              }}
+              className={classes.motionP2}
             >
-              <div
-                style={{
-                  padding: "5px 5px",
-                  background: "white",
-                  borderRadius: "4px",
-                  color: "black",
-                  fontWeight: "bold",
-                  fontSize: "12px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "10px",
-                    height: "10px",
-                    background: "white",
-                    transform: "rotate(45deg)",
-                    position: "absolute",
-                    marginLeft: "90px",
-                    marginTop: "2.5px",
-
-                    borderBottomLeftRadius: "50%",
-                  }}
-                ></div>
+              <div className={classes.languageUsedWrapper}>
+                <div className={classes.languageUsedContainer}></div>
                 Languages Used
               </div>
 
@@ -213,21 +253,11 @@ const Projects = ({ mainAnimations }) => {
                     <div
                       style={{
                         marginLeft: index === 0 ? "20px" : "",
-                        display: "flex",
-                        alignItems: "center",
                       }}
+                      className={classes.motionProjectInformationContainer}
                     >
                       {index ? (
-                        <div
-                          style={{
-                            width: "10px",
-                            height: "3px",
-                            border: "0px",
-                            background: "white",
-                            borderRadius: "6px",
-                            margin: "0px 6px",
-                          }}
-                        ></div>
+                        <div className={classes.indexDivider}></div>
                       ) : null}
 
                       <Tooltip
@@ -245,11 +275,7 @@ const Projects = ({ mainAnimations }) => {
                       >
                         <motion.img
                           src={eachImage}
-                          style={{
-                            width: "30px",
-                            height: "30px",
-                            borderRadius: "50%",
-                          }}
+                          className={classes.motionImage}
                         />
                       </Tooltip>
                     </div>
@@ -261,17 +287,7 @@ const Projects = ({ mainAnimations }) => {
         </AnimatePresence>
         <ArrowForwardIcon
           onClick={() => paginate(1)}
-          style={{
-            width: "20px",
-            height: "20px",
-            padding: "10px",
-            background: "white",
-            color: "black",
-            borderRadius: "50%",
-            marginLeft: "-50px",
-            cursor: "pointer",
-            zIndex: 1,
-          }}
+          className={classes.motionForwardIcon}
         />
       </div>
     </div>

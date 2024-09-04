@@ -10,72 +10,98 @@ import Interest from "../../Images/Interest.png";
 const useStyles = makeStyles((theme) => {
   return {
     mrWhoseTheBossBar: {
-      border: "1px solid #ffffff38",
+      height: "50vh",
+      width: "40px",
+      overflow: "hidden",
+      marginLeft: "20px",
+      display: "flex",
+      justifyContent: "center",
+      border: `1px solid ${theme.palette.sideBar.borderColor}`,
       borderRadius: "4px",
-      boxShadow: "#ffffff38 0px 0px 24px",
+      boxShadow: `${theme.palette.sideBar.borderColor} 0px 0px 24px`,
+    },
+    mrWhoseTheBossBarHeight: {
+      height: "500vh",
+      width: "100%",
+      background: "white",
+      boxShadow: "rgb(255 255 255 / 94%) 0px 0px 24px",
     },
     tooltipClass: {
-      background: "white",
+      background: theme.palette.primary.main,
       color: "black",
-      fontSize: "12px",
+      fontSize: theme.font.size.small,
       marginLeft: "20px",
     },
     tooltipArrowClass: {
-      color: "white",
+      color: theme.palette.primary.main,
+    },
+    sideBarCustomSmall: {
+      width: "80px",
+      height: "100vh",
+      display: "flex",
+      alignItems: "center",
+      position: "fixed",
+      zIndex: 2,
+      [theme.breakpoints.down("c3")]: {
+        display: "none !important",
+      },
+    },
+    prayIcon: {
+      marginTop: "1vh",
+      position: "absolute",
+      cursor: "pointer",
+    },
+    aboutTooltip: {
+      marginTop: "17vh",
+      position: "absolute",
+      cursor: "pointer",
+      width: "20px",
+      height: "20px",
+    },
+    projectTooltip: {
+      marginTop: "31.5vh",
+      position: "absolute",
+      cursor: "pointer",
+      width: "20px",
+      height: "20px",
+    },
+    intersetTootlTip: {
+      marginTop: "47vh",
+      position: "absolute",
+      cursor: "pointer",
+      width: "20px",
+      height: "20px",
+    },
+    welcomeTooltip: {
+      display: "flex",
+      alignItems: "center",
+    },
+    handWaveImageWelcome: {
+      marginLeft: "5px",
     },
   };
 });
 const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
   const classes = useStyles();
   return (
-    <Grid
-      item
-      style={{
-        width: "80px",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        position: "fixed",
-        zIndex: 2,
-      }}
-      className={"sideBarSmallClass"}
-    >
-      <Grid
-        container
-        style={{
-          height: "50vh",
-          width: "40px",
-          overflow: "hidden",
-          marginLeft: "20px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-        className={classes.mrWhoseTheBossBar}
-      >
+    <Grid item className={classes.sideBarCustomSmall}>
+      <Grid container className={classes.mrWhoseTheBossBar}>
         <Grid
           item
           style={{
-            height: "500vh",
-            width: "100%",
-            background: "white",
             marginTop: mrWhoseTheBossBarHeight || "-495vh",
-            boxShadow: "rgb(255 255 255 / 94%) 0px 0px 24px",
           }}
+          className={classes.mrWhoseTheBossBarHeight}
         ></Grid>
         <Tooltip
           title={
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+            <div className={classes.welcomeTooltip}>
               <span>Welcome</span>
               <img
                 src={HandWave}
                 width={"20px"}
                 height={"20px"}
-                style={{ marginLeft: "5px" }}
+                className={classes.handWaveImageWelcome}
                 loading="lazy"
               />
             </div>
@@ -89,12 +115,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
         >
           <Grid
             item
-            style={{
-              marginTop: "1vh",
-              position: "absolute",
-              cursor: "pointer",
-              fontSize: "",
-            }}
+            className={classes.prayIcon}
             onClick={() => moveToTheElement(1)}
           >
             🙏
@@ -112,13 +133,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
         >
           <img
             src={AboutImg}
-            style={{
-              marginTop: "17vh",
-              position: "absolute",
-              cursor: "pointer",
-              width: "20px",
-              height: "20px",
-            }}
+            className={classes.aboutTooltip}
             loading="lazy"
             onClick={() => moveToTheElement(2)}
           />
@@ -134,13 +149,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
         >
           <img
             src={ProjectsImg}
-            style={{
-              marginTop: "31.5vh",
-              position: "absolute",
-              cursor: "pointer",
-              width: "20px",
-              height: "20px",
-            }}
+            className={classes.projectTooltip}
             loading="lazy"
             onClick={() => moveToTheElement(6)}
           />
@@ -156,13 +165,7 @@ const SideBar = ({ mrWhoseTheBossBarHeight, moveToTheElement }) => {
         >
           <img
             src={Interest}
-            style={{
-              marginTop: "47vh",
-              position: "absolute",
-              cursor: "pointer",
-              width: "20px",
-              height: "20px",
-            }}
+            className={classes.intersetTootlTip}
             loading="lazy"
             onClick={() => moveToTheElement(4)}
           />

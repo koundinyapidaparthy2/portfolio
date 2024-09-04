@@ -8,6 +8,145 @@ import HawaMahal from "../../Images/HawaMahel.jpg";
 import HawaMahalNight from "../../Images/HawaMahalNight.jpeg";
 const useStyles = makeStyles((theme) => {
   return {
+    interestWrapper: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+      height: "100vh",
+      justifyContent: "center",
+      overflow: "scroll",
+      position: "relative",
+      zIndex: 1,
+    },
+    intersetContianer: {
+      height: "95vh",
+      width: "95%",
+      overflowX: "hidden",
+      position: "relative",
+      scrollBehavior: "smooth",
+    },
+    fashionCard1Wrapper: {
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+      position: "relative",
+    },
+    fashionCard1: {
+      borderRadius: "8px",
+      backgroundImage: `url(${FashionImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    fashionCardInnerContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      width: "100%",
+    },
+    fashionCardInnerContainerCard: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      flexDirection: "column",
+    },
+    fashionCardInnerContainerCardText: {
+      fontSize: "40px",
+      fontWeight: "bold",
+      marginTop: "20px",
+    },
+    fashionCardInnerContainerCardSecondaryText: {
+      textAlign: "center",
+    },
+    fashionCard2: {
+      borderRadius: "8px",
+      backgroundImage: `url(${TravelImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    fashionCard3Wrapper: {
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+      position: "relative",
+    },
+    fashionCard3Container: {
+      borderRadius: "8px",
+      backgroundImage: `url(${HawaMahal})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    fashionCard3: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      width: "100%",
+    },
+    fashionCard3InnerGrid: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      flexDirection: "column",
+    },
+    fashionCard3InnerGridText: {
+      fontSize: "40px",
+      fontWeight: "bold",
+      marginTop: "20px",
+    },
+    fashionCard3InnerGridSecondaryText: {
+      textAlign: "center",
+    },
+    fashionCard4: {
+      width: "15vw",
+      height: "40.5vh",
+      borderRadius: "8px",
+      backgroundImage: `url(${HawaMahalNight})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    fashionCard5Wrapper: {
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+      position: "relative",
+    },
+    fashionCard5Container: {
+      width: "15vw",
+      height: "200px",
+      borderRadius: "8px",
+      backgroundImage: `url(${physique1})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    fashionCard5: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      width: "100%",
+    },
+    fashionCard5InnerGrid: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      flexDirection: "column",
+    },
+    fashionCard5InnerGridText: {
+      fontSize: "40px",
+      fontWeight: "bold",
+    },
+    fashionCard5InnerGridSecondaryText: {
+      textAlign: "center",
+    },
+    fashionCard6: {
+      width: "15vw",
+      height: "200px",
+      borderRadius: "8px",
+      backgroundImage: `url(${physique2})`,
+      backgroundSize: "cover",
+      backgroundPosition: "right",
+    },
     scrollGridItem: {
       scrollbarWidth: "none",
       "&::-webkit-scrollbar": {
@@ -90,37 +229,16 @@ const Interests = ({ scrollChildElementNow }) => {
     }
   }
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        height: "100vh",
-        justifyContent: "center",
-        overflow: "scroll",
-        position: "relative",
-        zIndex: 1,
-      }}
-      className={classes.scrollGridItem}
-    >
+    <div className={classes.interestWrapper + " " + classes.scrollGridItem}>
       <div
         style={{
-          height: "95vh",
-          width: "95%",
           overflowY: scrollChildElementNow ? "scroll" : "hidden",
-          overflowX: "hidden",
-          position: "relative",
-          scrollBehavior: "smooth",
         }}
         onScroll={interestDivScroll}
-        className={classes.scrollGridItem}
+        className={classes.intersetContianer + " " + classes.scrollGridItem}
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            position: "relative",
             opacity: interestStateData.fashion.opacity || 1,
             ...(eventInnerWidth < 760
               ? {
@@ -130,14 +248,11 @@ const Interests = ({ scrollChildElementNow }) => {
                   height: "60vh",
                 }),
           }}
+          className={classes.fashionCard1Wrapper}
         >
           <div
             id={"fashionCard1"}
             style={{
-              borderRadius: "8px",
-              backgroundImage: `url(${FashionImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               ...(eventInnerWidth > 760
                 ? {
                     position: "absolute",
@@ -153,25 +268,12 @@ const Interests = ({ scrollChildElementNow }) => {
                     height: "25vh",
                   }),
             }}
-            className={"fashionCard1"}
+            className={classes.fashionCard1}
           />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "100%",
-              width: "100%",
-            }}
-          >
+          <div className={classes.fashionCardInnerContainer}>
             <div
               id={"card"}
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
-                flexDirection: "column",
-
                 ...(eventInnerWidth < 760
                   ? {
                       width: "75%",
@@ -183,22 +285,17 @@ const Interests = ({ scrollChildElementNow }) => {
                       height: "40.5vh",
                     }),
               }}
+              className={classes.fashionCardInnerContainerCard}
             >
               <div
                 style={{
-                  fontSize: "40px",
-                  fontWeight: "bold",
-                  marginTop: "20px",
                   ...(eventInnerWidth < 760 ? {} : { marginTop: "15vh" }),
                 }}
+                className={classes.fashionCardInnerContainerCardText}
               >
                 Fashion
               </div>
-              <p
-                style={{
-                  textAlign: "center",
-                }}
-              >
+              <p className={classes.fashionCardInnerContainerCardSecondaryText}>
                 I always try to present myself in a more fashionable way. so
                 that I feel more confident.
                 <br />I was planning to participate in fashion shows in the
@@ -210,11 +307,8 @@ const Interests = ({ scrollChildElementNow }) => {
 
           <div
             id={"fashionCard2"}
+            className={classes.fashionCard2}
             style={{
-              borderRadius: "8px",
-              backgroundImage: `url(${TravelImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               ...(eventInnerWidth > 760
                 ? {
                     position: "absolute",
@@ -234,10 +328,6 @@ const Interests = ({ scrollChildElementNow }) => {
         </div>
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            position: "relative",
             opacity: interestStateData.photography.opacity || 1,
             ...(eventInnerWidth < 760
               ? {
@@ -247,15 +337,11 @@ const Interests = ({ scrollChildElementNow }) => {
                   height: "60vh",
                 }),
           }}
+          className={classes.fashionCard3Wrapper}
         >
           <div
             id={"card"}
             style={{
-              borderRadius: "8px",
-              backgroundImage: `url(${HawaMahal})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-
               ...(eventInnerWidth > 760
                 ? {
                     position: "absolute",
@@ -272,24 +358,12 @@ const Interests = ({ scrollChildElementNow }) => {
                     marginTop: "10vh",
                   }),
             }}
+            className={classes.fashionCard3Container}
           />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "100%",
-              width: "100%",
-            }}
-          >
+          <div className={classes.fashionCard3}>
             <div
               id={"card"}
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
-                flexDirection: "column",
-
                 ...(eventInnerWidth < 760
                   ? {
                       width: "75%",
@@ -301,21 +375,12 @@ const Interests = ({ scrollChildElementNow }) => {
                       height: "40.5vh",
                     }),
               }}
+              className={classes.fashionCard3InnerGrid}
             >
-              <div
-                style={{
-                  fontSize: "40px",
-                  fontWeight: "bold",
-                  marginTop: "20px",
-                }}
-              >
+              <div className={classes.fashionCard3InnerGridText}>
                 Photography
               </div>
-              <p
-                style={{
-                  textAlign: "center",
-                }}
-              >
+              <p className={classes.fashionCard3InnerGridSecondaryText}>
                 I like mobile photography a lot.
                 <br />
                 It makes my mind more color full and creative 👀.
@@ -326,13 +391,8 @@ const Interests = ({ scrollChildElementNow }) => {
 
           <div
             id={"card"}
+            className={classes.fashionCard4}
             style={{
-              width: "15vw",
-              height: "40.5vh",
-              borderRadius: "8px",
-              backgroundImage: `url(${HawaMahalNight})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               ...(eventInnerWidth > 760
                 ? {
                     position: "absolute",
@@ -352,11 +412,8 @@ const Interests = ({ scrollChildElementNow }) => {
           />
         </div>
         <div
+          className={classes.fashionCard5Wrapper}
           style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            position: "relative",
             opacity: interestStateData.fitness.opacity || 1,
             ...(eventInnerWidth < 760
               ? {
@@ -369,13 +426,8 @@ const Interests = ({ scrollChildElementNow }) => {
         >
           <div
             id={"card"}
+            className={classes.fashionCard5Container}
             style={{
-              width: "15vw",
-              height: "200px",
-              borderRadius: "8px",
-              backgroundImage: `url(${physique1})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
               ...(eventInnerWidth > 760
                 ? {
                     marginLeft: "10vw",
@@ -387,22 +439,11 @@ const Interests = ({ scrollChildElementNow }) => {
                   }),
             }}
           />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "100%",
-              width: "100%",
-            }}
-          >
+          <div className={classes.fashionCard5}>
             <div
               id={"card"}
+              className={classes.fashionCard5InnerGrid}
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
                 ...(eventInnerWidth < 760
                   ? {
                       width: "75%",
@@ -416,20 +457,14 @@ const Interests = ({ scrollChildElementNow }) => {
               }}
             >
               <div
+                className={classes.fashionCard5InnerGridText}
                 style={{
-                  fontSize: "40px",
-                  fontWeight: "bold",
-
                   ...(eventInnerWidth < 760 ? {} : { marginTop: "15vh" }),
                 }}
               >
                 Fitness
               </div>
-              <p
-                style={{
-                  textAlign: "center",
-                }}
-              >
+              <p className={classes.fashionCard5InnerGridSecondaryText}>
                 My yoga, workout, and diet help me control depression and
                 anxiety.
                 <br />
@@ -441,13 +476,8 @@ const Interests = ({ scrollChildElementNow }) => {
 
           <div
             id={"card"}
+            className={classes.fashionCard6}
             style={{
-              width: "15vw",
-              height: "200px",
-              borderRadius: "8px",
-              backgroundImage: `url(${physique2})`,
-              backgroundSize: "cover",
-              backgroundPosition: "right",
               ...(eventInnerWidth > 760
                 ? {
                     position: "absolute",

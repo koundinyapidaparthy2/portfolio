@@ -1,22 +1,18 @@
-import React, { useState } from "react";
-import TextField from "../ReusedComponents/TextField";
+import React, { useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles((theme) => ({
-  editResumeHeader: {
-    ...((theme || {}).commonStyles || {}).textVariant2,
-  },
-  buttonView: {
-    ...((theme || {}).commonStyles || {}).buttonVariant1,
-  },
-}));
-const ProjectsEditor = ({ projects, onSave }) => {
-  const classes = useStyles();
+import Divider from "@mui/material/Divider";
+import { withStyles } from "@mui/styles";
+import styles from "./styles";
+
+const ProjectsEditor = ({ classes, projects, onSave }) => {
+  const [isAddProjectEnabled, setIsAddProjectEnabled] = useState(false);
+
   const handleChange = (index, name, value) => {
     const updatedProjects = [...projects];
     updatedProjects[index] = { ...updatedProjects[index], [name]: value };
@@ -71,16 +67,72 @@ const ProjectsEditor = ({ projects, onSave }) => {
     onSave(updatedProjects);
   };
 
+  const handleAddProject = () => {
+    const updatedProjects = [
+      {
+        name: "",
+        Stack: "",
+        date: "",
+        points: [],
+        website: { url: "", text: "" },
+        github: [],
+      },
+      ...projects,
+    ];
+    onSave(updatedProjects);
+  };
+  const handleRemoveProjects = (index) => {
+    const updatedProjects = projects.filter((_, i) => i !== index);
+    onSave(updatedProjects);
+  };
+
+  useEffect(() => {
+    const allFieldsFilled = projects.every(
+      (currProject) =>
+        currProject.name.trim() !== "" &&
+        currProject.Stack.trim() !== "" &&
+        currProject.date.trim() !== "" &&
+        currProject.points.every((point) => point.trim() !== "") &&
+        currProject.website.url.trim() !== "" &&
+        currProject.website.text.trim() !== "" &&
+        currProject.github.every(
+          (github) => github.text.trim() !== "" && github.url.trim() !== ""
+        )
+    );
+    setIsAddProjectEnabled(allFieldsFilled);
+  }, [projects]);
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
       <Grid item xs={12}>
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          className={classes.editResumeHeader}
+        <Grid
+          container
+          spacing={1}
+          alignItems={"center"}
+          justifyContent={"space-between"}
         >
-          Projects
-        </Typography>
+          <Grid item>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              className={classes.editResumeHeader}
+            >
+              Projects
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.buttonView}
+              onClick={handleAddProject}
+              disabled={!isAddProjectEnabled}
+            >
+              <AddCircleOutlineIcon
+                color="primary"
+                className={classes.addButtonStyles}
+              />
+              Add New Project
+            </Button>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid item xs={11}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -93,9 +145,28 @@ const ProjectsEditor = ({ projects, onSave }) => {
                 alignItems="center"
               >
                 <Grid item xs={12}>
-                  <Typography variant="subtitle1">
-                    Project {index + 1}
-                  </Typography>
+                  <Grid
+                    container
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                  >
+                    <Grid item>
+                      <Typography variant="subtitle1">
+                        Project {index + 1}
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        className={classes.buttonView}
+                        onClick={() => handleRemoveProjects(index)}
+                      >
+                        <RemoveCircleOutlineIcon
+                          color="primary"
+                          className={classes.removeButtonStyles}
+                        />
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 <Grid item xs={12}>
                   <Grid
@@ -148,7 +219,7 @@ const ProjectsEditor = ({ projects, onSave }) => {
                               justifyContent="space-between"
                               alignItems="center"
                             >
-                              <Grid item xs={11}>
+                              <Grid item xs={10} sm={10} md={11} lg={11}>
                                 <TextareaAutosize
                                   minRows={2}
                                   placeholder={`Point ${pointIndex + 1}`}
@@ -160,7 +231,7 @@ const ProjectsEditor = ({ projects, onSave }) => {
                                       e.target.value
                                     )
                                   }
-                                  style={{ width: "100%", padding: "8px" }}
+                                  className={classes.pointsAutoSize}
                                 />
                               </Grid>
                               <Grid item>
@@ -170,7 +241,10 @@ const ProjectsEditor = ({ projects, onSave }) => {
                                     handleRemovePoint(index, pointIndex)
                                   }
                                 >
-                                  <RemoveCircleOutlineIcon color="primary" />
+                                  <RemoveCircleOutlineIcon
+                                    color="primary"
+                                    className={classes.removeButtonStyles}
+                                  />
                                 </Button>
                               </Grid>
                             </Grid>
@@ -183,7 +257,11 @@ const ProjectsEditor = ({ projects, onSave }) => {
                                 className={classes.buttonView}
                                 onClick={() => handleAddPoint(index)}
                               >
-                                <AddCircleOutlineIcon color="primary" />
+                                <AddCircleOutlineIcon
+                                  color="primary"
+                                  className={classes.addButtonStyles}
+                                />{" "}
+                                Add Points
                               </Button>
                             </Grid>
                           </Grid>
@@ -315,7 +393,12 @@ const ProjectsEditor = ({ projects, onSave }) => {
                                             )
                                           }
                                         >
-                                          <RemoveCircleOutlineIcon color="primary" />
+                                          <RemoveCircleOutlineIcon
+                                            color="primary"
+                                            className={
+                                              classes.removeButtonStyles
+                                            }
+                                          />
                                         </Button>
                                       </Grid>
                                     </Grid>
@@ -330,7 +413,11 @@ const ProjectsEditor = ({ projects, onSave }) => {
                                     className={classes.buttonView}
                                     onClick={() => handleAddGithub(index)}
                                   >
-                                    <AddCircleOutlineIcon color="primary" />
+                                    <AddCircleOutlineIcon
+                                      color="primary"
+                                      className={classes.addButtonStyles}
+                                    />
+                                    Add Github Links
                                   </Button>
                                 </Grid>
                               </Grid>
@@ -342,6 +429,7 @@ const ProjectsEditor = ({ projects, onSave }) => {
                   </Grid>
                 </Grid>
               </Grid>
+              <Divider className={classes.divider} />
             </Grid>
           ))}
         </Grid>
@@ -350,4 +438,4 @@ const ProjectsEditor = ({ projects, onSave }) => {
   );
 };
 
-export default ProjectsEditor;
+export default withStyles(styles)(ProjectsEditor);

@@ -12,7 +12,7 @@ import ChaitanyaImage from "../../Images/Chaitanya.jpeg";
 import Bhashyam from "../../Images/Bhashyam.png";
 import SyscloudImage from "../../Images/Syscloud.png";
 import HornBlowerImage from "../../Images/Hornblower.png";
-import { makeStyles } from "@mui/styles";
+import { makeStyles, useTheme } from "@mui/styles";
 import Paysfer from "../../Images/Paysfer.jpg";
 import { skillsImages, languagesNames } from "../../data/index.js";
 const useStyles = makeStyles((theme) => {
@@ -20,19 +20,18 @@ const useStyles = makeStyles((theme) => {
     tooltipClass: {
       background: "white",
       color: "black",
-      fontSize: "12px",
+      fontSize: theme.font.size.small,
       marginLeft: "20px",
     },
     tooltipClassForExperience: {
-      backgroundColor: "#4158D0",
-      backgroundImage:
-        "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+      backgroundColor: theme.palette.third.main,
+      backgroundImage: theme.palette.background.default,
       color: "white",
-      fontSize: "12px",
+      fontSize: theme.font.size.small,
       marginTop: "35px",
     },
     tooltipArrowClassForExperience: {
-      color: "#4158D0",
+      color: theme.palette.third.main,
     },
     tooltipArrowClass: {
       color: "white",
@@ -40,11 +39,12 @@ const useStyles = makeStyles((theme) => {
     tooltipClassForLanguagesUsed: {
       background: "white",
       color: "black",
-      fontSize: "12px",
+      fontSize: theme.font.size.small,
     },
   };
 });
 const Certifications = ({ mainAnimations }) => {
+  const theme = useTheme();
   const hbJoinDate = new Date("11/15/2023");
   const today = new Date();
   const daysDifference = (today - hbJoinDate) / (1000 * 3600 * 24);
@@ -86,10 +86,9 @@ const Certifications = ({ mainAnimations }) => {
             style={{
               padding: "10px 20px",
               borderRadius: "20px",
-              backgroundColor: "#4158D0",
-              backgroundImage:
-                "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-              fontSize: "16px",
+              backgroundColor: theme.palette.third.main,
+              backgroundImage: theme.palette.background.default,
+              fontSize: theme.font.size.large,
               fontWeight: "bold",
               width: "max-content",
             }}
@@ -122,8 +121,8 @@ const Certifications = ({ mainAnimations }) => {
                 <div
                   style={{
                     padding: "0px 0px 4px 0px",
-                    borderTop: "3px solid #4eb1d9",
-                    borderLeft: "3px solid #4eb1d9",
+                    borderTop: `3px solid ${theme.palette.background.downBlue}`,
+                    borderLeft: `3px solid ${theme.palette.background.downBlue}`,
                     width: "20px",
                     height: "3px",
                     margin: "0px 10px 0px 140px",
@@ -144,10 +143,9 @@ const Certifications = ({ mainAnimations }) => {
                     style={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: "#0093E9",
-                      backgroundImage:
-                        "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                      fontSize: "16px",
+                      backgroundColor: theme.palette.background.markBlue,
+                      backgroundImage: theme.palette.background.paper,
+                      fontSize: theme.font.size.large,
                       fontWeight: "bold",
 
                       marginRight: "10px",
@@ -190,8 +188,8 @@ const Certifications = ({ mainAnimations }) => {
                 <div
                   style={{
                     padding: "0px 0px 4px 0px",
-                    borderTop: "3px solid #4eb1d9",
-                    borderLeft: "3px solid #4eb1d9",
+                    borderTop: `3px solid ${theme.palette.background.downBlue}`,
+                    borderLeft: `3px solid ${theme.palette.background.downBlue}`,
                     width: "20px",
                     height: "3px",
                     margin: "0px 10px 0px 140px",
@@ -212,10 +210,9 @@ const Certifications = ({ mainAnimations }) => {
                     style={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: "#0093E9",
-                      backgroundImage:
-                        "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                      fontSize: "16px",
+                      backgroundColor: theme.palette.background.markBlue,
+                      backgroundImage: theme.palette.background.paper,
+                      fontSize: theme.font.size.large,
                       fontWeight: "bold",
 
                       marginRight: "10px",
@@ -258,8 +255,8 @@ const Certifications = ({ mainAnimations }) => {
                 <div
                   style={{
                     padding: "0px 0px 4px 0px",
-                    borderTop: "3px solid #4eb1d9",
-                    borderLeft: "3px solid #4eb1d9",
+                    borderTop: `3px solid ${theme.palette.background.downBlue}`,
+                    borderLeft: `3px solid ${theme.palette.background.downBlue}`,
                     width: "20px",
                     height: "3px",
                     margin: "0px 10px 0px 140px",
@@ -280,10 +277,9 @@ const Certifications = ({ mainAnimations }) => {
                     style={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: "#0093E9",
-                      backgroundImage:
-                        "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                      fontSize: "16px",
+                      backgroundColor: theme.palette.background.markBlue,
+                      backgroundImage: theme.palette.background.paper,
+                      fontSize: theme.font.size.large,
                       fontWeight: "bold",
 
                       marginRight: "10px",
@@ -326,8 +322,8 @@ const Certifications = ({ mainAnimations }) => {
                 <div
                   style={{
                     padding: "0px 0px 4px 0px",
-                    borderTop: "3px solid #4eb1d9",
-                    borderLeft: "3px solid #4eb1d9",
+                    borderTop: `3px solid ${theme.palette.background.downBlue}`,
+                    borderLeft: `3px solid ${theme.palette.background.downBlue}`,
                     width: "20px",
                     height: "3px",
                     margin: "0px 10px 0px 60px",
@@ -337,10 +333,9 @@ const Certifications = ({ mainAnimations }) => {
                   style={{
                     padding: "10px 20px",
                     borderRadius: "20px",
-                    backgroundColor: "#0093E9",
-                    backgroundImage:
-                      "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                    fontSize: "16px",
+                    backgroundColor: theme.palette.background.markBlue,
+                    backgroundImage: theme.palette.background.paper,
+                    fontSize: theme.font.size.large,
                     fontWeight: "bold",
                     width: "max-content",
                   }}
@@ -362,10 +357,9 @@ const Certifications = ({ mainAnimations }) => {
               style={{
                 padding: "10px 20px",
                 borderRadius: "20px",
-                backgroundColor: "#0093E9",
-                backgroundImage:
-                  "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                fontSize: "16px",
+                backgroundColor: theme.palette.background.markBlue,
+                backgroundImage: theme.palette.background.paper,
+                fontSize: theme.font.size.large,
                 fontWeight: "bold",
                 width: "max-content",
               }}
@@ -390,8 +384,8 @@ const Certifications = ({ mainAnimations }) => {
               <div
                 style={{
                   padding: "4px 0px 0px 0px",
-                  borderLeft: "3px solid #4eb1d9",
-                  borderBottom: "3px solid #4eb1d9",
+                  borderLeft: `3px solid ${theme.palette.background.downBlue}`,
+                  borderBottom: `3px solid ${theme.palette.background.downBlue}`,
                   width: "20px",
                   height: "3px",
                   margin: "0px 10px 0px 60px",
@@ -401,10 +395,9 @@ const Certifications = ({ mainAnimations }) => {
                 style={{
                   padding: "10px 20px",
                   borderRadius: "20px",
-                  backgroundColor: "#0093E9",
-                  backgroundImage:
-                    "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                  fontSize: "16px",
+                  backgroundColor: theme.palette.background.markBlue,
+                  backgroundImage: theme.palette.background.paper,
+                  fontSize: theme.font.size.large,
                   fontWeight: "bold",
                   width: "max-content",
                 }}
@@ -430,8 +423,8 @@ const Certifications = ({ mainAnimations }) => {
               <div
                 style={{
                   padding: "4px 0px 0px 0px",
-                  borderLeft: "3px solid #4eb1d9",
-                  borderBottom: "3px solid #4eb1d9",
+                  borderLeft: `3px solid ${theme.palette.background.downBlue}`,
+                  borderBottom: `3px solid ${theme.palette.background.downBlue}`,
                   width: "20px",
                   height: "3px",
                   margin: "0px 10px 0px 140px",
@@ -452,10 +445,9 @@ const Certifications = ({ mainAnimations }) => {
                   style={{
                     padding: "10px 20px",
                     borderRadius: "20px",
-                    backgroundColor: "#0093E9",
-                    backgroundImage:
-                      "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                    fontSize: "16px",
+                    backgroundColor: theme.palette.background.markBlue,
+                    backgroundImage: theme.palette.background.paper,
+                    fontSize: theme.font.size.large,
                     fontWeight: "bold",
                     marginRight: "10px",
                     display: "flex",
@@ -496,8 +488,8 @@ const Certifications = ({ mainAnimations }) => {
               <div
                 style={{
                   padding: "4px 0px 0px 0px",
-                  borderLeft: "3px solid #4eb1d9",
-                  borderBottom: "3px solid #4eb1d9",
+                  borderLeft: `3px solid ${theme.palette.background.downBlue}`,
+                  borderBottom: `3px solid ${theme.palette.background.downBlue}`,
                   width: "20px",
                   height: "3px",
                   margin: "0px 10px 0px 140px",
@@ -516,10 +508,9 @@ const Certifications = ({ mainAnimations }) => {
                   style={{
                     padding: "10px 20px",
                     borderRadius: "20px",
-                    backgroundColor: "#0093E9",
-                    backgroundImage:
-                      "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                    fontSize: "16px",
+                    backgroundColor: theme.palette.background.markBlue,
+                    backgroundImage: theme.palette.background.paper,
+                    fontSize: theme.font.size.large,
                     fontWeight: "bold",
                     marginRight: "10px",
                     display: "flex",
@@ -560,8 +551,8 @@ const Certifications = ({ mainAnimations }) => {
               <div
                 style={{
                   padding: "4px 0px 0px 0px",
-                  borderLeft: "3px solid #4eb1d9",
-                  borderBottom: "3px solid #4eb1d9",
+                  borderLeft: `3px solid ${theme.palette.background.downBlue}`,
+                  borderBottom: `3px solid ${theme.palette.background.downBlue}`,
                   width: "20px",
                   height: "3px",
                   margin: "0px 10px 0px 140px",
@@ -582,10 +573,9 @@ const Certifications = ({ mainAnimations }) => {
                   style={{
                     padding: "10px 20px",
                     borderRadius: "20px",
-                    backgroundColor: "#0093E9",
-                    backgroundImage:
-                      "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                    fontSize: "16px",
+                    backgroundColor: theme.palette.background.markBlue,
+                    backgroundImage: theme.palette.background.paper,
+                    fontSize: theme.font.size.large,
                     fontWeight: "bold",
                     marginRight: "10px",
                     display: "flex",
@@ -626,8 +616,8 @@ const Certifications = ({ mainAnimations }) => {
               <div
                 style={{
                   padding: "4px 0px 0px 0px",
-                  borderLeft: "3px solid #4eb1d9",
-                  borderBottom: "3px solid #4eb1d9",
+                  borderLeft: `3px solid ${theme.palette.background.downBlue}`,
+                  borderBottom: `3px solid ${theme.palette.background.downBlue}`,
                   width: "20px",
                   height: "3px",
                   margin: "0px 10px 0px 140px",
@@ -648,10 +638,9 @@ const Certifications = ({ mainAnimations }) => {
                   style={{
                     padding: "10px 20px",
                     borderRadius: "20px",
-                    backgroundColor: "#0093E9",
-                    backgroundImage:
-                      "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
-                    fontSize: "16px",
+                    backgroundColor: theme.palette.background.markBlue,
+                    backgroundImage: theme.palette.background.paper,
+                    fontSize: theme.font.size.large,
                     fontWeight: "bold",
 
                     marginRight: "10px",
@@ -691,10 +680,9 @@ const Certifications = ({ mainAnimations }) => {
             style={{
               padding: "10px 20px",
               borderRadius: "20px",
-              backgroundColor: "#4158D0",
-              backgroundImage:
-                "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-              fontSize: "16px",
+              backgroundColor: theme.palette.third.main,
+              backgroundImage: theme.palette.background.default,
+              fontSize: theme.font.size.large,
               fontWeight: "bold",
               width: "max-content",
             }}
@@ -727,7 +715,7 @@ const Certifications = ({ mainAnimations }) => {
                       target={"_blank"}
                       style={{
                         textDecoration: "none",
-                        color: "#4158D0",
+                        color: theme.palette.third.main,
                       }}
                       rel="noreferrer"
                     >
@@ -774,7 +762,7 @@ const Certifications = ({ mainAnimations }) => {
               />
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: theme.font.size.small,
                 }}
               >
                 Going On
@@ -799,7 +787,7 @@ const Certifications = ({ mainAnimations }) => {
                       target={"_blank"}
                       style={{
                         textDecoration: "none",
-                        color: "#4158D0",
+                        color: theme.palette.third.main,
                       }}
                       rel="noreferrer"
                     >
@@ -808,8 +796,8 @@ const Certifications = ({ mainAnimations }) => {
                     with a 7.63 CGPA.
                     <span
                       style={{
-                        color: "#353535",
-                        fontSize: "10px",
+                        color: theme.palette.skills.yearYouWorkedOn,
+                        fontSize: theme.font.size.xSmall,
                         marginLeft: "10px",
                       }}
                     >
@@ -856,7 +844,7 @@ const Certifications = ({ mainAnimations }) => {
               />
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: theme.font.size.small,
                 }}
               >
                 7.63 CGPA{" "}
@@ -881,7 +869,7 @@ const Certifications = ({ mainAnimations }) => {
                       target={"_blank"}
                       style={{
                         textDecoration: "none",
-                        color: "#4158D0",
+                        color: theme.palette.third.main,
                       }}
                       rel="noreferrer"
                     >
@@ -890,8 +878,8 @@ const Certifications = ({ mainAnimations }) => {
                     with a 93.8 %.
                     <span
                       style={{
-                        color: "#353535",
-                        fontSize: "10px",
+                        color: theme.palette.skills.yearYouWorkedOn,
+                        fontSize: theme.font.size.xSmall,
                         marginLeft: "10px",
                       }}
                     >
@@ -938,7 +926,7 @@ const Certifications = ({ mainAnimations }) => {
               />
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: theme.font.size.small,
                 }}
               >
                 93.8 %{" "}
@@ -963,7 +951,7 @@ const Certifications = ({ mainAnimations }) => {
                       target={"_blank"}
                       style={{
                         textDecoration: "none",
-                        color: "#0093E9",
+                        color: theme.palette.background.markBlue,
                       }}
                       rel="noreferrer"
                     >
@@ -972,8 +960,8 @@ const Certifications = ({ mainAnimations }) => {
                     with a 9.2 CGPA.
                     <span
                       style={{
-                        color: "#353535",
-                        fontSize: "10px",
+                        color: theme.palette.skills.yearYouWorkedOn,
+                        fontSize: theme.font.size.xSmall,
                         marginLeft: "10px",
                       }}
                     >
@@ -1020,7 +1008,7 @@ const Certifications = ({ mainAnimations }) => {
               />
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: theme.font.size.small,
                 }}
               >
                 9.2 CGPA{" "}
@@ -1042,10 +1030,9 @@ const Certifications = ({ mainAnimations }) => {
             style={{
               padding: "10px 20px",
               borderRadius: "20px",
-              backgroundColor: "#4158D0",
-              backgroundImage:
-                "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-              fontSize: "16px",
+              backgroundColor: theme.palette.third.main,
+              backgroundImage: theme.palette.background.default,
+              fontSize: theme.font.size.large,
               fontWeight: "bold",
               width: "max-content",
             }}
@@ -1110,7 +1097,7 @@ const Certifications = ({ mainAnimations }) => {
                       alignItems: "center",
                       justifyContent: "space-evenly",
                       // height:"6vh",
-                      fontSize: "10px",
+                      fontSize: theme.font.size.xSmall,
                     }}
                   >
                     ⌛ June 2020 - Jul 2022. 2Year 2months
@@ -1186,7 +1173,7 @@ const Certifications = ({ mainAnimations }) => {
                       alignItems: "center",
                       justifyContent: "space-evenly",
                       // height:"6vh",
-                      fontSize: "10px",
+                      fontSize: theme.font.size.xSmall,
                     }}
                   >
                     ⌛ June 2022 - Jul 2023. 1 Year
@@ -1260,7 +1247,7 @@ const Certifications = ({ mainAnimations }) => {
                       alignItems: "center",
                       justifyContent: "space-evenly",
                       // height:"6vh",
-                      fontSize: "10px",
+                      fontSize: theme.font.size.xSmall,
                     }}
                   >
                     ⌛ Nov 2023 - Present.{" "}
@@ -1322,10 +1309,9 @@ const Certifications = ({ mainAnimations }) => {
             style={{
               padding: "10px 20px",
               borderRadius: "20px",
-              backgroundColor: "#4158D0",
-              backgroundImage:
-                "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
-              fontSize: "16px",
+              backgroundColor: theme.palette.third.main,
+              backgroundImage: theme.palette.background.default,
+              fontSize: theme.font.size.large,
               fontWeight: "bold",
               width: "max-content",
             }}
@@ -1350,7 +1336,7 @@ const Certifications = ({ mainAnimations }) => {
                   title={
                     <div
                       style={{
-                        fontSize: "14px",
+                        fontSize: theme.font.size.medium,
                       }}
                     >
                       {languagesNames[index]}

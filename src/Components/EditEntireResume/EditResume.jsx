@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Fallback from "../Fallback";
-import EducationEditor from "./EducationEditor";
-import ExperienceEditor from "./ExperienceEditor";
-import SkillsEditor from "./SkillsEditor";
-import ProjectsEditor from "./ProjectsEditor";
-import ContactEditor from "./PersonalDetailsEditor";
-import { makeStyles } from "@mui/styles";
+import { withStyles } from "@mui/styles";
+import styles from "./styles";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const useStyles = makeStyles((theme) => ({
-  editResumeHeader: {
-    ...((theme || {}).commonStyles || {}).textVariant2,
-  },
-  buttonView: {
-    ...((theme || {}).commonStyles || {}).buttonVariant1,
-  },
-  submit: {
-    ...((theme || {}).commonStyles || {}).buttonVariant1,
-    fontSize: "14px",
-  },
-  formActions: {
-    margin: "40px 0px 30px 0px",
-  },
-}));
-const EditEntireResume = ({ initialValues, loading }) => {
-  const classes = useStyles();
+const ContactEditor = lazy(() => import("./PersonalDetailsEditor"));
+const EducationEditor = lazy(() => import("./EducationEditor"));
+const ExperienceEditor = lazy(() => import("./ExperienceEditor"));
+const SkillsEditor = lazy(() => import("./SkillsEditor"));
+const ProjectsEditor = lazy(() => import("./ProjectsEditor"));
+
+const EditEntireResume = ({ classes, initialValues, loading }) => {
   const navigate = useNavigate();
-
   const [personalDetails, setPersonalDetails] = useState(
     initialValues.contactDetails
   );
@@ -37,6 +26,11 @@ const EditEntireResume = ({ initialValues, loading }) => {
   const [experience, setExperience] = useState(initialValues.experience);
   const [skills, setSkills] = useState(initialValues.skills);
   const [projects, setProjects] = useState(initialValues.projects);
+  const [expanded, setExpanded] = useState("contact");
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   const handleSubmit = () => {};
 
   const goToAestheticView = () => {
@@ -57,9 +51,13 @@ const EditEntireResume = ({ initialValues, loading }) => {
             spacing={2}
             justifyContent="space-between"
             alignItems="center"
+            className={classes.editResumeHeaderWrapper}
           >
             <Grid item>
-              <Typography variant="h6" className={classes.editResumeHeader}>
+              <Typography
+                variant="subtitle1"
+                className={classes.editResumeHeader}
+              >
                 Edit Resume
               </Typography>
             </Grid>
@@ -89,24 +87,123 @@ const EditEntireResume = ({ initialValues, loading }) => {
         </Grid>
       </Grid>
       <Grid item xs={11}>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid
+          container
+          spacing={2}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Grid item xs={12}>
-            <ContactEditor
-              details={personalDetails}
-              onSave={setPersonalDetails}
-            />
+            <Accordion
+              expanded={expanded === "contact"}
+              onChange={handleChange("contact")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                classes={{
+                  root: classes.accodionHeader,
+                }}
+              >
+                <Typography variant="subtitle2">Contact Editor</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Suspense fallback={<Fallback />}>
+                  <ContactEditor
+                    details={personalDetails}
+                    onSave={setPersonalDetails}
+                  />
+                </Suspense>
+              </AccordionDetails>
+            </Accordion>
           </Grid>
           <Grid item xs={12}>
-            <EducationEditor education={education} onSave={setEducation} />
+            {" "}
+            <Accordion
+              expanded={expanded === "education"}
+              onChange={handleChange("education")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                classes={{
+                  root: classes.accodionHeader,
+                }}
+              >
+                <Typography variant="subtitle2">Education Editor</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Suspense fallback={<Fallback />}>
+                  <EducationEditor
+                    education={education}
+                    onSave={setEducation}
+                  />
+                </Suspense>
+              </AccordionDetails>
+            </Accordion>
           </Grid>
           <Grid item xs={12}>
-            <ExperienceEditor experience={experience} onSave={setExperience} />
+            {" "}
+            <Accordion
+              expanded={expanded === "experience"}
+              onChange={handleChange("experience")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                classes={{
+                  root: classes.accodionHeader,
+                }}
+              >
+                <Typography variant="subtitle2">Experience Editor</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Suspense fallback={<Fallback />}>
+                  <ExperienceEditor
+                    experience={experience}
+                    onSave={setExperience}
+                  />
+                </Suspense>
+              </AccordionDetails>
+            </Accordion>
           </Grid>
           <Grid item xs={12}>
-            <SkillsEditor skills={skills} onSave={setSkills} />
+            {" "}
+            <Accordion
+              expanded={expanded === "skills"}
+              onChange={handleChange("skills")}
+            >
+              <AccordionSummary
+                classes={{
+                  root: classes.accodionHeader,
+                }}
+                expandIcon={<ExpandMoreIcon />}
+              >
+                <Typography variant="subtitle2">Skills Editor</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Suspense fallback={<Fallback />}>
+                  <SkillsEditor skills={skills} onSave={setSkills} />
+                </Suspense>
+              </AccordionDetails>
+            </Accordion>
           </Grid>
           <Grid item xs={12}>
-            <ProjectsEditor projects={projects} onSave={setProjects} />
+            <Accordion
+              expanded={expanded === "projects"}
+              onChange={handleChange("projects")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                classes={{
+                  root: classes.accodionHeader,
+                }}
+              >
+                <Typography variant="subtitle2">Projects Editor</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Suspense fallback={<Fallback />}>
+                  <ProjectsEditor projects={projects} onSave={setProjects} />
+                </Suspense>
+              </AccordionDetails>
+            </Accordion>
           </Grid>
         </Grid>
       </Grid>
@@ -120,7 +217,10 @@ const EditEntireResume = ({ initialValues, loading }) => {
               justifyContent="center"
             >
               <Grid item>
-                <Typography className={classes.editResumeHeader}>
+                <Typography
+                  className={classes.editResumeHeader}
+                  onClick={goToPdfView}
+                >
                   cancel
                 </Typography>
               </Grid>
@@ -137,4 +237,4 @@ const EditEntireResume = ({ initialValues, loading }) => {
   );
 };
 
-export default EditEntireResume;
+export default withStyles(styles)(EditEntireResume);

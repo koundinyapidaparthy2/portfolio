@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => {
       position: "relative",
       overflow: "hidden",
       display: "inline-block",
-      fontSize: "16px",
+      fontSize: theme.font.size.medium,
       WebkitBackgroundClip: "text",
       backgroundClip: "text",
       transition: "color 0.3s",
@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => {
     closeIcon: {
       width: "10px",
       height: "10px",
-      fontSize: "10px",
+      fontSize: theme.font.size.small,
       padding: theme.spacing(4),
     },
   };

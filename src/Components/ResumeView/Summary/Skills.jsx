@@ -3,17 +3,17 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   titleHeader: {
     fontSize: "13px",
     marginRight: "4px",
   },
   skillsContent: {
-    fontSize: "12px",
+    fontSize: theme.font.size.small,
     marginRight: "4px",
   },
   divider: {
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.primary.main,
     opacity: 0.7,
   },
 }));

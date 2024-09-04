@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "underline",
   },
   divider: {
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.primary.main,
     opacity: 0.7,
   },
 }));

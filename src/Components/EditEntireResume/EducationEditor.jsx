@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import TextField from "../ReusedComponents/TextField";
+import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles((theme) => ({
-  editResumeHeader: {
-    ...((theme || {}).commonStyles || {}).textVariant2,
-  },
-}));
-const EducationEditor = ({ education, onSave }) => {
-  const classes = useStyles();
+import { withStyles } from "@mui/styles";
+import styles from "./styles";
+
+const EducationEditor = ({ classes, education, onSave }) => {
   const handleChange = (index, name, value) => {
     const updatedEducation = [...education];
     updatedEducation[index] = { ...updatedEducation[index], [name]: value };
@@ -37,7 +33,10 @@ const EducationEditor = ({ education, onSave }) => {
                 alignItems="center"
               >
                 <Grid item xs={12}>
-                  <Typography variant="subtitle1">
+                  <Typography
+                    variant="subtitle1"
+                    className={classes.iteratorTitle}
+                  >
                     Education {index + 1}
                   </Typography>
                 </Grid>
@@ -50,6 +49,7 @@ const EducationEditor = ({ education, onSave }) => {
                   >
                     <Grid item xs={12}>
                       <TextField
+                        fullWidth
                         label="University"
                         value={edu.university}
                         onChange={(e) =>
@@ -59,6 +59,7 @@ const EducationEditor = ({ education, onSave }) => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
+                        fullWidth
                         label="Degree"
                         value={edu.studied}
                         onChange={(e) =>
@@ -68,6 +69,7 @@ const EducationEditor = ({ education, onSave }) => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
+                        fullWidth
                         label="GPA"
                         value={edu.gpa}
                         onChange={(e) =>
@@ -77,6 +79,7 @@ const EducationEditor = ({ education, onSave }) => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
+                        fullWidth
                         label="Graduation Date"
                         value={edu.graduationDate}
                         onChange={(e) =>
@@ -86,6 +89,7 @@ const EducationEditor = ({ education, onSave }) => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
+                        fullWidth
                         label="Location"
                         value={edu.location}
                         onChange={(e) =>
@@ -104,4 +108,4 @@ const EducationEditor = ({ education, onSave }) => {
   );
 };
 
-export default EducationEditor;
+export default withStyles(styles)(EducationEditor);

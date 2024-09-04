@@ -1,41 +1,12 @@
 import React, { useState } from "react";
-import TextField from "../ReusedComponents/TextField";
+import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
 import PersonalImage from "../../Images/PersonalImage.jpg";
 import Button from "@mui/material/Button";
-const useStyles = makeStyles((theme) => ({
-  editResumeHeader: {
-    ...((theme || {}).commonStyles || {}).textVariant2,
-  },
-  profileImageContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: "50%",
-    objectFit: "cover",
-    marginBottom: theme.spacing(2),
-  },
-  imageInput: {
-    display: "none",
-  },
-  buttonView: {
-    ...((theme || {}).commonStyles || {}).buttonVariant1,
-    marginTop: "10px",
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
-  },
-}));
-
-const PersonalDetailsEditor = ({ details, onSave }) => {
-  const classes = useStyles();
-
+import styles from "./styles";
+import { withStyles } from "@mui/styles";
+const PersonalDetailsEditor = ({ classes, details, onSave }) => {
   const [profileImage, setProfileImage] = useState(
     details.profileImage || PersonalImage
   );
@@ -72,15 +43,9 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
       <Grid item xs={12} sm={4} className={classes.profileImageContainer}>
         <div
           style={{
-            width: "10vw",
-            height: "10vw",
-            borderRadius: "50%",
             backgroundImage: `url(${profileImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 1,
-            boxShadow: "rgb(126 120 120 / 40%) 0px 0px 29px 0px",
           }}
+          className={classes.editProfileImage}
         ></div>
         <input
           type="file"
@@ -93,7 +58,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
         <Button
           aria-label="profileImageInput"
           color="primary"
-          className={classes.buttonView}
+          className={classes.personalButtonView}
           onClick={handleButtonClick}
         >
           Change Profile Image
@@ -108,6 +73,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
         >
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="Phone Number"
               type="tel"
               value={details.contactNumber}
@@ -116,6 +82,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="Email"
               type="email"
               value={details.contactEmail}
@@ -124,6 +91,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="Alternate Email"
               type="email"
               value={details.altEmail}
@@ -132,6 +100,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="LinkedIn"
               type="url"
               value={details.linkedinLink}
@@ -140,6 +109,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="GitHub"
               type="url"
               value={details.githubLink}
@@ -148,6 +118,7 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              fullWidth
               label="Portfolio"
               type="url"
               value={details.portfolioLink}
@@ -160,4 +131,4 @@ const PersonalDetailsEditor = ({ details, onSave }) => {
   );
 };
 
-export default PersonalDetailsEditor;
+export default withStyles(styles)(PersonalDetailsEditor);

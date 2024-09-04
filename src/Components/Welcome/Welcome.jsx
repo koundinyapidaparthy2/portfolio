@@ -23,6 +23,9 @@ const trackerMapper = {
 
 const useStyles = makeStyles((theme) => {
   return {
+    welcomeWrapper: {
+      width: "100%",
+    },
     mainGrid: {
       padding: `0 ${theme.spacing(4)}px`,
       position: "relative",
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => {
       zIndex: 2,
       transition: "transform 0.3s ease",
       padding: "0px 20px",
-      background: "#000",
+      background: theme.palette.secondary.main,
     },
     scrollbarGrid: {
       overflowY: "scroll",
@@ -312,7 +315,7 @@ const Welcome = ({ confettiAction, trackAnalytics }) => {
     return () => {};
   }, []);
   return (
-    <div style={{ width: "100%" }}>
+    <div className={classes.welcomeWrapper}>
       <Grid container className={classes.mainGrid}>
         <Grid item xs={12} className={`${classes.headerGrid}`}>
           <Grid item xs={12}>

@@ -5,13 +5,13 @@ import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   titleHeader: {
     fontSize: "13px",
     marginRight: "4px",
   },
   divider: {
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.primary.main,
     opacity: 0.7,
   },
   hyperLink: {

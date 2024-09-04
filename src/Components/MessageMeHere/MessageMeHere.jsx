@@ -10,10 +10,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Fallback from "../Fallback";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
     dialogRoot: {
-      boxShadow: "0px 0px 23px 5px #009af566",
+      boxShadow: `0px 0px 23px 5px ${theme.palette.modal.boxColor}`,
     },
     textMeOverHere: {
       position: "fixed",
@@ -21,9 +21,8 @@ const useStyles = makeStyles(() => {
       left: "20px",
       bottom: "20px",
       borderRadius: "50%",
-      backgroundColor: "rgb(0, 147, 233)",
-      backgroundImage:
-        "linear-gradient(160deg, rgb(0, 147, 233) 0%, rgb(128, 208, 199) 100%)",
+      backgroundColor: theme.palette.modal.header,
+      backgroundImage: theme.palette.background.paper,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -35,34 +34,37 @@ const useStyles = makeStyles(() => {
       },
     },
     messageIcon: {
-      color: "#ffffff",
+      color: theme.palette.primary.main,
       fontSize: "20px",
     },
     anchorElement: {
       textDecoration: "none",
-      color: "#ffffff",
-      fontSize: "16px",
+      color: theme.palette.primary.main,
+      fontSize: theme.font.size.small,
       fontWeight: "bold",
       width: "max-content",
       textAlign: "center",
     },
     modalHeader: {
       padding: "10px",
-      backgroundColor: "rgb(0, 147, 233)",
-      backgroundImage:
-        "linear-gradient(160deg, rgb(0, 147, 233) 0%, rgb(128, 208, 199) 100%)",
-      color: "#ffffff",
+      backgroundColor: theme.palette.modal.header,
+      backgroundImage: theme.palette.background.paper,
+      color: theme.palette.primary.main,
     },
     h3Class: {
       margin: "0px 0px 4px 0px",
     },
     anchorIcons: {
-      fontSize: "16px",
-      color: "#ffffff",
+      fontSize: theme.font.size.medium,
+      color: theme.palette.primary.main,
       marginBottom: "-2px",
     },
     emailIcon: {
       marginRight: "4px",
+    },
+    talkOverTooltip: {
+      display: "flex",
+      alignItems: "center",
     },
   };
 });
@@ -84,12 +86,7 @@ const MessageMeHere = ({
     <Fragment>
       <Tooltip
         title={
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
+          <div className={classes.talkOverTooltip}>
             <span>Let's talk over here</span>
           </div>
         }

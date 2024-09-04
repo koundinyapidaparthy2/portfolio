@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     overflow: "hidden",
     display: "inline-block",
-    fontSize: "16px",
+    fontSize: theme.font.size.medium,
     background: theme.palette.background.paper,
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
