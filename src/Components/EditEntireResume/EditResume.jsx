@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, lazy, Suspense, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Fallback from "../Fallback";
@@ -10,6 +10,8 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { isEqual } from "lodash";
+import Badge from "@mui/material/Badge";
 
 const ContactEditor = lazy(() => import("./PersonalDetailsEditor"));
 const EducationEditor = lazy(() => import("./EducationEditor"));
@@ -27,6 +29,25 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
   const [skills, setSkills] = useState(initialValues.skills);
   const [projects, setProjects] = useState(initialValues.projects);
   const [expanded, setExpanded] = useState("contact");
+
+  // State for change tracking
+  const [contactChanges, setContactChanges] = useState(0);
+  const [educationChanges, setEducationChanges] = useState(0);
+  const [experienceChanges, setExperienceChanges] = useState(0);
+  const [skillsChanges, setSkillsChanges] = useState(0);
+  const [projectsChanges, setProjectsChanges] = useState(0);
+
+  useEffect(() => {
+    setContactChanges(
+      !isEqual(personalDetails, initialValues.contactDetails) ? 1 : 0
+    );
+    setEducationChanges(!isEqual(education, initialValues.education) ? 1 : 0);
+    setExperienceChanges(
+      !isEqual(experience, initialValues.experience) ? 1 : 0
+    );
+    setSkillsChanges(!isEqual(skills, initialValues.skills) ? 1 : 0);
+    setProjectsChanges(!isEqual(projects, initialValues.projects) ? 1 : 0);
+  }, [personalDetails, education, experience, skills, projects, initialValues]);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -104,7 +125,11 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                   root: classes.accodionHeader,
                 }}
               >
-                <Typography variant="subtitle2">Contact Editor</Typography>
+                <Typography variant="subtitle2">
+                  <Badge badgeContent={contactChanges} color="success">
+                    Contact Editor
+                  </Badge>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Suspense fallback={<Fallback />}>
@@ -128,7 +153,11 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                   root: classes.accodionHeader,
                 }}
               >
-                <Typography variant="subtitle2">Education Editor</Typography>
+                <Typography variant="subtitle2">
+                  <Badge badgeContent={educationChanges} color="success">
+                    Education Editor
+                  </Badge>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Suspense fallback={<Fallback />}>
@@ -152,7 +181,11 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                   root: classes.accodionHeader,
                 }}
               >
-                <Typography variant="subtitle2">Experience Editor</Typography>
+                <Typography variant="subtitle2">
+                  <Badge badgeContent={experienceChanges} color="success">
+                    Experience Editor
+                  </Badge>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Suspense fallback={<Fallback />}>
@@ -176,7 +209,11 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                 }}
                 expandIcon={<ExpandMoreIcon />}
               >
-                <Typography variant="subtitle2">Skills Editor</Typography>
+                <Typography variant="subtitle2">
+                  <Badge badgeContent={skillsChanges} color="success">
+                    Skills Editor
+                  </Badge>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Suspense fallback={<Fallback />}>
@@ -196,7 +233,11 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                   root: classes.accodionHeader,
                 }}
               >
-                <Typography variant="subtitle2">Projects Editor</Typography>
+                <Typography variant="subtitle2">
+                  <Badge badgeContent={projectsChanges} color="success">
+                    Projects Editor
+                  </Badge>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Suspense fallback={<Fallback />}>

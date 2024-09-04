@@ -102,7 +102,10 @@ const ExperienceEditor = ({ classes, experience, onSave }) => {
                 alignItems="center"
               >
                 <Grid item xs={12}>
-                  <Typography variant="subtitle1">
+                  <Typography
+                    variant="subtitle1"
+                    className={classes.iteratorTitle}
+                  >
                     Experience {index + 1}
                   </Typography>
                 </Grid>

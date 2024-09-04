@@ -12,6 +12,7 @@
     "framer-motion": "^7.5.1",
     "immutable": "^3.8.2",
     "install": "^0.13.0",
+    "lodash": "^4.17.21",
     "npm": "^10.8.2",
     "popmotion": "^11.0.5",
     "prop-types": "^15.8.1",

@@ -151,7 +151,10 @@ const ProjectsEditor = ({ classes, projects, onSave }) => {
                     alignItems={"center"}
                   >
                     <Grid item>
-                      <Typography variant="subtitle1">
+                      <Typography
+                        variant="subtitle1"
+                        className={classes.iteratorTitle}
+                      >
                         Project {index + 1}
                       </Typography>
                     </Grid>
