@@ -6,9 +6,9 @@ import PersonalImage from "../../Images/PersonalImage.jpg";
 import Button from "@mui/material/Button";
 import styles from "./styles";
 import { withStyles } from "@mui/styles";
-const PersonalDetailsEditor = ({ classes, details, onSave }) => {
+const PersonalDetailsEditor = ({ classes, personalDetails, onSave }) => {
   const [profileImage, setProfileImage] = useState(
-    details.profileImage || PersonalImage
+    personalDetails.profileImage || PersonalImage
   );
 
   const handleChange = (name, value) => {
@@ -76,7 +76,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="Phone Number"
               type="tel"
-              value={details.contactNumber}
+              value={personalDetails.contactNumber}
               onChange={(e) => handleChange("contactNumber", e.target.value)}
             />
           </Grid>
@@ -85,7 +85,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="Email"
               type="email"
-              value={details.contactEmail}
+              value={personalDetails.contactEmail}
               onChange={(e) => handleChange("contactEmail", e.target.value)}
             />
           </Grid>
@@ -94,7 +94,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="Alternate Email"
               type="email"
-              value={details.altEmail}
+              value={personalDetails.altEmail}
               onChange={(e) => handleChange("altEmail", e.target.value)}
             />
           </Grid>
@@ -103,7 +103,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="LinkedIn"
               type="url"
-              value={details.linkedinLink}
+              value={personalDetails.linkedinLink}
               onChange={(e) => handleChange("linkedinLink", e.target.value)}
             />
           </Grid>
@@ -112,7 +112,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="GitHub"
               type="url"
-              value={details.githubLink}
+              value={personalDetails.githubLink}
               onChange={(e) => handleChange("githubLink", e.target.value)}
             />
           </Grid>
@@ -121,7 +121,7 @@ const PersonalDetailsEditor = ({ classes, details, onSave }) => {
               fullWidth
               label="Portfolio"
               type="url"
-              value={details.portfolioLink}
+              value={personalDetails.portfolioLink}
               onChange={(e) => handleChange("portfolioLink", e.target.value)}
             />
           </Grid>

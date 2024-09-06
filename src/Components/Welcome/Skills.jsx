@@ -705,7 +705,6 @@ const Certifications = ({ mainAnimations }) => {
             >
               <Tooltip
                 arrow
-                interactive
                 placement={"left"}
                 title={
                   <div>
@@ -777,7 +776,6 @@ const Certifications = ({ mainAnimations }) => {
             >
               <Tooltip
                 arrow
-                interactive
                 placement={"left"}
                 title={
                   <div>
@@ -859,7 +857,6 @@ const Certifications = ({ mainAnimations }) => {
             >
               <Tooltip
                 arrow
-                interactive
                 placement={"left"}
                 title={
                   <div>
@@ -941,7 +938,6 @@ const Certifications = ({ mainAnimations }) => {
             >
               <Tooltip
                 arrow
-                interactive
                 placement={"left"}
                 title={
                   <div>
@@ -1262,7 +1258,6 @@ const Certifications = ({ mainAnimations }) => {
                     </div>
                   }
                   arrow
-                  interactive
                   placement={"bottom"}
                   classes={{
                     tooltip: classes.tooltipClassForExperience,
@@ -1331,8 +1326,8 @@ const Certifications = ({ mainAnimations }) => {
             {skillsImages.map((eachImage, index) => {
               return (
                 <Tooltip
+                  key={eachImage}
                   arrow
-                  interactive
                   title={
                     <div
                       style={{

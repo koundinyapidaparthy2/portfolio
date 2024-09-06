@@ -140,7 +140,7 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
           loop
           className={classes.logo}
           muted
-          playsinline
+          playsInline
           style={{
             opacity: mainAnimations.videoVisibility.opacity,
           }}

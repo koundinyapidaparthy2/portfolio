@@ -251,6 +251,7 @@ const Projects = ({ mainAnimations }) => {
                 (eachImage, index) => {
                   return (
                     <div
+                      key={eachImage}
                       style={{
                         marginLeft: index === 0 ? "20px" : "",
                       }}

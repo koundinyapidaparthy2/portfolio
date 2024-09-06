@@ -5,8 +5,8 @@ import LinearProgress from "@mui/material/LinearProgress";
 const Fallback = () => {
   return (
     <Grid container justifyContent="center" alignContent="center">
-      <Grid item>
-        <LinearProgress color="primary" />
+      <Grid item xs={12}>
+        <LinearProgress color="secondary" />
       </Grid>
     </Grid>
   );

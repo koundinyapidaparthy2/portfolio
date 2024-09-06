@@ -2,6 +2,7 @@ import React, { useState, lazy, Suspense, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Fallback from "../Fallback";
+import EditResumeFallback from "./EditResumeFallback";
 import { withStyles } from "@mui/styles";
 import styles from "./styles";
 import { useNavigate } from "react-router-dom";
@@ -11,43 +12,67 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { isEqual } from "lodash";
-import Badge from "@mui/material/Badge";
+import Skeleton from "@mui/material/Skeleton";
 
-const ContactEditor = lazy(() => import("./PersonalDetailsEditor"));
+import ContactEditor from "./PersonalDetailsEditor";
+// import EducationEditor from "./EducationEditor";
+// import ExperienceEditor from "./ExperienceEditor";
+// import SkillsEditor from "./SkillsEditor";
+// import ProjectsEditor from "./ProjectsEditor";
 const EducationEditor = lazy(() => import("./EducationEditor"));
 const ExperienceEditor = lazy(() => import("./ExperienceEditor"));
 const SkillsEditor = lazy(() => import("./SkillsEditor"));
 const ProjectsEditor = lazy(() => import("./ProjectsEditor"));
+const accordionPanels = [
+  {
+    key: "contact",
+    title: "Contact Editor",
+    component: ContactEditor,
+    prop: "personalDetails",
+  },
+  {
+    key: "education",
+    title: "Education Editor",
+    component: EducationEditor,
+    prop: "education",
+  },
+  {
+    key: "experience",
+    title: "Experience Editor",
+    component: ExperienceEditor,
+    prop: "experience",
+  },
+  {
+    key: "skills",
+    title: "Skills Editor",
+    component: SkillsEditor,
+    prop: "skills",
+  },
+  {
+    key: "projects",
+    title: "Projects Editor",
+    component: ProjectsEditor,
+    prop: "projects",
+  },
+];
 
 const EditEntireResume = ({ classes, initialValues, loading }) => {
   const navigate = useNavigate();
-  const [personalDetails, setPersonalDetails] = useState(
-    initialValues.contactDetails
-  );
-  const [education, setEducation] = useState(initialValues.education);
-  const [experience, setExperience] = useState(initialValues.experience);
-  const [skills, setSkills] = useState(initialValues.skills);
-  const [projects, setProjects] = useState(initialValues.projects);
+  const [isRendered, setIsRendered] = useState(false);
   const [expanded, setExpanded] = useState("contact");
-
-  // State for change tracking
-  const [contactChanges, setContactChanges] = useState(0);
-  const [educationChanges, setEducationChanges] = useState(0);
-  const [experienceChanges, setExperienceChanges] = useState(0);
-  const [skillsChanges, setSkillsChanges] = useState(0);
-  const [projectsChanges, setProjectsChanges] = useState(0);
-
-  useEffect(() => {
-    setContactChanges(
-      !isEqual(personalDetails, initialValues.contactDetails) ? 1 : 0
-    );
-    setEducationChanges(!isEqual(education, initialValues.education) ? 1 : 0);
-    setExperienceChanges(
-      !isEqual(experience, initialValues.experience) ? 1 : 0
-    );
-    setSkillsChanges(!isEqual(skills, initialValues.skills) ? 1 : 0);
-    setProjectsChanges(!isEqual(projects, initialValues.projects) ? 1 : 0);
-  }, [personalDetails, education, experience, skills, projects, initialValues]);
+  const [resumeState, setResumeState] = useState({
+    personalDetails: initialValues.contactDetails,
+    education: initialValues.education,
+    experience: initialValues.experience,
+    skills: initialValues.skills,
+    projects: initialValues.projects,
+  });
+  const handleStateChange = (field, value) => {
+    setResumeState((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
+  };
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -60,9 +85,13 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
   const goToPdfView = () => {
     navigate("/pdf");
   };
-  if (loading) {
-    return <Fallback />;
+  useEffect(() => {
+    setIsRendered(true);
+  }, []);
+  if (loading || !isRendered) {
+    return <EditResumeFallback />;
   }
+
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="center">
       <Grid item xs={11}>
@@ -107,6 +136,7 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
           </Grid>
         </Grid>
       </Grid>
+
       <Grid item xs={11}>
         <Grid
           container
@@ -114,138 +144,31 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Grid item xs={12}>
-            <Accordion
-              expanded={expanded === "contact"}
-              onChange={handleChange("contact")}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                classes={{
-                  root: classes.accodionHeader,
-                }}
+          {accordionPanels.map(({ key, title, component: Component, prop }) => (
+            <Grid item xs={12} key={key}>
+              <Accordion
+                expanded={expanded === key}
+                onChange={handleChange(key)}
               >
-                <Typography variant="subtitle2">
-                  <Badge badgeContent={contactChanges} color="success">
-                    Contact Editor
-                  </Badge>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Suspense fallback={<Fallback />}>
-                  <ContactEditor
-                    details={personalDetails}
-                    onSave={setPersonalDetails}
-                  />
-                </Suspense>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12}>
-            {" "}
-            <Accordion
-              expanded={expanded === "education"}
-              onChange={handleChange("education")}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                classes={{
-                  root: classes.accodionHeader,
-                }}
-              >
-                <Typography variant="subtitle2">
-                  <Badge badgeContent={educationChanges} color="success">
-                    Education Editor
-                  </Badge>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Suspense fallback={<Fallback />}>
-                  <EducationEditor
-                    education={education}
-                    onSave={setEducation}
-                  />
-                </Suspense>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12}>
-            {" "}
-            <Accordion
-              expanded={expanded === "experience"}
-              onChange={handleChange("experience")}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                classes={{
-                  root: classes.accodionHeader,
-                }}
-              >
-                <Typography variant="subtitle2">
-                  <Badge badgeContent={experienceChanges} color="success">
-                    Experience Editor
-                  </Badge>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Suspense fallback={<Fallback />}>
-                  <ExperienceEditor
-                    experience={experience}
-                    onSave={setExperience}
-                  />
-                </Suspense>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12}>
-            {" "}
-            <Accordion
-              expanded={expanded === "skills"}
-              onChange={handleChange("skills")}
-            >
-              <AccordionSummary
-                classes={{
-                  root: classes.accodionHeader,
-                }}
-                expandIcon={<ExpandMoreIcon />}
-              >
-                <Typography variant="subtitle2">
-                  <Badge badgeContent={skillsChanges} color="success">
-                    Skills Editor
-                  </Badge>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Suspense fallback={<Fallback />}>
-                  <SkillsEditor skills={skills} onSave={setSkills} />
-                </Suspense>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12}>
-            <Accordion
-              expanded={expanded === "projects"}
-              onChange={handleChange("projects")}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                classes={{
-                  root: classes.accodionHeader,
-                }}
-              >
-                <Typography variant="subtitle2">
-                  <Badge badgeContent={projectsChanges} color="success">
-                    Projects Editor
-                  </Badge>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Suspense fallback={<Fallback />}>
-                  <ProjectsEditor projects={projects} onSave={setProjects} />
-                </Suspense>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  classes={{ root: classes.accodionHeader }}
+                >
+                  <Typography variant="subtitle2">{title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Suspense fallback={<Fallback />}>
+                    <Component
+                      {...{
+                        [prop]: resumeState[prop],
+                        onSave: (value) => handleStateChange(prop, value),
+                      }}
+                    />
+                  </Suspense>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
       <Grid item xs={11} className={classes.formActions}>

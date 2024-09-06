@@ -3,7 +3,9 @@ import { bindActionCreators } from "redux";
 import { confettiAction, trackAnalytics } from "../../actions";
 import Welcome from "./Welcome";
 
-const stateProps = () => {};
+const stateProps = () => {
+  return {};
+};
 const bindActionProps = (dispatch) =>
   bindActionCreators(
     {
