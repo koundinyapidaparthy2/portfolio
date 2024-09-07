@@ -9,7 +9,7 @@ const GET_PERSONAL_DETAILS_QUERY = gql`
       linkedinLink
       githubLink
       portfolioLink
-      mypersonalDetails {
+      moreContactDetails {
         text
         href
         preText

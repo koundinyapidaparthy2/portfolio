@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import EditResume from "./EditResume";
 import { getPersonalDetails, getInitAppLoading } from "../../selectors";
+import { updateEntireResume } from "../../actions";
 const stateProps = (state) => {
   const personalDetails = getPersonalDetails(state);
   const loading = getInitAppLoading(state);
@@ -26,7 +27,7 @@ const stateProps = (state) => {
 const bindActionProps = (dispatch) =>
   bindActionCreators(
     {
-      onSubmit: () => {},
+      updateEntireResume: updateEntireResume.pending,
     },
     dispatch
   );

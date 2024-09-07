@@ -56,7 +56,12 @@ const accordionPanels = [
   },
 ];
 
-const EditEntireResume = ({ classes, initialValues, loading }) => {
+const EditEntireResume = ({
+  classes,
+  initialValues,
+  loading,
+  updateEntireResume,
+}) => {
   const navigate = useNavigate();
   const [isRendered, setIsRendered] = useState(false);
   const [expanded, setExpanded] = useState("contact");
@@ -74,10 +79,18 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
     }));
   };
 
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = (panel) => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  const handleSubmit = () => {};
+  const submit = () => {
+    updateEntireResume({
+      updatedResumeDetails: {
+        ...resumeState,
+        personalDetails: undefined,
+        ...resumeState.personalDetails,
+      },
+    });
+  };
 
   const goToAestheticView = () => {
     navigate("/");
@@ -189,7 +202,7 @@ const EditEntireResume = ({ classes, initialValues, loading }) => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Button className={classes.submit} onClick={handleSubmit}>
+                <Button className={classes.submit} onClick={submit}>
                   Submit
                 </Button>
               </Grid>

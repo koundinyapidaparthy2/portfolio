@@ -20,3 +20,4 @@ export const confettiAction = createAction(types.CONFETTI_ANIMATION);
 export const initAppAction = createAction(types.INIT_APP);
 export const activateAnalytics = createAction(types.ACTIVATE_ANALYTICS);
 export const trackAnalytics = createAction(types.TRACK_ANALYTICS);
+export const updateEntireResume = createAction(types.UPDATE_ENTIRE_RESUME);

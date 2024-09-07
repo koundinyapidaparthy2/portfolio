@@ -4,10 +4,10 @@ import PersonalInfo from "./PersonalInfo";
 import { getInitAppLoading, getPersonalDetails } from "../../../selectors";
 const stateProps = (state) => {
   const loading = getInitAppLoading(state);
-  const { mypersonalDetails } = getPersonalDetails(state) || {};
+  const { personalDetails } = getPersonalDetails(state) || {};
   return {
     loading,
-    mypersonalDetails,
+    personalDetails,
   };
 };
 

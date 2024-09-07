@@ -6,6 +6,7 @@ import { getPersonalDetails } from "../graphql";
 function* triggerInitSaga() {
   try {
     const personalDetails = yield call(getPersonalDetails);
+    console.log({ personalDetails });
     if (personalDetails) {
       yield put(
         initAppAction.success({

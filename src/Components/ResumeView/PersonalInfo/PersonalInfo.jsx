@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PersonalInfo = ({ loading, mypersonalDetails }) => {
+const PersonalInfo = ({ loading, moreContactDetails }) => {
   const classes = useStyles();
   if (loading) {
     return <Fallback />;
@@ -88,7 +88,7 @@ const PersonalInfo = ({ loading, mypersonalDetails }) => {
       </Grid>
       <Grid item xs={12}>
         <Grid container alignItems="center" spacing={2} justifyContent="center">
-          {mypersonalDetails.map(({ text, preText, href, target }) => (
+          {moreContactDetails.map(({ text, preText, href, target }) => (
             <Grid item key={href}>
               <Typography
                 variant="subtitle2"
