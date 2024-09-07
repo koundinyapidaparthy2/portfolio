@@ -3,10 +3,10 @@ import MessageMeHere from "./MessageMeHere";
 import { getInitAppLoading, getPersonalDetails } from "../../selectors";
 const stateProps = (state) => {
   const loading = getInitAppLoading(state);
-  const { personalDetails } = getPersonalDetails(state) || {};
+  const { moreContactDetails } = getPersonalDetails(state) || {};
   return {
     loading,
-    personalDetails,
+    moreContactDetails,
   };
 };
 
