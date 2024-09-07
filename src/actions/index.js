@@ -21,3 +21,4 @@ export const initAppAction = createAction(types.INIT_APP);
 export const activateAnalytics = createAction(types.ACTIVATE_ANALYTICS);
 export const trackAnalytics = createAction(types.TRACK_ANALYTICS);
 export const updateEntireResume = createAction(types.UPDATE_ENTIRE_RESUME);
+export const getUserLoginToken = createAction(types.GET_USER_LOGIN_TOKEN);

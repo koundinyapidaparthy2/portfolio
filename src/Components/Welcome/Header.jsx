@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
@@ -10,6 +10,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import CloseIcon from "@mui/icons-material/Close";
 import Divider from "@mui/material/Divider";
+import Person4Icon from "@mui/icons-material/Person4";
+import Login from "../Login";
+import Dialog from "@mui/material/Dialog";
 const useStyles = makeStyles((theme) => {
   return {
     logo: {
@@ -104,17 +107,42 @@ const useStyles = makeStyles((theme) => {
       fontSize: theme.font.size.small,
       padding: `${theme.spacing(4)} !important`,
     },
+    userIcon: {
+      width: "16px",
+      height: "16px",
+      color: theme.palette.background.downBlue,
+      marginTop: "5px",
+      [theme.breakpoints.down("md")]: {
+        display: "none",
+      },
+      cursor: "pointer",
+    },
+    smallerScreenUserIcon: {
+      [theme.breakpoints.down("md")]: {
+        display: "inline-block",
+      },
+    },
+    dialogRoot: {
+      background: theme.palette.secondary.main,
+      padding: theme.spacing(4, 4),
+      boxShadow: `0px 0px 23px 5px ${theme.palette.modal.boxColor}`,
+      zIndex: 10000,
+    },
   };
 });
 const Header = ({ mainAnimations, moveToTheElement }) => {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
+  const [openLoginPage, setLoginPage] = React.useState(true);
+  console.log({ openLoginPage });
   const toggleDrawer = (open) => () => {
     setOpen(open);
   };
-
+  function handleLoginPopper() {
+    toggleDrawer(false)();
+    setLoginPage((prev) => !prev);
+  }
   function goToAestheticView() {
     navigate("/pdf");
   }
@@ -219,14 +247,30 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
           </Grid>
 
           <Grid item>
-            <Button
-              variant="contained"
-              className={classes.buttonView}
-              onClick={goToAestheticView}
+            <Grid
+              container
+              spacing={3}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
             >
-              PDF VIEW
-            </Button>
+              <Grid item>
+                <Person4Icon
+                  onClick={handleLoginPopper}
+                  className={classes.userIcon}
+                />
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  className={classes.buttonView}
+                  onClick={goToAestheticView}
+                >
+                  PDF VIEW
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
+          <Grid item></Grid>
           <Grid item className={classes.menuButton}>
             <IconButton onClick={toggleDrawer(true)} color="inherit">
               <MenuIcon />
@@ -263,6 +307,13 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
           </Grid>
           <Grid item xs={12}>
             <Grid container direction="column" alignItems="center">
+              <Person4Icon
+                onClick={handleLoginPopper}
+                className={
+                  classes.userIcon + " " + classes.smallerScreenUserIcon
+                }
+              />
+              <Divider className={classes.divider} />
               <Link
                 className={classes.link}
                 onClick={() => {
@@ -294,7 +345,6 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
                 Skills
               </Link>
               <Divider className={classes.divider} />
-
               <Link
                 className={classes.link}
                 onClick={() => {
@@ -305,7 +355,6 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
                 Projects
               </Link>
               <Divider className={classes.divider} />
-
               <Link
                 className={classes.link}
                 onClick={() => {
@@ -316,7 +365,6 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
                 Interests
               </Link>
               <Divider className={classes.divider} />
-
               <Button
                 variant="contained"
                 className={classes.buttonView + " " + classes.smallButtonView}
@@ -328,7 +376,6 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
                 PDF VIEW
               </Button>
               <Divider className={classes.divider} />
-
               <Button
                 variant="contained"
                 className={classes.buttonView + " " + classes.smallButtonView}
@@ -343,6 +390,17 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
           </Grid>
         </Grid>
       </Drawer>
+      <Dialog
+        open={openLoginPage}
+        fullWidth
+        // maxWidth="xs"
+        onClose={handleLoginPopper}
+        classes={{
+          paperFullWidth: classes.dialogRoot,
+        }}
+      >
+        <Login handleLoginPopper={handleLoginPopper} />
+      </Dialog>
     </Grid>
   );
 };

@@ -9,6 +9,12 @@ export function* getPersonalDetails() {
   });
   return data.getPersonalDetails;
 }
+export function* getUserLoginToken() {
+  const { data } = yield call([client, client.query], {
+    query: Query.GET_USER_LOGIN_TOKEN_QUERY,
+  });
+  return data.getPersonalDetails;
+}
 
 export function* updateEntireResume(payload) {
   console.log({ payload });
