@@ -134,8 +134,7 @@ const Header = ({ mainAnimations, moveToTheElement }) => {
   const navigate = useNavigate();
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [openLoginPage, setLoginPage] = React.useState(true);
-  console.log({ openLoginPage });
+  const [openLoginPage, setLoginPage] = React.useState(false);
   const toggleDrawer = (open) => () => {
     setOpen(open);
   };

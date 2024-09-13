@@ -18,11 +18,9 @@ function* updateEntireResumeSagaGen({ payload }) {
   }
   try {
     const sanitizedData = removeTypename(updatedResumeDetails);
-    console.log({ sanitizedData });
     const { error, message } = yield call(updateEntireResumeApi, {
       input: sanitizedData,
     });
-    console.log({ message });
     if (!error) {
       yield put(updateEntireResume.success({}));
     }

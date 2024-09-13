@@ -179,13 +179,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const Home = ({ mainAnimations }) => {
+const Home = () => {
   const classes = useStyles();
   return (
     <div
       style={{
-        height: `calc(${window.innerHeight}px - 100px)`,
-        opacity: mainAnimations.homeVisibility.opacity,
+        height: `calc(${window.innerHeight}px)`,
       }}
       className={classes.homeWrapper}
     >

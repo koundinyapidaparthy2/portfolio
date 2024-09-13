@@ -139,7 +139,7 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
-const Projects = ({ mainAnimations }) => {
+const Projects = () => {
   const classes = useStyles();
   const [[page, direction], setPage] = React.useState([0, 0]);
   const imageIndex = wrap(0, projectsImages.length, page);
@@ -165,12 +165,7 @@ const Projects = ({ mainAnimations }) => {
     return Math.abs(offset) * velocity;
   };
   return (
-    <div
-      style={{
-        opacity: mainAnimations.projects.opacity,
-      }}
-      className={classes.projectsWrapper}
-    >
+    <div className={classes.projectsWrapper}>
       <div className={classes.projectsContainer}>
         <ArrowBackIcon
           onClick={() => paginate(-1)}

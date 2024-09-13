@@ -2,9 +2,19 @@ import { ACTIVATE_ANALYTICS_SUCCESS } from "../actions/types";
 import { fromJS } from "immutable";
 import { setActivateTrackToken, setActivateTrackUserMeta } from "../selectors";
 
+const getToken = () => {
+  const tokenData = JSON.parse(localStorage.getItem("trackerToken"));
+  if (tokenData && tokenData.expiry > new Date().getTime()) {
+    return tokenData.token;
+  } else {
+    localStorage.removeItem("trackerToken");
+    return null;
+  }
+};
+
 const initialState = fromJS({
   userDetails: {},
-  trackerToken: "",
+  trackerToken: getToken(),
 });
 
 const confetti = (state = initialState, { type, payload }) => {

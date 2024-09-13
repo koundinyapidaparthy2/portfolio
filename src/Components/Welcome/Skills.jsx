@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
-const Certifications = ({ mainAnimations }) => {
+const Certifications = () => {
   const theme = useTheme();
   const hbJoinDate = new Date("11/15/2023");
   const today = new Date();
@@ -60,7 +60,6 @@ const Certifications = ({ mainAnimations }) => {
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        opacity: mainAnimations.aboutFewMoreVisibility.opacity,
       }}
     >
       <div
@@ -1263,13 +1262,8 @@ const Certifications = ({ mainAnimations }) => {
                     tooltip: classes.tooltipClassForExperience,
                     arrow: classes.tooltipArrowClassForExperience,
                   }}
-                  open={
-                    eventInnerWidth < 800 &&
-                    mainAnimations.projects.opacity === 0
-                      ? true
-                      : undefined
-                  }
                 >
+                  
                   <div className={"rotateImage"}>⌛</div>
                 </Tooltip>
               </div>

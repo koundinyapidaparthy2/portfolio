@@ -1,6 +1,12 @@
-import { takeLatest, put, call } from "redux-saga/effects";
+import { takeLatest, put, call, select } from "redux-saga/effects";
 import { ACTIVATE_ANALYTICS } from "../actions/types";
 import { activateAnalytics } from "../actions/index";
+import { createSessionToken as createSessionTokenApi } from "../graphql";
+import { getActivateTrackToken } from "../selectors";
+const saveToken = (token) => {
+  const expiry = new Date().getTime() + 24 * 60 * 60 * 1000;
+  localStorage.setItem("trackerToken", JSON.stringify({ token, expiry }));
+};
 
 const getDeviceAndBrowser = () => {
   const userAgent = navigator.userAgent;
@@ -40,30 +46,34 @@ const getNetworkSpeed = () => {
 };
 
 function* acitvateAnalyticsSaga({ payload }) {
-  const deviceAndBrowser = getDeviceAndBrowser();
-  const networkSpeed = yield call(getNetworkSpeed);
-  const performanceMetrics = {
-    loadTime:
-      window.performance.timing.loadEventEnd -
-      window.performance.timing.navigationStart,
-  };
-  try {
-    const meta = {
-      ...payload,
-      device: deviceAndBrowser.device,
-      browser: deviceAndBrowser.browser,
-      network: networkSpeed,
-      performance: performanceMetrics,
+  const trackerToken = yield select(getActivateTrackToken);
+  if (!trackerToken) {
+    const deviceAndBrowser = getDeviceAndBrowser();
+    const networkSpeed = yield call(getNetworkSpeed);
+    const performanceMetrics = {
+      loadTime:
+        window.performance.timing.loadEventEnd -
+        window.performance.timing.navigationStart,
     };
-    const trackerToken = "test";
-    yield put(
-      activateAnalytics.success({
-        meta,
-        trackerToken,
-      })
-    );
-  } catch (error) {
-    activateAnalytics.error({ error });
+    try {
+      const { token } = yield call(createSessionTokenApi, {
+        data: {
+          ...payload,
+          device: deviceAndBrowser.device,
+          browser: deviceAndBrowser.browser,
+          network: networkSpeed,
+          performance: performanceMetrics,
+        },
+      });
+      saveToken(token);
+      yield put(
+        activateAnalytics.success({
+          trackerToken: token,
+        })
+      );
+    } catch (error) {
+      activateAnalytics.error({ error });
+    }
   }
 }
 

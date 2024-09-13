@@ -11,7 +11,7 @@ const stateProps = (state, ownprops) => {
 const mapStateProps = (dispatch) =>
   bindActionCreators(
     {
-      getUserLoginToken,
+      getUserLoginToken: getUserLoginToken.pending,
     },
     dispatch
   );

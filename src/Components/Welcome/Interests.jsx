@@ -239,7 +239,6 @@ const Interests = ({ scrollChildElementNow }) => {
       >
         <div
           style={{
-            opacity: interestStateData.fashion.opacity || 1,
             ...(eventInnerWidth < 760
               ? {
                   flexDirection: "column",

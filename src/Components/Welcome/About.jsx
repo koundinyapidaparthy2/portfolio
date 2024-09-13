@@ -48,15 +48,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "5px",
   },
 }));
-const About = ({ mainAnimations }) => {
+const About = () => {
   const classes = useStyles();
   return (
-    <div
-      className={classes.aboutWrapper}
-      style={{
-        opacity: mainAnimations.aboutVisibility.opacity,
-      }}
-    >
+    <div className={classes.aboutWrapper}>
       <div id={"About"} className={classes.aboutContainer}>
         <div className={classes.aboutMainContainer}>
           <div id={"About Header"} className={classes.aboutHeader}>

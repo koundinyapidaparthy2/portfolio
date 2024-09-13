@@ -68,9 +68,6 @@ const Welcome = ({ confettiAction, trackAnalytics }) => {
     videoVisibility: {
       opacity: 1,
     },
-    homeVisibility: {
-      opacity: 1,
-    },
     aboutVisibility: {
       opacity: 0,
     },
@@ -101,161 +98,6 @@ const Welcome = ({ confettiAction, trackAnalytics }) => {
           opacity: 1,
         },
       }));
-    }
-    if (eventValue <= 100 && mainAnimations.homeVisibility.opacity !== 1) {
-      setMainAnimations((prev) => ({
-        ...prev,
-        homeVisibility: {
-          opacity: 1,
-        },
-      }));
-    }
-    if (eventValue >= 100 && eventValue <= 400) {
-      const homeVisibility = (400 - eventValue) / 400;
-      setMainAnimations((prev) => ({
-        ...prev,
-        homeVisibility: {
-          opacity: homeVisibility,
-        },
-        aboutVisibility: {
-          opacity: 0,
-        },
-      }));
-    }
-    if (eventValue >= 350 && eventValue <= 900) {
-      const aboutVisibility = eventValue / 900;
-      const aboutFewMoreVisibility = eventValue / 900;
-      const showAboutData = eventValue >= 600;
-      setMainAnimations((prev) => ({
-        ...prev,
-        aboutVisibility: {
-          opacity: aboutVisibility,
-        },
-        aboutFewMoreVisibility: {
-          opacity: showAboutData ? aboutFewMoreVisibility : 0,
-        },
-      }));
-    }
-    if (eventValue >= 900 && eventValue <= 1300) {
-      setMainAnimations((prev) => ({
-        ...prev,
-        aboutFewMoreVisibility: {
-          opacity: 1,
-        },
-      }));
-    }
-    if (eventInnerWidth < 953 && eventInnerWidth > 500) {
-      if (eventValue >= 900 && eventValue <= 1700) {
-        setMainAnimations((prev) => ({
-          ...prev,
-          aboutFewMoreVisibility: {
-            opacity: 1,
-          },
-        }));
-      }
-      if (eventValue >= 1700 && eventValue <= 2100) {
-        const aboutVisibility = (2100 - eventValue) / 2100;
-
-        setMainAnimations((prev) => ({
-          ...prev,
-          aboutFewMoreVisibility: {
-            opacity: aboutVisibility,
-          },
-          projects: {
-            opacity: 0,
-          },
-        }));
-      }
-      if (eventValue >= 1500 && eventValue <= 2300) {
-        const projectsOpacityData = eventValue / 2300;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
-      if (eventValue >= 2500 && eventValue <= 3000) {
-        const projectsOpacityData = (3000 - eventValue) / 3000;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
-    } else if (eventInnerWidth < 500) {
-      if (eventValue >= 900 && eventValue <= 1850) {
-        setMainAnimations((prev) => ({
-          ...prev,
-          aboutFewMoreVisibility: {
-            opacity: 1,
-          },
-        }));
-      }
-      if (eventValue >= 1850 && eventValue <= 2500) {
-        const aboutVisibility = (2500 - eventValue) / 2500;
-
-        setMainAnimations((prev) => ({
-          ...prev,
-          aboutFewMoreVisibility: {
-            opacity: aboutVisibility,
-          },
-          projects: {
-            opacity: 0,
-          },
-        }));
-      }
-      if (eventValue >= 1850 && eventValue <= 2700) {
-        const projectsOpacityData = eventValue / 2700;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
-      if (eventValue >= 3050 && eventValue <= 4000) {
-        const projectsOpacityData = (4000 - eventValue) / 4000;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
-    } else {
-      if (eventValue >= 1300 && eventValue <= 1800) {
-        const aboutVisibility = (1800 - eventValue) / 1800;
-
-        setMainAnimations((prev) => ({
-          ...prev,
-          aboutFewMoreVisibility: {
-            opacity: aboutVisibility,
-          },
-          projects: {
-            opacity: 0,
-          },
-        }));
-      }
-      if (eventValue >= 1400 && eventValue <= 2000) {
-        const projectsOpacityData = eventValue / 2000;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
-      if (eventValue >= 2200 && eventValue <= 2800) {
-        const projectsOpacityData = (2800 - eventValue) / 2800;
-        setMainAnimations((prev) => ({
-          ...prev,
-          projects: {
-            opacity: projectsOpacityData,
-          },
-        }));
-      }
     }
 
     const output = `${eventValue / 52 - defaultValue}vh`;
@@ -330,10 +172,6 @@ const Welcome = ({ confettiAction, trackAnalytics }) => {
           mrWhoseTheBossBarHeight={mrWhoseTheBossBarHeight}
         />
         <MessageMeHere />
-        <ScrollIndicator
-          hidden={mainAnimations.homeVisibility.opacity < 1}
-          moveToTheElement={moveToTheElement}
-        />
         <Grid
           item
           xs={12}
@@ -342,19 +180,19 @@ const Welcome = ({ confettiAction, trackAnalytics }) => {
           onScroll={scrollEvent}
         >
           <section id="home">
-            <Home mainAnimations={mainAnimations} />
+            <Home />
           </section>
           <section id="about">
-            <About mainAnimations={mainAnimations} />
+            <About />
           </section>
           <Suspense fallback={<Fallback />}>
             <section id="skills">
-              <Skills mainAnimations={mainAnimations} />
+              <Skills />
             </section>
           </Suspense>
           <Suspense fallback={<Fallback />}>
             <section id="projects">
-              <Projects mainAnimations={mainAnimations} />
+              <Projects />
             </section>
           </Suspense>
           <Suspense fallback={<Fallback />}>
