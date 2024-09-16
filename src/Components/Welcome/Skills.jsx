@@ -13,7 +13,6 @@ import Bhashyam from "../../Images/Bhashyam.png";
 import SyscloudImage from "../../Images/Syscloud.png";
 import HornBlowerImage from "../../Images/Hornblower.png";
 import { makeStyles, useTheme } from "@mui/styles";
-import Paysfer from "../../Images/Paysfer.jpg";
 import { skillsImages, languagesNames } from "../../data/index.js";
 const useStyles = makeStyles((theme) => {
   return {
@@ -1178,97 +1177,6 @@ const Certifications = () => {
               </div>
             </div>
           </div>
-          <div
-            style={{
-              height: "20px",
-              width: "3px",
-              background: "white",
-              borderRadius: "8px",
-              marginTop: "10px",
-            }}
-          />
-          <div
-            id={"Experience div"}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "100%",
-              marginTop: "10px",
-              color: "black",
-            }}
-          >
-            <div
-              id={"cardForPreviousWork"}
-              style={{
-                width: "90%",
-                height: "8vh",
-                background: "white",
-                borderRadius: "8px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-evenly",
-                  height: "4vh",
-                }}
-              >
-                <img
-                  src={Paysfer}
-                  style={{
-                    width: "4vh",
-                    height: "4vh",
-                    borderRadius: "8px",
-                  }}
-                  loading="lazy"
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ fontWeight: "bold" }}>Paysfer.</div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-evenly",
-                      // height:"6vh",
-                      fontSize: theme.font.size.xSmall,
-                    }}
-                  >
-                    ⌛ Nov 2023 - Present.{" "}
-                    {parseInt(Math.round(daysDifference))} Days
-                    <br />
-                  </div>
-                </div>
-                <Tooltip
-                  title={
-                    <div>
-                      Joined {parseInt(Math.round(daysDifference))} Days Before
-                    </div>
-                  }
-                  arrow
-                  placement={"bottom"}
-                  classes={{
-                    tooltip: classes.tooltipClassForExperience,
-                    arrow: classes.tooltipArrowClassForExperience,
-                  }}
-                >
-                  
-                  <div className={"rotateImage"}>⌛</div>
-                </Tooltip>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -1367,3 +1275,96 @@ const Certifications = () => {
 };
 
 export default Certifications;
+
+{
+  /* <div
+style={{
+  height: "20px",
+  width: "3px",
+  background: "white",
+  borderRadius: "8px",
+  marginTop: "10px",
+}}
+/>
+<div
+id={"Experience div"}
+style={{
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  width: "100%",
+  marginTop: "10px",
+  color: "black",
+}}
+>
+<div
+  id={"cardForPreviousWork"}
+  style={{
+    width: "90%",
+    height: "8vh",
+    background: "white",
+    borderRadius: "8px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  }}
+>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      height: "4vh",
+    }}
+  >
+    <img
+      src={Paysfer}
+      style={{
+        width: "4vh",
+        height: "4vh",
+        borderRadius: "8px",
+      }}
+      loading="lazy"
+    />
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ fontWeight: "bold" }}>Paysfer.</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          // height:"6vh",
+          fontSize: theme.font.size.xSmall,
+        }}
+      >
+        ⌛ Nov 2023 - Present.{" "}
+        {parseInt(Math.round(daysDifference))} Days
+        <br />
+      </div>
+    </div>
+    <Tooltip
+      title={
+        <div>
+          Joined {parseInt(Math.round(daysDifference))} Days Before
+        </div>
+      }
+      arrow
+      placement={"bottom"}
+      classes={{
+        tooltip: classes.tooltipClassForExperience,
+        arrow: classes.tooltipArrowClassForExperience,
+      }}
+    >
+      <div className={"rotateImage"}>⌛</div>
+    </Tooltip>
+  </div>
+</div>
+</div> */
+}
