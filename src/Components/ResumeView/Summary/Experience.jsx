@@ -31,7 +31,7 @@ const ExperienceSection = ({ experience }) => {
         </Grid>
         <Grid item xs={11}>
           <Grid container spacing={2}>
-            {experience.map(({ companyName, location, role, date, points }) => (
+            {(experience || []).map(({ companyName, location, role, date, points }) => (
               <Grid item xs={12} key={companyName}>
                 <Grid container spacing={2} justifyContent="center">
                   <Grid item xs={12}>

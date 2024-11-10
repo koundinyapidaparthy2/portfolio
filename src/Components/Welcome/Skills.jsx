@@ -1085,6 +1085,9 @@ const Certifications = () => {
                   <div style={{ fontWeight: "bold" }}>
                     Syscloud Technologies LTD.
                   </div>
+                  <div style={{ fontSize: "10px" }}>
+                    Frontend Software Engineer Intern
+                  </div>
                   <div
                     style={{
                       display: "flex",
@@ -1159,7 +1162,10 @@ const Certifications = () => {
                   }}
                 >
                   <div style={{ fontWeight: "bold" }}>
-                    Hornblower Encore Studio.
+                    Hornblower Group.
+                  </div>
+                  <div style={{ fontSize: "10px" }}>
+                    Associate Software Developer
                   </div>
                   <div
                     style={{
@@ -1171,6 +1177,85 @@ const Certifications = () => {
                     }}
                   >
                     ⌛ June 2022 - Jul 2023. 1 Year
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              height: "20px",
+              width: "3px",
+              background: "white",
+              borderRadius: "8px",
+              marginTop: "10px",
+            }}
+          />
+          <div
+            id={"Experience div"}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "10px",
+              color: "black",
+            }}
+          >
+            <div
+              id={"cardForPreviousWork"}
+              style={{
+                width: "90%",
+                height: "8vh",
+                background: "white",
+                borderRadius: "8px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                  height: "4vh",
+                }}
+              >
+                <img
+                  src={HornBlowerImage}
+                  style={{
+                    width: "4vh",
+                    height: "4vh",
+                    borderRadius: "8px",
+                  }}
+                  loading="lazy"
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ fontWeight: "bold" }}>
+                    Hornblower Group.
+                  </div>
+                  <div style={{ fontSize: "10px" }}>
+                    Software Developer Intern
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-evenly",
+                      // height:"6vh",
+                      fontSize: theme.font.size.xSmall,
+                    }}
+                  >
+                    ⌛ May 2024 - Sep 2024. 4 Months
                     <br />
                   </div>
                 </div>
@@ -1318,7 +1403,6 @@ style={{
     }}
   >
     <img
-      src={Paysfer}
       style={{
         width: "4vh",
         height: "4vh",
@@ -1334,7 +1418,7 @@ style={{
         alignItems: "center",
       }}
     >
-      <div style={{ fontWeight: "bold" }}>Paysfer.</div>
+      <div style={{ fontWeight: "bold" }}></div>
       <div
         style={{
           display: "flex",

@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Summary = ({ loading, education, experience, skills, projects }) => {
+  console.log({experience})
   const classes = useStyles();
   if (loading) {
     return <Fallback />;
